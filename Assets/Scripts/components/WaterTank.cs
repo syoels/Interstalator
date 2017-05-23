@@ -20,7 +20,7 @@ namespace Interstalator
 		public override void Process (params TransferredElement[] inputs ){
 
 			// Transfer water to all children with "water connection". 
-			// This is one example for a possible flow of elements throughout the ship's graph. 
+			// TODO: This is just an example for a possible flow of elements throughout the ship's graph, it can be run through a manager script. 
 			foreach(Connection connection in outgoing.Where(n => n.type == ElementTypes.Water))
 			{
 				Component child = connection.connectedComponent;
