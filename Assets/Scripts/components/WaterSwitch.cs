@@ -19,6 +19,8 @@ public class WaterSwitch : ShipComponent {
         return transmissions;
     }
 
-
+    public void Redistribute(float[] newDistribution) {
+        return;
+    }
 }
 }
