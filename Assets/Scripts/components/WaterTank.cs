@@ -1,5 +1,7 @@
 ﻿using System;
-using System.Linq;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace Interstalator {
 public class WaterTank : Component {
@@ -15,18 +17,25 @@ public class WaterTank : Component {
         }
     }
 
+    protected override string getComponentName() {
+        return "Water Tank";
+    }
 
-    public override void Process(params TransferredElement[] inputs) {
+    protected override void InnerUpdateInput(ElementTypes type, float amount) {
+        return;
+    }
 
-        // Transfer water to all children with "water connection". 
-        // TODO: This is just an example for a possible flow of elements throughout the ship's graph, it can be run through a manager script. 
-        foreach (Connection connection in outgoing.Where(n => n.type == ElementTypes.Water)) {
-            Component child = connection.connectedComponent;
-            TransferredElement water = new TransferredElement(ElementTypes.Water, _pressure); 
-            child.Process(water);
+    protected override List<Transmission> InnerProcess() {
+        List<Transmission> transmissions = new List<Transmission>();
+        foreach (Component child in children) {
+            Transmission t = new Transmission(); 
+            t.child = child; 
+            t.amount = 0f; 
+            t.type = ElementTypes.Water;
+            transmissions.Add(t);
         }
 
-        return; 
+        return transmissions;
     }
 
 }
