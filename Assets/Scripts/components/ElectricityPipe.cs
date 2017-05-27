@@ -9,7 +9,6 @@ public class ElectricityPipe : ShipComponent {
         AddRequiredInput(ElementTypes.Electricity);
     }
 
-
     protected override List<Output> InnerProcess() {
         List<Output> transmissions = new List<Output>();
         foreach (ShipComponent child in children) {
