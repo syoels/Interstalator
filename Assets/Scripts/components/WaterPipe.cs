@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Interstalator{
-public class WaterPipe : Component {
+public class WaterPipe : ShipComponent {
 
 	// Use this for initialization
 	void Start () {
@@ -26,7 +26,7 @@ public class WaterPipe : Component {
 
     protected override List<Transmission> InnerProcess() {
         List<Transmission> transmissions = new List<Transmission>();
-        foreach (Component child in children) {
+        foreach (ShipComponent child in children) {
             Transmission t = new Transmission(child, ElementTypes.Water, 0f); 
             transmissions.Add(t);
         }

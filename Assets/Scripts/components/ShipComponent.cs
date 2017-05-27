@@ -4,15 +4,15 @@ using UnityEngine;
 
 
 namespace Interstalator {
-[RequireComponent(typeof(TextualComponentController))]
-public abstract class Component : MonoBehaviour {
+//[RequireComponent(typeof(TextualComponentController))]
+public abstract class ShipComponent : MonoBehaviour {
 
     // Used in flow manager to manage flow
     public class Transmission {
-        public Component component;
+        public ShipComponent component;
         public ElementTypes type;
         public float amount;
-        public Transmission(Component c, ElementTypes t, float a){
+        public Transmission(ShipComponent c, ElementTypes t, float a){
             this.component = c; 
             this.type = t; 
             this.amount = a;
@@ -34,23 +34,20 @@ public abstract class Component : MonoBehaviour {
     }
 
     // Reuired incoming resources, and have they been received yet
-    private List<RequiredInput> _incoming;
+    private List<RequiredInput> _incoming = new List<RequiredInput>();
     private TextualComponentController _txtControl;
     private string componentName = "Unnamed";
     protected bool _isOrigin = false;
-    public Component[] children;
+    public ShipComponent[] children;
 
 
-    // Use this for initialization
-    void Start() {
-        name = getComponentName();
+    void Awake(){
         _txtControl = GetComponent<TextualComponentController>();
-        _txtControl.SetStatus(name + " Is Awake");
+        componentName = getComponentName();
     }
-		
-    // Update is called once per frame
-    void Update() {
-			
+
+    protected void Start(){
+        _txtControl.SetStatus("Awake");
     }
 
     public bool IsOrigin(){
@@ -84,7 +81,7 @@ public abstract class Component : MonoBehaviour {
     // Main functions, should be overriden by any inhereting component.
     // Returns a list of child-element-amount for manager to keep traversing the ship.
     public  List<Transmission> Process() {
-        _txtControl.SetStatus(name + " Processing...");
+        _txtControl.SetStatus(" Processing...");
         return InnerProcess();
     }
 

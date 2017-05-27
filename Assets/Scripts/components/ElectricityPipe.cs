@@ -3,10 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Interstalator{
-public class Garden : ShipComponent {
+public class ElectricityPipe : ShipComponent {
+
+	// Use this for initialization
+	void Start () {
+		
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
 
     protected override string getComponentName() {
-        return "Garden";
+        return "Electricity Pipe";
     }
 
     protected override void InnerUpdateInput(ElementTypes type, float amount) {
@@ -15,6 +25,11 @@ public class Garden : ShipComponent {
 
     protected override List<Transmission> InnerProcess() {
         List<Transmission> transmissions = new List<Transmission>();
+        foreach (ShipComponent child in children) {
+            Transmission t = new Transmission(child, ElementTypes.Electricity, 0f); 
+            transmissions.Add(t);
+        }
+
         return transmissions;
     }
 }

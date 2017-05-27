@@ -22,6 +22,7 @@ public class TextualComponentController : MonoBehaviour {
     }
 
     public void SetStatus(string status) {
+        Debug.Log("Got new status: " + status);
         statusText.text = status;
     }
 

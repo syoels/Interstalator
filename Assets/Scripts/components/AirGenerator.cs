@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Interstalator{
-public class Garden : ShipComponent {
+public class AirGenerator : ShipComponent {
 
     protected override string getComponentName() {
-        return "Garden";
+        return "Air Generator";
     }
 
     protected override void InnerUpdateInput(ElementTypes type, float amount) {
