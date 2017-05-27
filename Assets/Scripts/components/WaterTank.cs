@@ -17,6 +17,16 @@ public class WaterTank : Component {
         }
     }
 
+    // Use this for initialization
+    void Start () {
+        this._isOrigin = true;
+    }
+
+    // Update is called once per frame
+    void Update () {
+
+    }
+
     protected override string getComponentName() {
         return "Water Tank";
     }
@@ -28,10 +38,7 @@ public class WaterTank : Component {
     protected override List<Transmission> InnerProcess() {
         List<Transmission> transmissions = new List<Transmission>();
         foreach (Component child in children) {
-            Transmission t = new Transmission(); 
-            t.child = child; 
-            t.amount = 0f; 
-            t.type = ElementTypes.Water;
+            Transmission t = new Transmission(child, ElementTypes.Water, 0f); 
             transmissions.Add(t);
         }
 

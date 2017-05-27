@@ -27,10 +27,7 @@ public class WaterPipe : Component {
     protected override List<Transmission> InnerProcess() {
         List<Transmission> transmissions = new List<Transmission>();
         foreach (Component child in children) {
-            Transmission t = new Transmission(); 
-            t.child = child; 
-            t.amount = 0f; 
-            t.type = ElementTypes.Water;
+            Transmission t = new Transmission(child, ElementTypes.Water, 0f); 
             transmissions.Add(t);
         }
 

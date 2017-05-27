@@ -7,7 +7,8 @@ namespace Interstalator
 		Water, 
 		Electricity, 
 		Air, 
-		Poison
+		Poison, 
+        None
 	}
 }
 

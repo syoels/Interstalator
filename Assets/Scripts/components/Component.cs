@@ -9,9 +9,14 @@ public abstract class Component : MonoBehaviour {
 
     // Used in flow manager to manage flow
     public class Transmission {
-        public Component child;
+        public Component component;
         public ElementTypes type;
         public float amount;
+        public Transmission(Component c, ElementTypes t, float a){
+            this.component = c; 
+            this.type = t; 
+            this.amount = a;
+        }
     }
 
     public class RequiredInput {
@@ -32,6 +37,7 @@ public abstract class Component : MonoBehaviour {
     private List<RequiredInput> _incoming;
     private TextualComponentController _txtControl;
     private string componentName = "Unnamed";
+    protected bool _isOrigin = false;
     public Component[] children;
 
 
@@ -45,6 +51,10 @@ public abstract class Component : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 			
+    }
+
+    public bool IsOrigin(){
+        return _isOrigin;
     }
 
     // TODO: probably can br deleted after first simulation
