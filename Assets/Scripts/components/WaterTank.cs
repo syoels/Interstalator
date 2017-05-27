@@ -8,19 +8,14 @@ public class WaterTank : ShipComponent {
 
     private float _pressure;
 
-    public float pressure {
-        set { 
-            _pressure = value; 
-        }
-        get { 
-            return _pressure;
-        }
-    }
-
     // Use this for initialization
     new void Start () {
         base.Start();
         this._isOrigin = true;
+    }
+
+    protected override void SetRequiredInputs() {
+        // No require inputs for origins
     }
 
 

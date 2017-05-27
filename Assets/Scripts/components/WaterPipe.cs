@@ -5,19 +5,12 @@ using UnityEngine;
 namespace Interstalator{
 public class WaterPipe : ShipComponent {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-
     protected override string getComponentName() {
         return "Water Pipe";
+    }
+
+    protected override void SetRequiredInputs() {
+        AddRequiredInput(ElementTypes.Water);
     }
 
     protected override void InnerUpdateInput(ElementTypes type, float amount) {

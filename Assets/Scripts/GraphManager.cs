@@ -5,18 +5,13 @@ using UnityEngine;
 namespace Interstalator{
 public class GraphManager : MonoBehaviour {
 
+    public void Start(){
+        StartCoroutine(Flow());
+    }
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-    public void Flow(){
+    public IEnumerator Flow(){
+        yield return new WaitForSeconds(1f);
+        Debug.Log("Begin Flow");
         ShipComponent[] allComponents = FindObjectsOfType<ShipComponent>();
         Queue<ShipComponent.Transmission> queue = new Queue<ShipComponent.Transmission>(); 
 
@@ -29,10 +24,17 @@ public class GraphManager : MonoBehaviour {
         }
 
         while (queue.Count > 0) {
-            // Use queue.Peek to check inputs
+            yield return new WaitForSeconds(1f);
+            Debug.Log("Dequeuing");
             ShipComponent.Transmission transmission = queue.Dequeue();
             ShipComponent curr = transmission.component; 
             curr.UpdateInput(transmission.type, transmission.amount);
+            if (curr.GetRemainingIncoming().Count > 0) {
+                curr.SetStatus("Waiting for " + curr.GetRemainingIncoming().Count.ToString() + " more inputs");
+                queue.Enqueue(transmission);
+                continue;
+            }
+
             List<ShipComponent.Transmission> children = curr.Process();
             foreach (ShipComponent.Transmission t in children){
                 queue.Enqueue(t);

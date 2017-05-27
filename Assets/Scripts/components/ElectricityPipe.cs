@@ -5,15 +5,9 @@ using UnityEngine;
 namespace Interstalator{
 public class ElectricityPipe : ShipComponent {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    protected override void SetRequiredInputs() {
+        AddRequiredInput(ElementTypes.Electricity);
+    }
 
     protected override string getComponentName() {
         return "Electricity Pipe";

@@ -11,6 +11,10 @@ public class ElectricityGenerator : ShipComponent {
         this._isOrigin = true;
     }
 
+    protected override void SetRequiredInputs() {
+        // No required inputs for origins
+    }
+
     protected override string getComponentName() {
         return "Electricity Generator";
     }

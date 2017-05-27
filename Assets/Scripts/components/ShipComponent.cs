@@ -34,7 +34,7 @@ public abstract class ShipComponent : MonoBehaviour {
     }
 
     // Reuired incoming resources, and have they been received yet
-    private List<RequiredInput> _incoming = new List<RequiredInput>();
+    protected List<RequiredInput> _incoming;
     private TextualComponentController _txtControl;
     private string componentName = "Unnamed";
     protected bool _isOrigin = false;
@@ -44,6 +44,8 @@ public abstract class ShipComponent : MonoBehaviour {
     void Awake(){
         _txtControl = GetComponent<TextualComponentController>();
         componentName = getComponentName();
+        _incoming = new List<RequiredInput>();
+        SetRequiredInputs();    
     }
 
     protected void Start(){
@@ -57,6 +59,11 @@ public abstract class ShipComponent : MonoBehaviour {
     // TODO: probably can br deleted after first simulation
     protected abstract string getComponentName();
 
+    protected abstract void SetRequiredInputs();
+
+    protected void AddRequiredInput(ElementTypes type){
+        _incoming.Add(new RequiredInput(type, false));
+    }
         
     // Reset all incoming to false. Should be used by manager after every "run" is finished
     public void ResetIncoming() {
@@ -74,24 +81,18 @@ public abstract class ShipComponent : MonoBehaviour {
             }
         }
         return remainingInputs;
-    }
-
-    public bool InsertInput(ElementTypes type){
-        foreach (RequiredInput input in _incoming) {
-            if (!input.isReceived && input.type == type) {
-                input.Received(true);
-                return true;
-            }
-        }
-        return false;
-    }
-        
+    }   
 
     // Main functions, should be overriden by any inhereting component.
     // Returns a list of child-element-amount for manager to keep traversing the ship.
     public List<Transmission> Process() {
         _txtControl.SetStatus(" Processing...");
         return InnerProcess();
+    }
+
+    //TODO: delete after textual level is finished
+    public void SetStatus(string status){
+        _txtControl.SetStatus(status);
     }
 
     // Actual process, decided by each sub-class
@@ -104,13 +105,17 @@ public abstract class ShipComponent : MonoBehaviour {
     // Returns true iff some input was updated
     public bool UpdateInput(ElementTypes type, float amount) {
 
+        _txtControl.SetStatus("Trying to add " + amount.ToString() + " " + type.ToString());
+
         foreach (RequiredInput incoming in _incoming) {
-            if (incoming.type == type) {
+            if (!incoming.isReceived && incoming.type == type) {
                 InnerUpdateInput(type, amount); // In case component requires some action upon input
                 incoming.Received(true);
+                _txtControl.SetStatus("Added" + amount.ToString() + " " + type.ToString());
                 return true;
             }
         }
+        _txtControl.SetStatus("No " + type.ToString() + "required");
         return false; //no input was updated
     }
 	

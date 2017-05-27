@@ -10,6 +10,10 @@ public class WaterSwitch : ShipComponent {
         return "Water Switch";
     }
 
+    protected override void SetRequiredInputs() {
+        AddRequiredInput(ElementTypes.Water);
+    }
+
     protected override void InnerUpdateInput(ElementTypes type, float amount) {
         return;
     }

@@ -9,6 +9,10 @@ public class Garden : ShipComponent {
         return "Garden";
     }
 
+    protected override void SetRequiredInputs() {
+        AddRequiredInput(ElementTypes.Water);
+    }
+
     protected override void InnerUpdateInput(ElementTypes type, float amount) {
         return;
     }
