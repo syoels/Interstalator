@@ -6,7 +6,7 @@ namespace Interstalator {
 public class CameraFollowMouse : MonoBehaviour {
 
     [Tooltip("Distance between mouse and screen edge before camera starts to move")]
-    public int edgeDistance = 10;
+    public int edgeDistancePercentage = 15;
     public int movementSpeed = 1;
 
 
@@ -26,22 +26,22 @@ public class CameraFollowMouse : MonoBehaviour {
             cameraComp.orthographicSize += mouseScroll;
         }
 
-//        Vector3 mousePosition = cameraComp.ScreenToWorldPoint(new Vector3(
-//                                    Input.mousePosition.x,
-//                                    Input.mousePosition.y,
-//                                    transform.position.z
-//                                ));
+
         Vector3 mousePosition = Input.mousePosition;
 
-        if (mousePosition.x < edgeDistance) {
+        // Screen size may vary so edge distance is in percentages
+        int widthDistance = Screen.width / 100 * edgeDistancePercentage;
+        int heightDistance = Screen.height / 100 * edgeDistancePercentage;
+
+        if (mousePosition.x < widthDistance) {
             transform.position += Vector3.left * Time.deltaTime * movementSpeed;
-        } else if (mousePosition.x > Screen.width - edgeDistance) {
+        } else if (mousePosition.x > Screen.width - widthDistance) {
             transform.position += Vector3.right * Time.deltaTime * movementSpeed;
         }
 
-        if (mousePosition.y < edgeDistance) {
+        if (mousePosition.y < heightDistance) {
             transform.position += Vector3.down * Time.deltaTime * movementSpeed;
-        } else if (mousePosition.y > Screen.height - edgeDistance) {
+        } else if (mousePosition.y > Screen.height - heightDistance) {
             transform.position += Vector3.up * Time.deltaTime * movementSpeed;
         }
     }
