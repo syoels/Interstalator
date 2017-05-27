@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 namespace Interstalator {
-//[RequireComponent(typeof(TextualComponentController))]
+[RequireComponent(typeof(TextualComponentController))]
 public abstract class ShipComponent : MonoBehaviour {
 
     // Used in flow manager to manage flow
@@ -57,7 +57,6 @@ public abstract class ShipComponent : MonoBehaviour {
     // TODO: probably can br deleted after first simulation
     protected abstract string getComponentName();
 
-
         
     // Reset all incoming to false. Should be used by manager after every "run" is finished
     public void ResetIncoming() {
@@ -76,15 +75,26 @@ public abstract class ShipComponent : MonoBehaviour {
         }
         return remainingInputs;
     }
+
+    public bool InsertInput(ElementTypes type){
+        foreach (RequiredInput input in _incoming) {
+            if (!input.isReceived && input.type == type) {
+                input.Received(true);
+                return true;
+            }
+        }
+        return false;
+    }
         
 
     // Main functions, should be overriden by any inhereting component.
     // Returns a list of child-element-amount for manager to keep traversing the ship.
-    public  List<Transmission> Process() {
+    public List<Transmission> Process() {
         _txtControl.SetStatus(" Processing...");
         return InnerProcess();
     }
 
+    // Actual process, decided by each sub-class
     protected abstract List<Transmission> InnerProcess();
 
     // In case component requires some action upon input
@@ -102,7 +112,6 @@ public abstract class ShipComponent : MonoBehaviour {
             }
         }
         return false; //no input was updated
-
     }
 	
        
