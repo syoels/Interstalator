@@ -8,24 +8,26 @@ namespace Interstalator {
 public abstract class ShipComponent : MonoBehaviour {
 
     // Used in flow manager to manage flow
-    public class Transmission {
+    public class Output {
         public ShipComponent component;
         public ElementTypes type;
         public float amount;
-        public Transmission(ShipComponent c, ElementTypes t, float a){
+        public Output(ShipComponent c, ElementTypes t, float a){
             this.component = c; 
             this.type = t; 
             this.amount = a;
         }
     }
 
-    public class RequiredInput {
+    public class Input {
         public ElementTypes type;
         public bool isReceived;
+        public float amount;
 
-        public RequiredInput(ElementTypes t, bool state) {
+        public Input(ElementTypes t, bool state, float amount) {
             this.type = t; 
             this.isReceived = state;
+            this.amount = amount;
         }
 
         public void Received(bool state) {
@@ -34,7 +36,7 @@ public abstract class ShipComponent : MonoBehaviour {
     }
 
     // Reuired incoming resources, and have they been received yet
-    protected List<RequiredInput> _incoming;
+    protected List<Input> _incoming;
     private TextualComponentController _txtControl;
     private string componentName = "Unnamed";
     protected bool _isOrigin = false;
@@ -44,7 +46,7 @@ public abstract class ShipComponent : MonoBehaviour {
     void Awake(){
         _txtControl = GetComponent<TextualComponentController>();
         componentName = getComponentName();
-        _incoming = new List<RequiredInput>();
+        _incoming = new List<Input>();
         SetRequiredInputs();    
     }
 
@@ -62,12 +64,12 @@ public abstract class ShipComponent : MonoBehaviour {
     protected abstract void SetRequiredInputs();
 
     protected void AddRequiredInput(ElementTypes type){
-        _incoming.Add(new RequiredInput(type, false));
+        _incoming.Add(new Input(type, false, 0f));
     }
         
     // Reset all incoming to false. Should be used by manager after every "run" is finished
     public void ResetIncoming() {
-        foreach (RequiredInput incoming in _incoming) {
+        foreach (Input incoming in _incoming) {
             incoming.Received(false); //TODO: make sure this actually changes by reference.
         }
     }
@@ -75,7 +77,7 @@ public abstract class ShipComponent : MonoBehaviour {
     // Get all incoming that aren't "false"
     public List<ElementTypes> GetRemainingIncoming() {
         List<ElementTypes> remainingInputs = new List<ElementTypes>();
-        foreach (RequiredInput incoming in _incoming) {
+        foreach (Input incoming in _incoming) {
             if (!incoming.isReceived) {
                 remainingInputs.Add(incoming.type);
             }
@@ -85,8 +87,8 @@ public abstract class ShipComponent : MonoBehaviour {
 
     // Main functions, should be overriden by any inhereting component.
     // Returns a list of child-element-amount for manager to keep traversing the ship.
-    public List<Transmission> Process() {
-        _txtControl.SetStatus(" Processing...");
+    public List<Output> Process() {
+        _txtControl.SetStatus("Start Processing");
         return InnerProcess();
     }
 
@@ -96,7 +98,7 @@ public abstract class ShipComponent : MonoBehaviour {
     }
 
     // Actual process, decided by each sub-class
-    protected abstract List<Transmission> InnerProcess();
+    protected abstract List<Output> InnerProcess();
 
     // In case component requires some action upon input
     protected abstract void InnerUpdateInput(ElementTypes type, float amount);
@@ -107,9 +109,11 @@ public abstract class ShipComponent : MonoBehaviour {
 
         _txtControl.SetStatus("Trying to add " + amount.ToString() + " " + type.ToString());
 
-        foreach (RequiredInput incoming in _incoming) {
+        // This can be a problem if shipComponent is waiting for 2 transmissions of the same 
+        // type and has to diffrentiate between them. Possible solution: requestSlotNumber from child
+        foreach (Input incoming in _incoming) {
             if (!incoming.isReceived && incoming.type == type) {
-                InnerUpdateInput(type, amount); // In case component requires some action upon input
+                InnerUpdateInput(type, amount);
                 incoming.Received(true);
                 _txtControl.SetStatus("Added" + amount.ToString() + " " + type.ToString());
                 return true;

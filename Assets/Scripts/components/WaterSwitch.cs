@@ -18,10 +18,10 @@ public class WaterSwitch : ShipComponent {
         return;
     }
 
-    protected override List<Transmission> InnerProcess() {
-        List<Transmission> transmissions = new List<Transmission>();
+    protected override List<Output> InnerProcess() {
+        List<Output> transmissions = new List<Output>();
         foreach (ShipComponent child in children) {
-            Transmission t = new Transmission(child, ElementTypes.Water, 0f);
+            Output t = new Output(child, ElementTypes.Water, 0f);
             transmissions.Add(t);
         }
         return transmissions;

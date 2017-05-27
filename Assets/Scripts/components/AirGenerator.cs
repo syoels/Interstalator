@@ -5,6 +5,9 @@ using UnityEngine;
 namespace Interstalator{
 public class AirGenerator : ShipComponent {
 
+    private float _water; 
+    private float _electricity; 
+
     protected override void SetRequiredInputs() {
         AddRequiredInput(ElementTypes.Water);
         AddRequiredInput(ElementTypes.Electricity);
@@ -15,11 +18,12 @@ public class AirGenerator : ShipComponent {
     }
 
     protected override void InnerUpdateInput(ElementTypes type, float amount) {
+        
         return;
     }
 
-    protected override List<Transmission> InnerProcess() {
-        List<Transmission> transmissions = new List<Transmission>();
+    protected override List<Output> InnerProcess() {
+        List<Output> transmissions = new List<Output>();
         return transmissions;
     }
 }

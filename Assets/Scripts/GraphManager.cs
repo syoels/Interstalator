@@ -13,12 +13,12 @@ public class GraphManager : MonoBehaviour {
         yield return new WaitForSeconds(1f);
         Debug.Log("Begin Flow");
         ShipComponent[] allComponents = FindObjectsOfType<ShipComponent>();
-        Queue<ShipComponent.Transmission> queue = new Queue<ShipComponent.Transmission>(); 
+        Queue<ShipComponent.Output> queue = new Queue<ShipComponent.Output>(); 
 
         // Start with origins
         foreach(ShipComponent c in allComponents){
             if (c.IsOrigin()) {
-                ShipComponent.Transmission originComponent = new ShipComponent.Transmission(c, ElementTypes.None, 0f);
+                ShipComponent.Output originComponent = new ShipComponent.Output(c, ElementTypes.None, 0f);
                 queue.Enqueue(originComponent);
             }
         }
@@ -26,7 +26,7 @@ public class GraphManager : MonoBehaviour {
         while (queue.Count > 0) {
             yield return new WaitForSeconds(1f);
             Debug.Log("Dequeuing");
-            ShipComponent.Transmission transmission = queue.Dequeue();
+            ShipComponent.Output transmission = queue.Dequeue();
             ShipComponent curr = transmission.component; 
             curr.UpdateInput(transmission.type, transmission.amount);
             if (curr.GetRemainingIncoming().Count > 0) {
@@ -35,8 +35,8 @@ public class GraphManager : MonoBehaviour {
                 continue;
             }
 
-            List<ShipComponent.Transmission> children = curr.Process();
-            foreach (ShipComponent.Transmission t in children){
+            List<ShipComponent.Output> children = curr.Process();
+            foreach (ShipComponent.Output t in children){
                 queue.Enqueue(t);
             }
         }

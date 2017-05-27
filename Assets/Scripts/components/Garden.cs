@@ -17,8 +17,8 @@ public class Garden : ShipComponent {
         return;
     }
 
-    protected override List<Transmission> InnerProcess() {
-        List<Transmission> transmissions = new List<Transmission>();
+    protected override List<Output> InnerProcess() {
+        List<Output> transmissions = new List<Output>();
         return transmissions;
     }
 }
