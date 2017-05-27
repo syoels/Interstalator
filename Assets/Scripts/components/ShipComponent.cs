@@ -39,14 +39,12 @@ public abstract class ShipComponent : MonoBehaviour {
     // Reuired incoming resources, and have they been received yet
     protected List<Input> _incoming;
     private TextualComponentController _txtControl;
-    private string componentName = "Unnamed";
     protected bool _isOrigin = false;
     public ShipComponent[] children;
 
 
     void Awake(){
         _txtControl = GetComponent<TextualComponentController>();
-        componentName = getComponentName();
         _incoming = new List<Input>();
         SetRequiredInputs();    
     }
@@ -58,9 +56,6 @@ public abstract class ShipComponent : MonoBehaviour {
     public bool IsOrigin(){
         return _isOrigin;
     }
-
-    // TODO: probably can br deleted after first simulation
-    protected abstract string getComponentName();
 
     protected abstract void SetRequiredInputs();
 

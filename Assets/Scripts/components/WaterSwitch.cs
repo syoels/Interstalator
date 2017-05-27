@@ -6,10 +6,6 @@ namespace Interstalator{
 public class WaterSwitch : ShipComponent {
 
 
-    protected override string getComponentName() {
-        return "Water Switch";
-    }
-
     protected override void SetRequiredInputs() {
         AddRequiredInput(ElementTypes.Water);
     }

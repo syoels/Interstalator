@@ -5,10 +5,6 @@ using UnityEngine;
 namespace Interstalator{
 public class Garden : ShipComponent {
 
-    protected override string getComponentName() {
-        return "Garden";
-    }
-
     protected override void SetRequiredInputs() {
         AddRequiredInput(ElementTypes.Water);
     }

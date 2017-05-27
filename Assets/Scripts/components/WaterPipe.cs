@@ -5,9 +5,6 @@ using UnityEngine;
 namespace Interstalator{
 public class WaterPipe : ShipComponent {
 
-    protected override string getComponentName() {
-        return "Water Pipe";
-    }
 
     protected override void SetRequiredInputs() {
         AddRequiredInput(ElementTypes.Water);

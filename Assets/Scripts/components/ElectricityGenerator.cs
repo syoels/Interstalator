@@ -14,10 +14,6 @@ public class ElectricityGenerator : ShipComponent {
     protected override void SetRequiredInputs() {
         // No required inputs for origins
     }
-
-    protected override string getComponentName() {
-        return "Electricity Generator";
-    }
         
     protected override List<Output> InnerProcess() {
         List<Output> transmissions = new List<Output>();

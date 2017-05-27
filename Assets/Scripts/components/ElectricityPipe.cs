@@ -9,10 +9,6 @@ public class ElectricityPipe : ShipComponent {
         AddRequiredInput(ElementTypes.Electricity);
     }
 
-    protected override string getComponentName() {
-        return "Electricity Pipe";
-    }
-
 
     protected override List<Output> InnerProcess() {
         List<Output> transmissions = new List<Output>();

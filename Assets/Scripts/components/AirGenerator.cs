@@ -13,9 +13,6 @@ public class AirGenerator : ShipComponent {
         AddRequiredInput(ElementTypes.Electricity);
     }
 
-    protected override string getComponentName() {
-        return "Air Generator";
-    }
 
     protected override List<Output> InnerProcess() {
         List<Output> transmissions = new List<Output>();

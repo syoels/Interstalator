@@ -17,11 +17,7 @@ public class WaterTank : ShipComponent {
     protected override void SetRequiredInputs() {
         // No require inputs for origins
     }
-
-
-    protected override string getComponentName() {
-        return "Water Tank";
-    }
+        
 
     protected override List<Output> InnerProcess() {
         List<Output> transmissions = new List<Output>();
