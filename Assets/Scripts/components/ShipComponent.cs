@@ -38,8 +38,11 @@ public abstract class ShipComponent : MonoBehaviour {
     }
 
     // Reuired incoming resources, and have they been received yet
+    // TODO: Change to array
+    // TODO: Remove preceeding underscores
     protected List<Input> _incoming;
     private TextualComponentController _txtControl;
+    // TODO: Should be public
     protected bool _isOrigin = false;
     public ShipComponent[] children;
 
@@ -61,6 +64,7 @@ public abstract class ShipComponent : MonoBehaviour {
     protected abstract void SetRequiredInputs();
 
     protected void AddRequiredInput(ElementTypes type) {
+        //TODO: Check if amount can be set to null
         _incoming.Add(new Input(type, false, 0f));
     }
         
@@ -73,6 +77,7 @@ public abstract class ShipComponent : MonoBehaviour {
     }
 
     // Get all incoming that aren't "false"
+    // TODO: Check if maybe we can change to bool 'HasRemainingIncomin'
     public List<ElementTypes> GetRemainingIncoming() {
         List<ElementTypes> remainingInputs = new List<ElementTypes>();
         foreach (Input incoming in _incoming) {
@@ -85,6 +90,7 @@ public abstract class ShipComponent : MonoBehaviour {
 
     // Main functions, should be overriden by any inhereting component.
     // Returns a list of child-element-amount for manager to keep traversing the ship.
+    // TODO: Examine if we want to know which child should get what output
     public List<Output> Process() {
         _txtControl.SetStatus("Start Processing");
         return InnerProcess();
@@ -99,7 +105,7 @@ public abstract class ShipComponent : MonoBehaviour {
     protected abstract List<Output> InnerProcess();
 
     // Update inner variables ("current water" etc.)
-    // Returns true iff some input was updated
+    // Returns true if some input was updated
     public bool UpdateInput(ElementTypes type, float amount) {
 
         _txtControl.SetStatus("Trying to add " + amount.ToString() + " " + type.ToString());
