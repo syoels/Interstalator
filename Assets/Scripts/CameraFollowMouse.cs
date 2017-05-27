@@ -18,7 +18,6 @@ public class CameraFollowMouse : MonoBehaviour {
         cameraComp = GetComponent<Camera>();
     }
 
-
     /// <summary>
     /// Change camera position based on mouse
     /// </summary>
@@ -35,6 +34,12 @@ public class CameraFollowMouse : MonoBehaviour {
 
 
         Vector3 mousePosition = Input.mousePosition;
+
+        // Ignore if mouse is outside of screen
+        Rect screenRect = new Rect(0, 0, Screen.width, Screen.height);
+        if (!screenRect.Contains(mousePosition)) {
+            return;
+        }
 
         // Screen size may vary so edge distance is in percentages
         int widthDistance = Screen.width / 100 * edgeDistancePercentage;
