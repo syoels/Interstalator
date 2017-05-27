@@ -13,10 +13,6 @@ public class Garden : ShipComponent {
         AddRequiredInput(ElementTypes.Water);
     }
 
-    protected override void InnerUpdateInput(ElementTypes type, float amount) {
-        return;
-    }
-
     protected override List<Output> InnerProcess() {
         List<Output> transmissions = new List<Output>();
         return transmissions;

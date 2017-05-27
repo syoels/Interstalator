@@ -13,9 +13,6 @@ public class ElectricityPipe : ShipComponent {
         return "Electricity Pipe";
     }
 
-    protected override void InnerUpdateInput(ElementTypes type, float amount) {
-        return;
-    }
 
     protected override List<Output> InnerProcess() {
         List<Output> transmissions = new List<Output>();

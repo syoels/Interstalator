@@ -17,11 +17,6 @@ public class AirGenerator : ShipComponent {
         return "Air Generator";
     }
 
-    protected override void InnerUpdateInput(ElementTypes type, float amount) {
-        
-        return;
-    }
-
     protected override List<Output> InnerProcess() {
         List<Output> transmissions = new List<Output>();
         return transmissions;

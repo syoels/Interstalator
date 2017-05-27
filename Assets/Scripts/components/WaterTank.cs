@@ -23,10 +23,6 @@ public class WaterTank : ShipComponent {
         return "Water Tank";
     }
 
-    protected override void InnerUpdateInput(ElementTypes type, float amount) {
-        return;
-    }
-
     protected override List<Output> InnerProcess() {
         List<Output> transmissions = new List<Output>();
         foreach (ShipComponent child in children) {

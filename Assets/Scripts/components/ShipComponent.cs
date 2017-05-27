@@ -30,8 +30,9 @@ public abstract class ShipComponent : MonoBehaviour {
             this.amount = amount;
         }
 
-        public void Received(bool state) {
-            this.isReceived = state;
+        public void Received(float amount) {
+            this.isReceived = true;
+            this.amount = amount;
         }
     }
 
@@ -70,7 +71,8 @@ public abstract class ShipComponent : MonoBehaviour {
     // Reset all incoming to false. Should be used by manager after every "run" is finished
     public void ResetIncoming() {
         foreach (Input incoming in _incoming) {
-            incoming.Received(false); //TODO: make sure this actually changes by reference.
+            incoming.amount = 0f; 
+            incoming.isReceived = false;
         }
     }
 
@@ -100,9 +102,6 @@ public abstract class ShipComponent : MonoBehaviour {
     // Actual process, decided by each sub-class
     protected abstract List<Output> InnerProcess();
 
-    // In case component requires some action upon input
-    protected abstract void InnerUpdateInput(ElementTypes type, float amount);
-
     // Update inner variables ("current water" etc.)
     // Returns true iff some input was updated
     public bool UpdateInput(ElementTypes type, float amount) {
@@ -113,8 +112,7 @@ public abstract class ShipComponent : MonoBehaviour {
         // type and has to diffrentiate between them. Possible solution: requestSlotNumber from child
         foreach (Input incoming in _incoming) {
             if (!incoming.isReceived && incoming.type == type) {
-                InnerUpdateInput(type, amount);
-                incoming.Received(true);
+                incoming.Received(amount);
                 _txtControl.SetStatus("Added" + amount.ToString() + " " + type.ToString());
                 return true;
             }

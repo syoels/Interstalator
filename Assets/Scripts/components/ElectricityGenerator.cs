@@ -18,11 +18,7 @@ public class ElectricityGenerator : ShipComponent {
     protected override string getComponentName() {
         return "Electricity Generator";
     }
-
-    protected override void InnerUpdateInput(ElementTypes type, float amount) {
-        return;
-    }
-
+        
     protected override List<Output> InnerProcess() {
         List<Output> transmissions = new List<Output>();
         foreach (ShipComponent child in children) {
