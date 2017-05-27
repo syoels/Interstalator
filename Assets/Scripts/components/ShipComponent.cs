@@ -12,7 +12,8 @@ public abstract class ShipComponent : MonoBehaviour {
         public ShipComponent component;
         public ElementTypes type;
         public float amount;
-        public Output(ShipComponent c, ElementTypes t, float a){
+
+        public Output(ShipComponent c, ElementTypes t, float a) {
             this.component = c; 
             this.type = t; 
             this.amount = a;
@@ -43,23 +44,23 @@ public abstract class ShipComponent : MonoBehaviour {
     public ShipComponent[] children;
 
 
-    void Awake(){
+    void Awake() {
         _txtControl = GetComponent<TextualComponentController>();
         _incoming = new List<Input>();
         SetRequiredInputs();    
     }
 
-    protected void Start(){
+    protected void Start() {
         _txtControl.SetStatus("Awake");
     }
 
-    public bool IsOrigin(){
+    public bool IsOrigin() {
         return _isOrigin;
     }
 
     protected abstract void SetRequiredInputs();
 
-    protected void AddRequiredInput(ElementTypes type){
+    protected void AddRequiredInput(ElementTypes type) {
         _incoming.Add(new Input(type, false, 0f));
     }
         
@@ -80,7 +81,7 @@ public abstract class ShipComponent : MonoBehaviour {
             }
         }
         return remainingInputs;
-    }   
+    }
 
     // Main functions, should be overriden by any inhereting component.
     // Returns a list of child-element-amount for manager to keep traversing the ship.
@@ -90,7 +91,7 @@ public abstract class ShipComponent : MonoBehaviour {
     }
 
     //TODO: delete after textual level is finished
-    public void SetStatus(string status){
+    public void SetStatus(string status) {
         _txtControl.SetStatus(status);
     }
 

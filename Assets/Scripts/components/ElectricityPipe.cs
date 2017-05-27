@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Interstalator{
+namespace Interstalator {
 public class ElectricityPipe : ShipComponent {
 
     protected override void SetRequiredInputs() {
