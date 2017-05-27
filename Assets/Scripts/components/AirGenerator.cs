@@ -2,19 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Interstalator{
+namespace Interstalator {
 public class AirGenerator : ShipComponent {
 
-    protected override string getComponentName() {
-        return "Air Generator";
+    protected override void SetRequiredInputs() {
+        AddRequiredInput(ElementTypes.Water);
+        AddRequiredInput(ElementTypes.Electricity);
     }
 
-    protected override void InnerUpdateInput(ElementTypes type, float amount) {
-        return;
-    }
 
-    protected override List<Transmission> InnerProcess() {
-        List<Transmission> transmissions = new List<Transmission>();
+    protected override List<Output> InnerProcess() {
+        List<Output> transmissions = new List<Output>();
         return transmissions;
     }
 }

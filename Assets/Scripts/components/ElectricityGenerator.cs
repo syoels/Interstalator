@@ -11,18 +11,14 @@ public class ElectricityGenerator : ShipComponent {
         this._isOrigin = true;
     }
 
-    protected override string getComponentName() {
-        return "Electricity Generator";
+    protected override void SetRequiredInputs() {
+        // No required inputs for origins
     }
-
-    protected override void InnerUpdateInput(ElementTypes type, float amount) {
-        return;
-    }
-
-    protected override List<Transmission> InnerProcess() {
-        List<Transmission> transmissions = new List<Transmission>();
+        
+    protected override List<Output> InnerProcess() {
+        List<Output> transmissions = new List<Output>();
         foreach (ShipComponent child in children) {
-            Transmission t = new Transmission(child, ElementTypes.Electricity, 0f); 
+            Output t = new Output(child, ElementTypes.Electricity, 0f); 
             transmissions.Add(t);
         }
 

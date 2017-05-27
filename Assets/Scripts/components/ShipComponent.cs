@@ -4,105 +4,117 @@ using UnityEngine;
 
 
 namespace Interstalator {
-//[RequireComponent(typeof(TextualComponentController))]
+[RequireComponent(typeof(TextualComponentController))]
 public abstract class ShipComponent : MonoBehaviour {
 
     // Used in flow manager to manage flow
-    public class Transmission {
+    public class Output {
         public ShipComponent component;
         public ElementTypes type;
         public float amount;
-        public Transmission(ShipComponent c, ElementTypes t, float a){
+
+        public Output(ShipComponent c, ElementTypes t, float a) {
             this.component = c; 
             this.type = t; 
             this.amount = a;
         }
     }
 
-    public class RequiredInput {
+    public class Input {
         public ElementTypes type;
         public bool isReceived;
+        public float amount;
 
-        public RequiredInput(ElementTypes t, bool state) {
+        public Input(ElementTypes t, bool state, float amount) {
             this.type = t; 
             this.isReceived = state;
+            this.amount = amount;
         }
 
-        public void Received(bool state) {
-            this.isReceived = state;
+        public void Received(float amount) {
+            this.isReceived = true;
+            this.amount = amount;
         }
     }
 
     // Reuired incoming resources, and have they been received yet
-    private List<RequiredInput> _incoming = new List<RequiredInput>();
+    protected List<Input> _incoming;
     private TextualComponentController _txtControl;
-    private string componentName = "Unnamed";
     protected bool _isOrigin = false;
     public ShipComponent[] children;
 
 
-    void Awake(){
+    void Awake() {
         _txtControl = GetComponent<TextualComponentController>();
-        componentName = getComponentName();
+        _incoming = new List<Input>();
+        SetRequiredInputs();    
     }
 
-    protected void Start(){
+    protected void Start() {
         _txtControl.SetStatus("Awake");
     }
 
-    public bool IsOrigin(){
+    public bool IsOrigin() {
         return _isOrigin;
     }
 
-    // TODO: probably can br deleted after first simulation
-    protected abstract string getComponentName();
+    protected abstract void SetRequiredInputs();
 
-
+    protected void AddRequiredInput(ElementTypes type) {
+        _incoming.Add(new Input(type, false, 0f));
+    }
         
     // Reset all incoming to false. Should be used by manager after every "run" is finished
     public void ResetIncoming() {
-        foreach (RequiredInput incoming in _incoming) {
-            incoming.Received(false); //TODO: make sure this actually changes by reference.
+        foreach (Input incoming in _incoming) {
+            incoming.amount = 0f; 
+            incoming.isReceived = false;
         }
     }
 
     // Get all incoming that aren't "false"
     public List<ElementTypes> GetRemainingIncoming() {
         List<ElementTypes> remainingInputs = new List<ElementTypes>();
-        foreach (RequiredInput incoming in _incoming) {
+        foreach (Input incoming in _incoming) {
             if (!incoming.isReceived) {
                 remainingInputs.Add(incoming.type);
             }
         }
         return remainingInputs;
     }
-        
 
     // Main functions, should be overriden by any inhereting component.
     // Returns a list of child-element-amount for manager to keep traversing the ship.
-    public  List<Transmission> Process() {
-        _txtControl.SetStatus(" Processing...");
+    public List<Output> Process() {
+        _txtControl.SetStatus("Start Processing");
         return InnerProcess();
     }
 
-    protected abstract List<Transmission> InnerProcess();
+    //TODO: delete after textual level is finished
+    public void SetStatus(string status) {
+        _txtControl.SetStatus(status);
+    }
 
-    // In case component requires some action upon input
-    protected abstract void InnerUpdateInput(ElementTypes type, float amount);
+    // Actual process, decided by each sub-class
+    protected abstract List<Output> InnerProcess();
 
     // Update inner variables ("current water" etc.)
     // Returns true iff some input was updated
     public bool UpdateInput(ElementTypes type, float amount) {
 
-        foreach (RequiredInput incoming in _incoming) {
-            if (incoming.type == type) {
-                InnerUpdateInput(type, amount); // In case component requires some action upon input
-                incoming.Received(true);
+        _txtControl.SetStatus("Trying to add " + amount.ToString() + " " + type.ToString());
+
+        // This can be a problem if shipComponent is waiting for 2 transmissions of the same 
+        // type and has to diffrentiate between them. Possible solution: requestSlotNumber from child
+        foreach (Input incoming in _incoming) {
+            if (!incoming.isReceived && incoming.type == type) {
+                incoming.Received(amount);
+                _txtControl.SetStatus("Added" + amount.ToString() + " " + type.ToString());
                 return true;
             }
         }
+        _txtControl.SetStatus("No " + type.ToString() + "required");
         return false; //no input was updated
-
     }
 	
        

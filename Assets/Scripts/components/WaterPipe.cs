@@ -5,29 +5,16 @@ using UnityEngine;
 namespace Interstalator{
 public class WaterPipe : ShipComponent {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
-
-    protected override string getComponentName() {
-        return "Water Pipe";
+    protected override void SetRequiredInputs() {
+        AddRequiredInput(ElementTypes.Water);
     }
 
-    protected override void InnerUpdateInput(ElementTypes type, float amount) {
-        return;
-    }
 
-    protected override List<Transmission> InnerProcess() {
-        List<Transmission> transmissions = new List<Transmission>();
+    protected override List<Output> InnerProcess() {
+        List<Output> transmissions = new List<Output>();
         foreach (ShipComponent child in children) {
-            Transmission t = new Transmission(child, ElementTypes.Water, 0f); 
+            Output t = new Output(child, ElementTypes.Water, 0f); 
             transmissions.Add(t);
         }
 
