@@ -10,6 +10,8 @@ public class CameraFollowMouse : MonoBehaviour {
     public int movementSpeed = 1;
 
 
+    private const float MAX_ZOOM_IN = 2.5f;
+    private const float MAX_ZOOM_OUT = 30f;
     private Camera cameraComp;
 
     void Awake() {
@@ -24,6 +26,11 @@ public class CameraFollowMouse : MonoBehaviour {
         float mouseScroll = Input.GetAxis("Mouse ScrollWheel");
         if (mouseScroll != 0) {
             cameraComp.orthographicSize += mouseScroll;
+            cameraComp.orthographicSize = Mathf.Clamp(
+                cameraComp.orthographicSize,
+                MAX_ZOOM_IN,
+                MAX_ZOOM_OUT
+            );
         }
 
 
