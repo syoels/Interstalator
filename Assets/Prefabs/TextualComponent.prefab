@@ -19,6 +19,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4970744642716108}
+  - component: {fileID: 61810591576941956}
+  - component: {fileID: 114097386896505824}
   m_Layer: 0
   m_Name: TextualComponent
   m_TagString: Untagged
@@ -223,6 +225,20 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!61 &61810591576941956
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1012679907742302}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 7.9884634, y: 5.03458}
 --- !u!102 &102421970612078700
 TextMesh:
   serializedVersion: 3
@@ -265,6 +281,18 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294910208
+--- !u!114 &114097386896505824
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1012679907742302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d8d35988bfab4af2a464cf6dc14308e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Water Pipe
 --- !u!212 &212004547835759210
 SpriteRenderer:
   m_ObjectHideFlags: 1
