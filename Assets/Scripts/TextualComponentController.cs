@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Interstalator {
-public class TextualComponentController : MonoBehaviour {
+public class TextualComponentController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
     public string name;
 
     private Color baseColor;
@@ -26,13 +27,15 @@ public class TextualComponentController : MonoBehaviour {
         statusText.text = status;
     }
 
-    void OnMouseEnter() {
+    #region IPointer handlers
+    public void OnPointerEnter(PointerEventData eventData) {
         graphic.color = Color.yellow;
     }
 
-    void OnMouseExit() {
+    public void OnPointerExit(PointerEventData eventData) {
         graphic.color = baseColor;
     }
+    #endregion
 
 }
 }
