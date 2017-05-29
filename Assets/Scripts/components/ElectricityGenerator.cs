@@ -3,20 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Interstalator{
-public class ElectricityGenerator : ShipComponent {
-
-    protected override bool SetIsOrigin() {
-        return true;
+public class ElectricityGenerator : GenericGenerator {
+    protected override ElementTypes GeneratorType {
+        get {
+            return ElementTypes.Electricity;
+        }
     }
 
-    protected override List<Output> InnerProcess() {
-        List<Output> transmissions = new List<Output>();
-        foreach (ShipComponent child in children) {
-            Output t = new Output(child, ElementTypes.Electricity, 0f); 
-            transmissions.Add(t);
+    protected override string ComponentName {
+        get {
+            return "Electricity Generator";
         }
-
-        return transmissions;
     }
 }
 }

@@ -5,8 +5,6 @@ using UnityEngine.EventSystems;
 
 namespace Interstalator {
 public class TextualComponentController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
-    public string componentName;
-
     private Color baseColor;
 
     private TextMesh statusText;
@@ -18,13 +16,16 @@ public class TextualComponentController : MonoBehaviour, IPointerEnterHandler, I
         nameText = transform.FindChild("Name").GetComponent<TextMesh>();
         statusText = transform.FindChild("Status").GetComponent<TextMesh>();
 
-        nameText.text = componentName;
         baseColor = graphic.color;
     }
 
     public void SetStatus(string status) {
         Debug.Log("Got new status: " + status);
         statusText.text = status;
+    }
+
+    public void SetName(string name) {
+        nameText.text = name;
     }
 
     #region IPointer handlers

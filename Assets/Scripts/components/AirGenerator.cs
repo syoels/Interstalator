@@ -5,6 +5,12 @@ using UnityEngine;
 namespace Interstalator {
 public class AirGenerator : ShipComponent {
 
+    protected override string ComponentName {
+        get {
+            return "Air Generator";
+        }
+    }
+
     protected override void SetRequiredInputs() {
         AddRequiredInput(ElementTypes.Water);
         AddRequiredInput(ElementTypes.Electricity);

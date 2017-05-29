@@ -41,13 +41,16 @@ public abstract class ShipComponent : MonoBehaviour {
         }
     }
 
-    // Reuired incoming resources, and have they been received yet
-    // TODO: Change to array
-    protected List<Input> incoming;
-    private TextualComponentController txtControl;
-    // TODO: Should be public
-    private bool isOrigin = false;
     public ShipComponent[] children;
+
+    protected abstract string ComponentName { get; }
+
+    // Reuired incoming resources, and have they been received yet
+    // TODO: Maybe change to array
+    protected List<Input> incoming;
+
+    private TextualComponentController txtControl;
+    private bool isOrigin = false;
 
     void Awake() {
         txtControl = GetComponent<TextualComponentController>();
@@ -57,6 +60,7 @@ public abstract class ShipComponent : MonoBehaviour {
     }
 
     protected void Start() {
+        txtControl.SetName(ComponentName);
         txtControl.SetStatus("Awake");
     }
 
@@ -76,7 +80,7 @@ public abstract class ShipComponent : MonoBehaviour {
     /// themselves as such
     /// </summary>
     protected virtual bool SetIsOrigin() {
-        return false;
+        return incoming.Count == 0;
     }
 
     /// <summary>
@@ -148,7 +152,9 @@ public abstract class ShipComponent : MonoBehaviour {
                 return true;
             }
         }
+
         txtControl.SetStatus("No " + type.ToString() + "required");
+
         // No input was updated
         return false;
     }

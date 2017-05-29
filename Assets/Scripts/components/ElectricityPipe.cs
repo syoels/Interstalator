@@ -3,20 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Interstalator {
-public class ElectricityPipe : ShipComponent {
+public class ElectricityPipe : GenericPipe {
 
-    protected override void SetRequiredInputs() {
-        AddRequiredInput(ElementTypes.Electricity);
+    protected override string ComponentName {
+        get {
+            return "Electricity Pipe";
+        }
     }
 
-    protected override List<Output> InnerProcess() {
-        List<Output> transmissions = new List<Output>();
-        foreach (ShipComponent child in children) {
-            Output t = new Output(child, ElementTypes.Electricity, 0f); 
-            transmissions.Add(t);
+    protected override ElementTypes PipeType {
+        get {
+            return ElementTypes.Electricity;
         }
-
-        return transmissions;
     }
 }
 }

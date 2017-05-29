@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Interstalator{
+namespace Interstalator {
 public class WaterSwitch : ShipComponent {
-
+    protected override string ComponentName {
+        get {
+            return "Water Switch";
+        }
+    }
 
     protected override void SetRequiredInputs() {
         AddRequiredInput(ElementTypes.Water);
@@ -17,10 +21,12 @@ public class WaterSwitch : ShipComponent {
             Output t = new Output(child, ElementTypes.Water, 0f);
             transmissions.Add(t);
         }
+
+        SetStatus("Dividing water to X");
         return transmissions;
     }
 
-    public void Redistribute(float[] newDistribution) {
+    public void ApplyDistribution(float[] newDistribution) {
         return;
     }
 }
