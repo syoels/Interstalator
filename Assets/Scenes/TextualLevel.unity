@@ -139,6 +139,11 @@ Prefab:
       propertyPath: name
       value: Garden
       objectReference: {fileID: 0}
+    - target: {fileID: 114097386896505824, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
+        type: 2}
+      propertyPath: componentName
+      value: Garden
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 169b4a7e383ef472cbb749aa9c3cfb26, type: 2}
   m_IsPrefabParent: 0
@@ -184,6 +189,11 @@ Prefab:
     - target: {fileID: 1012679907742302, guid: 169b4a7e383ef472cbb749aa9c3cfb26, type: 2}
       propertyPath: m_Name
       value: TextualWaterPipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 114097386896505824, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
+        type: 2}
+      propertyPath: componentName
+      value: Water Pipe
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 169b4a7e383ef472cbb749aa9c3cfb26, type: 2}
@@ -547,6 +557,11 @@ Prefab:
       propertyPath: m_Name
       value: TextualWaterPipe
       objectReference: {fileID: 0}
+    - target: {fileID: 114097386896505824, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
+        type: 2}
+      propertyPath: componentName
+      value: Water Pipe
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 169b4a7e383ef472cbb749aa9c3cfb26, type: 2}
   m_IsPrefabParent: 0
@@ -567,7 +582,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &496951149
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1148,6 +1163,11 @@ Prefab:
       propertyPath: name
       value: Electricity Generator
       objectReference: {fileID: 0}
+    - target: {fileID: 114097386896505824, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
+        type: 2}
+      propertyPath: componentName
+      value: Electricity Generator
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 169b4a7e383ef472cbb749aa9c3cfb26, type: 2}
   m_IsPrefabParent: 0
@@ -1307,6 +1327,11 @@ Prefab:
       propertyPath: name
       value: Water Switch
       objectReference: {fileID: 0}
+    - target: {fileID: 114097386896505824, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
+        type: 2}
+      propertyPath: componentName
+      value: Water Switch
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 169b4a7e383ef472cbb749aa9c3cfb26, type: 2}
   m_IsPrefabParent: 0
@@ -1379,6 +1404,11 @@ Prefab:
     - target: {fileID: 114097386896505824, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
         type: 2}
       propertyPath: name
+      value: Water Tank
+      objectReference: {fileID: 0}
+    - target: {fileID: 114097386896505824, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
+        type: 2}
+      propertyPath: componentName
       value: Water Tank
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1454,6 +1484,11 @@ Prefab:
     - target: {fileID: 114097386896505824, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
         type: 2}
       propertyPath: name
+      value: Electricity Pipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 114097386896505824, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
+        type: 2}
+      propertyPath: componentName
       value: Electricity Pipe
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1857,6 +1892,11 @@ Prefab:
     - target: {fileID: 114097386896505824, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
         type: 2}
       propertyPath: name
+      value: Air Generator
+      objectReference: {fileID: 0}
+    - target: {fileID: 114097386896505824, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
+        type: 2}
+      propertyPath: componentName
       value: Air Generator
       objectReference: {fileID: 0}
     m_RemovedComponents: []
