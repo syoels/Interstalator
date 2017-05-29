@@ -5,6 +5,13 @@ using UnityEngine.UI;
 
 
 namespace Interstalator {
+
+public abstract class SwitchCaller {
+    public SwitchParametersController switchController;
+
+    public abstract void ApplyDistribution(float[] newDistribution);
+}
+
 public class SwitchParametersController : MonoBehaviour {
 
     // Remain static during run
@@ -12,7 +19,7 @@ public class SwitchParametersController : MonoBehaviour {
     private RectTransform panelRect;
 
     // Changes for each component that activates it
-    private WaterSwitch switchComponent;
+    private SwitchCaller switchComponent;
     private GameObject[] sliders;
     private float[] originalDistribution;
 
@@ -31,7 +38,7 @@ public class SwitchParametersController : MonoBehaviour {
     /// </summary>
     /// <param name="currentDistribution">Current distribution.</param>
     /// <param name="switchComponent">Switch component - used to apply the effect on later</param>
-    public void BringUpSlider(float[] currentDistribution, WaterSwitch switchComponent) {
+    public void BringUpSlider(float[] currentDistribution, SwitchCaller switchComponent) {
         // Show the switch UI
         gameObject.SetActive(true);
 
@@ -64,6 +71,31 @@ public class SwitchParametersController : MonoBehaviour {
         }
     }
 
+    private float[] GetCurrentDistribution() {
+        float[] distribution = new float[sliders.Length];
+
+        for (int i = 0; i < sliders.Length; i++) {
+            Slider sliderScript = sliders[i].GetComponent<Slider>();
+            distribution[i] = sliderScript.value;
+        }
+
+        return distribution;
+    }
+
+    /// <summary>
+    /// Removes references for switch controls, deletes the created sliders
+    /// and hides the UI
+    /// </summary>
+    private void ClearSwitchControls() {
+        switchComponent = null;
+        originalDistribution = null;
+        foreach (GameObject slider in sliders) {
+            Destroy(slider);
+        }
+        sliders = null;
+        gameObject.SetActive(false);
+    }
+
     /// <summary>
     /// Returns the slider values to their original state
     /// </summary>
@@ -78,13 +110,23 @@ public class SwitchParametersController : MonoBehaviour {
     /// Turns off the sliders UI, deletes the created sliders and resets everything
     /// </summary>
     public void Cancel() {
-        switchComponent = null;
-        originalDistribution = null;
-        foreach (GameObject slider in sliders) {
-            Destroy(slider);
-        }
-        sliders = null;
-        gameObject.SetActive(false);
+        ClearSwitchControls();
     }
+
+
+    /// <summary>
+    /// Saves the new distribution in the calling switch component
+    /// </summary>
+    public void Apply() {
+        // TODO: Need to remove this once we stopped using tests
+        if (switchComponent == null) {
+            Debug.LogError("Tried applying switch controls without switch component");
+        } else {
+            switchComponent.ApplyDistribution(GetCurrentDistribution());
+        }
+        ClearSwitchControls();
+    }
+
+
 }
 }
