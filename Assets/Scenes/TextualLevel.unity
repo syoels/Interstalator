@@ -134,19 +134,26 @@ Prefab:
       propertyPath: m_Name
       value: TextualGarden
       objectReference: {fileID: 0}
-    - target: {fileID: 114097386896505824, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
-        type: 2}
-      propertyPath: name
-      value: Garden
-      objectReference: {fileID: 0}
-    - target: {fileID: 114097386896505824, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
-        type: 2}
-      propertyPath: componentName
-      value: Garden
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 169b4a7e383ef472cbb749aa9c3cfb26, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &47321161 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1012679907742302, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
+    type: 2}
+  m_PrefabInternal: {fileID: 47321160}
+--- !u!114 &47321162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 47321161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6db470c22221da24a8b147ca3d2f79cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  children: []
 --- !u!1001 &48538530
 Prefab:
   m_ObjectHideFlags: 0
@@ -190,14 +197,31 @@ Prefab:
       propertyPath: m_Name
       value: TextualWaterPipe
       objectReference: {fileID: 0}
-    - target: {fileID: 114097386896505824, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
-        type: 2}
-      propertyPath: componentName
-      value: Water Pipe
+    - target: {fileID: 0}
+      propertyPath: children.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 169b4a7e383ef472cbb749aa9c3cfb26, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &48538531 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1012679907742302, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
+    type: 2}
+  m_PrefabInternal: {fileID: 48538530}
+--- !u!114 &48538532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 48538531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 595c95f7cf554b74c995021172568510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  children:
+  - {fileID: 1965544759}
 --- !u!1 &87579725
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,14 +581,27 @@ Prefab:
       propertyPath: m_Name
       value: TextualWaterPipe
       objectReference: {fileID: 0}
-    - target: {fileID: 114097386896505824, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
-        type: 2}
-      propertyPath: componentName
-      value: Water Pipe
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 169b4a7e383ef472cbb749aa9c3cfb26, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &405142116 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1012679907742302, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
+    type: 2}
+  m_PrefabInternal: {fileID: 405142115}
+--- !u!114 &405142117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 405142116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 595c95f7cf554b74c995021172568510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  children:
+  - {fileID: 1398801225}
 --- !u!1 &496951148
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,28 +824,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0eeb96c634ec44a64a3f058e6e8f5862, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &755034584 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1012679907742302, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
-    type: 2}
-  m_PrefabInternal: {fileID: 47321160}
 --- !u!4 &755034585 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4970744642716108, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
     type: 2}
   m_PrefabInternal: {fileID: 47321160}
---- !u!114 &755034586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 755034584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6db470c22221da24a8b147ca3d2f79cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  children: []
 --- !u!1 &759834147
 GameObject:
   m_ObjectHideFlags: 0
@@ -1158,65 +1178,42 @@ Prefab:
       propertyPath: m_Name
       value: TextualElectricityGenerator
       objectReference: {fileID: 0}
-    - target: {fileID: 114097386896505824, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
-        type: 2}
-      propertyPath: name
-      value: Electricity Generator
-      objectReference: {fileID: 0}
-    - target: {fileID: 114097386896505824, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
-        type: 2}
-      propertyPath: componentName
-      value: Electricity Generator
+    - target: {fileID: 0}
+      propertyPath: children.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 169b4a7e383ef472cbb749aa9c3cfb26, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1257419518 stripped
+--- !u!1 &1193461814 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1012679907742302, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
     type: 2}
-  m_PrefabInternal: {fileID: 48538530}
+  m_PrefabInternal: {fileID: 1193461813}
+--- !u!114 &1193461815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1193461814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65bd4fdc4e0fa49448aef3d905ac1586, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  children:
+  - {fileID: 1549508021}
+  amount: 1
 --- !u!4 &1257419519 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4970744642716108, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
     type: 2}
   m_PrefabInternal: {fileID: 48538530}
---- !u!114 &1257419520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1257419518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 595c95f7cf554b74c995021172568510, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  children:
-  - {fileID: 1590892361}
---- !u!1 &1261319569 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1012679907742302, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
-    type: 2}
-  m_PrefabInternal: {fileID: 1549508019}
 --- !u!4 &1261319570 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4970744642716108, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
     type: 2}
   m_PrefabInternal: {fileID: 1549508019}
---- !u!114 &1261319571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1261319569}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b923daf88661be94693406f31ec4caaf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  children:
-  - {fileID: 1590892361}
 --- !u!1 &1347349861
 GameObject:
   m_ObjectHideFlags: 0
@@ -1322,42 +1319,33 @@ Prefab:
       propertyPath: m_Name
       value: TextualWaterSwitch
       objectReference: {fileID: 0}
-    - target: {fileID: 114097386896505824, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
-        type: 2}
-      propertyPath: name
-      value: Water Switch
-      objectReference: {fileID: 0}
-    - target: {fileID: 114097386896505824, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
-        type: 2}
-      propertyPath: componentName
-      value: Water Switch
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 169b4a7e383ef472cbb749aa9c3cfb26, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1403450007 stripped
+--- !u!1 &1398801224 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1012679907742302, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
     type: 2}
-  m_PrefabInternal: {fileID: 405142115}
+  m_PrefabInternal: {fileID: 1398801223}
+--- !u!114 &1398801225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1398801224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6547b5db40452ce4187ef2b9f83b1016, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  children:
+  - {fileID: 47321162}
+  - {fileID: 48538532}
 --- !u!4 &1403450008 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4970744642716108, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
     type: 2}
   m_PrefabInternal: {fileID: 405142115}
---- !u!114 &1403450009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1403450007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 595c95f7cf554b74c995021172568510, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  children:
-  - {fileID: 1536730797}
 --- !u!1001 &1459452045
 Prefab:
   m_ObjectHideFlags: 0
@@ -1401,43 +1389,33 @@ Prefab:
       propertyPath: m_Name
       value: TextualWaterTank
       objectReference: {fileID: 0}
-    - target: {fileID: 114097386896505824, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
-        type: 2}
-      propertyPath: name
-      value: Water Tank
-      objectReference: {fileID: 0}
-    - target: {fileID: 114097386896505824, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
-        type: 2}
-      propertyPath: componentName
-      value: Water Tank
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 169b4a7e383ef472cbb749aa9c3cfb26, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1536730795 stripped
+--- !u!1 &1459452046 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1012679907742302, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
     type: 2}
-  m_PrefabInternal: {fileID: 1398801223}
+  m_PrefabInternal: {fileID: 1459452045}
+--- !u!114 &1459452047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1459452046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a92cce614ba5ab9479549af7882c0596, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  children:
+  - {fileID: 405142117}
+  amount: 1
 --- !u!4 &1536730796 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4970744642716108, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
     type: 2}
   m_PrefabInternal: {fileID: 1398801223}
---- !u!114 &1536730797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1536730795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6547b5db40452ce4187ef2b9f83b1016, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  children:
-  - {fileID: 755034586}
-  - {fileID: 1257419520}
 --- !u!1001 &1549508019
 Prefab:
   m_ObjectHideFlags: 0
@@ -1481,19 +1459,31 @@ Prefab:
       propertyPath: m_Name
       value: TextualElectricityPipe
       objectReference: {fileID: 0}
-    - target: {fileID: 114097386896505824, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
-        type: 2}
-      propertyPath: name
-      value: Electricity Pipe
-      objectReference: {fileID: 0}
-    - target: {fileID: 114097386896505824, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
-        type: 2}
-      propertyPath: componentName
-      value: Electricity Pipe
+    - target: {fileID: 0}
+      propertyPath: children.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 169b4a7e383ef472cbb749aa9c3cfb26, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1549508020 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1012679907742302, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
+    type: 2}
+  m_PrefabInternal: {fileID: 1549508019}
+--- !u!114 &1549508021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1549508020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b923daf88661be94693406f31ec4caaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  children:
+  - {fileID: 1965544759}
 --- !u!1 &1554098568
 GameObject:
   m_ObjectHideFlags: 0
@@ -1568,46 +1558,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1554098568}
---- !u!1 &1590892359 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1012679907742302, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
-    type: 2}
-  m_PrefabInternal: {fileID: 1965544757}
 --- !u!4 &1590892360 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4970744642716108, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
     type: 2}
   m_PrefabInternal: {fileID: 1965544757}
---- !u!114 &1590892361
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1590892359}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16d3d38debade404caa42f391f8510ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  children: []
---- !u!1 &1643333532 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1012679907742302, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
-    type: 2}
-  m_PrefabInternal: {fileID: 1459452045}
---- !u!114 &1643333533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1643333532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a92cce614ba5ab9479549af7882c0596, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  children:
-  - {fileID: 1403450009}
 --- !u!4 &1643333536 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4970744642716108, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
@@ -1709,29 +1664,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &1668789121 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1012679907742302, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
-    type: 2}
-  m_PrefabInternal: {fileID: 1193461813}
 --- !u!4 &1668789122 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4970744642716108, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
     type: 2}
   m_PrefabInternal: {fileID: 1193461813}
---- !u!114 &1668789123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1668789121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65bd4fdc4e0fa49448aef3d905ac1586, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  children:
-  - {fileID: 1261319571}
 --- !u!1 &1781618391
 GameObject:
   m_ObjectHideFlags: 0
@@ -1889,19 +1826,26 @@ Prefab:
       propertyPath: m_Name
       value: TextualAirGenerator
       objectReference: {fileID: 0}
-    - target: {fileID: 114097386896505824, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
-        type: 2}
-      propertyPath: name
-      value: Air Generator
-      objectReference: {fileID: 0}
-    - target: {fileID: 114097386896505824, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
-        type: 2}
-      propertyPath: componentName
-      value: Air Generator
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 169b4a7e383ef472cbb749aa9c3cfb26, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1965544758 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1012679907742302, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
+    type: 2}
+  m_PrefabInternal: {fileID: 1965544757}
+--- !u!114 &1965544759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1965544758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16d3d38debade404caa42f391f8510ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  children: []
 --- !u!1 &2055509242
 GameObject:
   m_ObjectHideFlags: 0
