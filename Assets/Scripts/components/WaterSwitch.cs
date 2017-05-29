@@ -16,14 +16,16 @@ public class WaterSwitch : ShipComponent {
 
 
     protected override List<Output> InnerProcess() {
-        List<Output> transmissions = new List<Output>();
+        float amount = (float)incoming[0].amount / children.Length;
+
+        List<Output> outputs = new List<Output>();
         foreach (ShipComponent child in children) {
-            Output t = new Output(child, ElementTypes.Water, 0f);
-            transmissions.Add(t);
+            Output t = new Output(child, ElementTypes.Water, amount);
+            outputs.Add(t);
         }
 
-        SetStatus("Dividing water to X");
-        return transmissions;
+        SetStatus("Distributing " + incoming[0].amount + " Water equally");
+        return outputs;
     }
 
     public void ApplyDistribution(float[] newDistribution) {
