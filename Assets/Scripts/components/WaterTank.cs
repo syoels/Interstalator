@@ -8,16 +8,9 @@ public class WaterTank : ShipComponent {
 
     private float _pressure;
 
-    // Use this for initialization
-    new void Start () {
-        base.Start();
-        this._isOrigin = true;
+    override protected bool SetIsOrigin() {
+        return true;
     }
-
-    protected override void SetRequiredInputs() {
-        // No require inputs for origins
-    }
-        
 
     protected override List<Output> InnerProcess() {
         List<Output> transmissions = new List<Output>();

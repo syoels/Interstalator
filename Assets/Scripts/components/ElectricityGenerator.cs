@@ -5,16 +5,10 @@ using UnityEngine;
 namespace Interstalator{
 public class ElectricityGenerator : ShipComponent {
 
-    // Use this for initialization
-    new void Start () {
-        base.Start();
-        this._isOrigin = true;
+    protected override bool SetIsOrigin() {
+        return true;
     }
 
-    protected override void SetRequiredInputs() {
-        // No required inputs for origins
-    }
-        
     protected override List<Output> InnerProcess() {
         List<Output> transmissions = new List<Output>();
         foreach (ShipComponent child in children) {

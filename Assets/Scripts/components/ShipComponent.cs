@@ -7,28 +7,32 @@ namespace Interstalator {
 [RequireComponent(typeof(TextualComponentController))]
 public abstract class ShipComponent : MonoBehaviour {
 
-    // Used in flow manager to manage flow
+    /// <summary>
+    /// Holds details that a components outputs to its neighbor
+    /// </summary>
     public class Output {
         public ShipComponent component;
         public ElementTypes type;
         public float amount;
 
-        public Output(ShipComponent c, ElementTypes t, float a) {
-            this.component = c; 
-            this.type = t; 
-            this.amount = a;
+        public Output(ShipComponent comp, ElementTypes type, float amount) {
+            this.component = comp; 
+            this.type = type; 
+            this.amount = amount;
         }
     }
 
+    /// <summary>
+    /// Information about the inputs a component expects to receive
+    /// </summary>
     public class Input {
         public ElementTypes type;
         public bool isReceived;
         public float amount;
 
-        public Input(ElementTypes t, bool state, float amount) {
-            this.type = t; 
+        public Input(ElementTypes type, bool state) {
+            this.type = type; 
             this.isReceived = state;
-            this.amount = amount;
         }
 
         public void Received(float amount) {
@@ -39,38 +43,55 @@ public abstract class ShipComponent : MonoBehaviour {
 
     // Reuired incoming resources, and have they been received yet
     // TODO: Change to array
-    // TODO: Remove preceeding underscores
-    protected List<Input> _incoming;
-    private TextualComponentController _txtControl;
+    protected List<Input> incoming;
+    private TextualComponentController txtControl;
     // TODO: Should be public
-    protected bool _isOrigin = false;
+    private bool isOrigin = false;
     public ShipComponent[] children;
 
-
     void Awake() {
-        _txtControl = GetComponent<TextualComponentController>();
-        _incoming = new List<Input>();
-        SetRequiredInputs();    
+        txtControl = GetComponent<TextualComponentController>();
+        incoming = new List<Input>();
+        SetRequiredInputs();
+        isOrigin = SetIsOrigin();
     }
 
     protected void Start() {
-        _txtControl.SetStatus("Awake");
+        txtControl.SetStatus("Awake");
     }
 
     public bool IsOrigin() {
-        return _isOrigin;
+        return isOrigin;
     }
 
-    protected abstract void SetRequiredInputs();
+    /// <summary>
+    /// Components should override this method to mark what inputs they have.
+    /// Origin components that require no input don't need to override it.
+    /// </summary>
+    protected virtual void SetRequiredInputs() {
+    }
 
+    /// <summary>
+    /// Components which require no inputs should override this method to mark
+    /// themselves as such
+    /// </summary>
+    protected virtual bool SetIsOrigin() {
+        return false;
+    }
+
+    /// <summary>
+    /// Adds the given type as a required input and marks it as 'not received'
+    /// </summary>
     protected void AddRequiredInput(ElementTypes type) {
-        //TODO: Check if amount can be set to null
-        _incoming.Add(new Input(type, false, 0f));
+        incoming.Add(new Input(type, false));
     }
-        
-    // Reset all incoming to false. Should be used by manager after every "run" is finished
+
+    /// <summary>
+    /// Reset all incoming inputs to false.
+    /// Should be used by manager after every "run" is finished
+    /// </summary>
     public void ResetIncoming() {
-        foreach (Input incoming in _incoming) {
+        foreach (Input incoming in incoming) {
             incoming.amount = 0f; 
             incoming.isReceived = false;
         }
@@ -80,7 +101,7 @@ public abstract class ShipComponent : MonoBehaviour {
     // TODO: Check if maybe we can change to bool 'HasRemainingIncomin'
     public List<ElementTypes> GetRemainingIncoming() {
         List<ElementTypes> remainingInputs = new List<ElementTypes>();
-        foreach (Input incoming in _incoming) {
+        foreach (Input incoming in incoming) {
             if (!incoming.isReceived) {
                 remainingInputs.Add(incoming.type);
             }
@@ -88,42 +109,48 @@ public abstract class ShipComponent : MonoBehaviour {
         return remainingInputs;
     }
 
-    // Main functions, should be overriden by any inhereting component.
-    // Returns a list of child-element-amount for manager to keep traversing the ship.
+    /// <summary>
+    /// Main functions, should be overriden by any inhereting component.
+    /// Returns a list of child-element-amount for manager to keep traversing
+    /// the ship.
+    /// </summary>
     // TODO: Examine if we want to know which child should get what output
     public List<Output> Process() {
-        _txtControl.SetStatus("Start Processing");
+        txtControl.SetStatus("Start Processing");
         return InnerProcess();
     }
 
     //TODO: delete after textual level is finished
     public void SetStatus(string status) {
-        _txtControl.SetStatus(status);
+        txtControl.SetStatus(status);
     }
 
-    // Actual process, decided by each sub-class
+    /// <summary>
+    /// Actual process, decided by each sub-class
+    /// </summary>
+    /// <returns>List of outputs to transfer to the children</returns>
     protected abstract List<Output> InnerProcess();
 
     // Update inner variables ("current water" etc.)
-    // Returns true if some input was updated
+    /// <summary>
+    /// Updates inner varribles. Returns true if some input was updated
+    /// </summary>
     public bool UpdateInput(ElementTypes type, float amount) {
 
-        _txtControl.SetStatus("Trying to add " + amount.ToString() + " " + type.ToString());
+        txtControl.SetStatus("Trying to add " + amount.ToString() + " " + type.ToString());
 
         // This can be a problem if shipComponent is waiting for 2 transmissions of the same 
         // type and has to diffrentiate between them. Possible solution: requestSlotNumber from child
-        foreach (Input incoming in _incoming) {
+        foreach (Input incoming in incoming) {
             if (!incoming.isReceived && incoming.type == type) {
                 incoming.Received(amount);
-                _txtControl.SetStatus("Added" + amount.ToString() + " " + type.ToString());
+                txtControl.SetStatus("Added" + amount.ToString() + " " + type.ToString());
                 return true;
             }
         }
-        _txtControl.SetStatus("No " + type.ToString() + "required");
-        return false; //no input was updated
+        txtControl.SetStatus("No " + type.ToString() + "required");
+        // No input was updated
+        return false;
     }
-	
-       
-
 }
 }
