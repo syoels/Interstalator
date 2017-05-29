@@ -22,6 +22,9 @@ public class SwitchParametersController : MonoBehaviour {
     private SwitchCaller switchComponent;
     private GameObject[] sliders;
     private float[] originalDistribution;
+    private bool constantAmount;
+    private float totalAmount;
+    private Slider lastChangedSlider;
 
     void Awake() {
         panelRect = GetComponent<RectTransform>();
@@ -29,7 +32,7 @@ public class SwitchParametersController : MonoBehaviour {
     }
 
     public void TestSwitch() {
-        BringUpSlider(new float[] {1f, 0f, 4f, 2f, -4f}, null);
+        BringUpSlider(new float[] {0.25f, 0.3f, 0.45f, 0f}, null, true);
     }
 
     /// <summary>
@@ -38,12 +41,16 @@ public class SwitchParametersController : MonoBehaviour {
     /// </summary>
     /// <param name="currentDistribution">Current distribution.</param>
     /// <param name="switchComponent">Switch component - used to apply the effect on later</param>
-    public void BringUpSlider(float[] currentDistribution, SwitchCaller switchComponent) {
+    public void BringUpSlider(float[] currentDistribution,
+                              SwitchCaller switchComponent,
+                              bool constantAmount=false) {
         // Show the switch UI
         gameObject.SetActive(true);
 
         this.switchComponent = switchComponent;
         this.originalDistribution = currentDistribution;
+        this.constantAmount = constantAmount;
+        totalAmount = 0;
 
         int numberOfSliders = currentDistribution.Length;
         sliders = new GameObject[numberOfSliders];
@@ -52,6 +59,9 @@ public class SwitchParametersController : MonoBehaviour {
         int sliderDistance = (int)panelRect.rect.width / (numberOfSliders + 1);
 
         for (int i = 0; i < numberOfSliders; i++) {
+            // Calculate the amount of all the values
+            totalAmount += currentDistribution[i];
+
             // Places a new slider and sets its attributes
             GameObject slider = Instantiate(sliderBase, transform);
             slider.gameObject.SetActive(true);
@@ -67,7 +77,48 @@ public class SwitchParametersController : MonoBehaviour {
             // Set the slider's value (will only properly show values from 0f to 1f)
             Slider sliderScript = slider.GetComponent<Slider>();
             sliderScript.value = currentDistribution[i];
+            if (constantAmount) {
+                sliderScript.onValueChanged.AddListener(delegate {OnSliderValueChanged(sliderScript);});
+            }
             sliders[i] = slider;
+        }
+    }
+
+    private void OnSliderValueChanged(Slider slider) {
+        lastChangedSlider = slider;
+    }
+
+    /// <summary>
+    /// Changes the unused slider's amount to keep the level equal
+    /// </summary>
+    /// <param name="sliderScript">Slider script - the slider script that changed</param>
+    private void KeepSlidersAmount(Slider sliderScript) {
+        // TODO - Find a way to make this more efficient and avoid cycleing through
+        // all the sliders twice
+        float currentAmount = 0;
+        foreach (GameObject slider in sliders) {
+            currentAmount += slider.GetComponent<Slider>().value;
+        }
+
+        Debug.Log("Current amount: " + currentAmount);
+        Debug.Log("Constant amount: " + totalAmount);
+        float changeAmount = (totalAmount - currentAmount) / (sliders.Length - 1);
+        Debug.Log("Cahnge amount: " + changeAmount);
+        foreach (GameObject slider in sliders) {
+            Slider sScript = slider.GetComponent<Slider>();
+
+            if (sScript != sliderScript) {
+                Debug.Log("Changing slider with: " + sScript.value);
+                Debug.Log("To: " + (sScript.value + changeAmount));
+                sScript.value += changeAmount;
+            }
+        }
+        lastChangedSlider = sliderScript;
+    }
+
+    void Update() {
+        if (constantAmount && lastChangedSlider != null) {
+            KeepSlidersAmount(lastChangedSlider);
         }
     }
 
