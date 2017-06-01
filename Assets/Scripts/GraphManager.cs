@@ -20,7 +20,6 @@ public class GraphManager : MonoBehaviour {
 
     //TODO: change to "void" after textual simulation works properly (IEnumerator is for time delay in simulation)
     public IEnumerator Flow() {
-        yield return new WaitForSeconds(1f);
         ShipComponent[] allComponents = FindObjectsOfType<ShipComponent>();
         Queue<ShipComponent.Output> queue = new Queue<ShipComponent.Output>(); 
 
