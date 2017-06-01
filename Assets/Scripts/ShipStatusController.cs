@@ -7,6 +7,7 @@ namespace Interstalator {
 public class ShipStatusController : MonoBehaviour {
     public enum ShipSystem { Air, Engine, Gravity }
 
+    [Tooltip("UI panel under the canvas should be referenced here")]
     public GameObject statusPanel;
 
     private float startTime;

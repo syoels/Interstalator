@@ -4,8 +4,14 @@ using UnityEngine;
 
 namespace Interstalator {
 public class GraphManager : MonoBehaviour {
+    // Used to access the graph manager globally
+    public static GraphManager instance;
 
-    public void Start() {
+    void Awake() {
+        instance = this;
+    }
+
+    void Start() {
         StartCoroutine(Flow());
     }
 
