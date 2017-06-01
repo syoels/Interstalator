@@ -20,6 +20,9 @@ public class AirGenerator : ShipComponent {
     protected override List<Output> InnerProcess() {
         List<Output> transmissions = new List<Output>();
         SetStatus("Creating air");
+        GraphManager.instance.statusController.SetOk(
+            ShipStatusController.ShipSystem.Air
+        );
         return transmissions;
     }
 }

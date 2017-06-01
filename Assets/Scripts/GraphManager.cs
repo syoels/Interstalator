@@ -6,12 +6,15 @@ namespace Interstalator {
 public class GraphManager : MonoBehaviour {
     // Used to access the graph manager globally
     public static GraphManager instance;
+    public ShipStatusController statusController;
 
     void Awake() {
         instance = this;
+        statusController = GetComponent<ShipStatusController>();
     }
 
     void Start() {
+        statusController.SetProblem(ShipStatusController.ShipSystem.Air, "No air!");
         StartCoroutine(Flow());
     }
 
