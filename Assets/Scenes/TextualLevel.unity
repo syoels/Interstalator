@@ -1300,6 +1300,8 @@ MonoBehaviour:
   children:
   - {fileID: 47321162}
   - {fileID: 48538532}
+  distribution: []
+  switchController: {fileID: 154372078}
 --- !u!4 &1403450008 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4970744642716108, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
@@ -1730,6 +1732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8fcfe2b2291db44190e2ded87e5efee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  statusController: {fileID: 0}
 --- !u!4 &1805941418
 Transform:
   m_ObjectHideFlags: 0
