@@ -68,6 +68,14 @@ public abstract class ShipComponent : MonoBehaviour {
         return isOrigin;
     }
 
+    public virtual bool IsInteractable() {
+        return false;
+    }
+
+    public virtual void Interact() {
+        return;
+    }
+
     /// <summary>
     /// Components should override this method to mark what inputs they have.
     /// Origin components that require no input don't need to override it.

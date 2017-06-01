@@ -14,12 +14,15 @@ public abstract class SwitchCaller {
 
 public class SwitchParametersController : MonoBehaviour {
 
+    // Used to mark this as a singleton
+    public static SwitchParametersController instance;
+
     // Remain static during run
     private GameObject sliderBase;
     private RectTransform panelRect;
 
     // Changes for each component that activates it
-    private SwitchCaller switchComponent;
+    private WaterSwitch switchComponent;
     private GameObject[] sliders;
     private float[] originalDistribution;
     private bool keepConstantAmount;
@@ -29,6 +32,8 @@ public class SwitchParametersController : MonoBehaviour {
     void Awake() {
         panelRect = GetComponent<RectTransform>();
         sliderBase = transform.Find("Slider").gameObject;
+        // TODO: Make this work even though gmae object is inactive
+        instance = this;
     }
 
     // TODO: Remove this
@@ -44,7 +49,7 @@ public class SwitchParametersController : MonoBehaviour {
     /// <param name="switchComponent">Switch component - used to apply the effect on later</param>
     /// <param name="constantAmount">Keep the total sliders amount constant</param>
     public void BringUpSlider(float[] currentDistribution,
-                              SwitchCaller switchComponent,
+                              WaterSwitch switchComponent,
                               bool constantAmount=false) {
         // Show the switch UI
         gameObject.SetActive(true);

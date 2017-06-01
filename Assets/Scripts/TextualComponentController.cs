@@ -4,7 +4,10 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace Interstalator {
-public class TextualComponentController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
+public class TextualComponentController : MonoBehaviour,
+                                          IPointerEnterHandler,
+                                          IPointerExitHandler,
+                                          IPointerClickHandler {
     private const int STATUS_LINE_SIZE = 17;
 
     private Color baseColor;
@@ -13,10 +16,13 @@ public class TextualComponentController : MonoBehaviour, IPointerEnterHandler, I
     private TextMesh nameText;
     private SpriteRenderer graphic;
 
+    private ShipComponent relComponent;
+
     void Awake() {
         graphic = transform.FindChild("Graphic").GetComponent<SpriteRenderer>();
         nameText = transform.FindChild("Name").GetComponent<TextMesh>();
         statusText = transform.FindChild("Status").GetComponent<TextMesh>();
+        relComponent = GetComponent<ShipComponent>();
 
         baseColor = graphic.color;
     }
@@ -47,11 +53,19 @@ public class TextualComponentController : MonoBehaviour, IPointerEnterHandler, I
 
     #region IPointer handlers
     public void OnPointerEnter(PointerEventData eventData) {
-        graphic.color = Color.yellow;
+        if (relComponent.IsInteractable()) {
+            graphic.color = Color.yellow;
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData) {
         graphic.color = baseColor;
+    }
+
+    public void OnPointerClick(PointerEventData eventData) {
+        if (eventData.button == PointerEventData.InputButton.Left) {
+            relComponent.Interact();
+        }
     }
     #endregion
 
