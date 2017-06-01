@@ -1826,6 +1826,11 @@ Prefab:
       propertyPath: m_Name
       value: TextualAirGenerator
       objectReference: {fileID: 0}
+    - target: {fileID: 102421970612078700, guid: 169b4a7e383ef472cbb749aa9c3cfb26,
+        type: 2}
+      propertyPath: m_Text
+      value: Status
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 169b4a7e383ef472cbb749aa9c3cfb26, type: 2}
   m_IsPrefabParent: 0
