@@ -68,5 +68,11 @@ public class WaterSwitch : ShipComponent {
             true
         );
     }
+
+    override public string InteractionDescription {
+        get {
+            return "Change water levels";
+        }
+    }
 }
 }

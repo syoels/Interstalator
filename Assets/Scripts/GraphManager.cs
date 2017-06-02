@@ -11,15 +11,25 @@ public class GraphManager : MonoBehaviour {
     // Used to access the graph manager globally
     public static GraphManager instance;
     public ShipStatusController statusController;
+    private ItemDisplayController displayController;
 
     void Awake() {
         instance = this;
         statusController = GetComponent<ShipStatusController>();
+        displayController = GetComponent<ItemDisplayController>();
     }
 
     void Start() {
         statusController.SetProblem(ShipStatusController.ShipSystem.Air, "No air!");
         Flow();
+    }
+
+    public void SetInteractionDescription(string interaction) {
+        displayController.SetInteraction(interaction);
+    }
+
+    public void CancelInteractionDescription() {
+        displayController.SetInteraction(null);
     }
 
     public void Flow() {

@@ -76,6 +76,8 @@ public abstract class ShipComponent : MonoBehaviour {
         return;
     }
 
+    public virtual string InteractionDescription { get; }
+
     /// <summary>
     /// Components should override this method to mark what inputs they have.
     /// Origin components that require no input don't need to override it.
