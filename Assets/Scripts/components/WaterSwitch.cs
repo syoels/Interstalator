@@ -32,8 +32,6 @@ public class WaterSwitch : ShipComponent {
 
 
     protected override List<Output> InnerProcess() {
-//        float amount = (float)incoming[0].amount / children.Length;
-
         List<Output> outputs = new List<Output>();
         for (int i = 0; i < children.Length; i++) {
             ShipComponent child = children[i];
@@ -53,6 +51,10 @@ public class WaterSwitch : ShipComponent {
     public void ApplyDistribution(float[] newDistribution) {
         Debug.Assert(newDistribution.Length == children.Length);
         distribution = newDistribution;
+        // Used to avoid referenceing null object at the start of the game
+        if (GraphManager.instance != null) {
+            GraphManager.instance.Flow();
+        }
     }
 
     override public bool IsInteractable() {
@@ -60,8 +62,6 @@ public class WaterSwitch : ShipComponent {
     }
 
     override public void Interact() {
-        Debug.Log(GraphManager.instance);
-        Debug.Log(SwitchParametersController.instance);
         switchController.BringUpSlider(
             distribution,
             this,
