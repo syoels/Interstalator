@@ -64,18 +64,35 @@ public abstract class ShipComponent : MonoBehaviour {
         txtControl.SetStatus("Awake");
     }
 
+    /// <summary>
+    /// Used in Graph Manager to check whether to start running the flow from
+    /// this node
+    /// </summary>
     public bool IsOrigin() {
         return isOrigin;
     }
 
+    /// <summary>
+    /// Checks if the player can interact and change this component. Must be
+    /// overriden by components with interactability
+    /// </summary>
     public virtual bool IsInteractable() {
         return false;
     }
 
+    /// <summary>
+    /// Apply some sort of change to this instance or bring something to the
+    /// player.
+    /// </summary>
     public virtual void Interact() {
         return;
     }
 
+    /// <summary>
+    /// Helper method to print to the player what interacting in this specific
+    /// component will do
+    /// </summary>
+    /// <value>The interaction description.</value>
     public virtual string InteractionDescription { get; }
 
     /// <summary>
