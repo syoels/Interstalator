@@ -4,6 +4,10 @@ using UnityEngine;
 
 namespace Interstalator {
 public class GraphManager : MonoBehaviour {
+    // Seconds to wait after processing each component
+    private const float DELAY = 0.5f;
+    private bool runningFlow = false;
+
     // Used to access the graph manager globally
     public static GraphManager instance;
     public ShipStatusController statusController;
@@ -15,11 +19,18 @@ public class GraphManager : MonoBehaviour {
 
     void Start() {
         statusController.SetProblem(ShipStatusController.ShipSystem.Air, "No air!");
-        StartCoroutine(Flow());
+        Flow();
+    }
+
+    public void Flow() {
+        StartCoroutine(FlowRoutine());
     }
 
     //TODO: change to "void" after textual simulation works properly (IEnumerator is for time delay in simulation)
-    public IEnumerator Flow() {
+    private IEnumerator FlowRoutine() {
+        yield return new WaitUntil(() => !runningFlow);
+
+        runningFlow = true;
         ShipComponent[] allComponents = FindObjectsOfType<ShipComponent>();
         Queue<ShipComponent.Output> queue = new Queue<ShipComponent.Output>(); 
 
@@ -47,6 +58,8 @@ public class GraphManager : MonoBehaviour {
                 queue.Enqueue(t);
             }
         }
+
+        runningFlow = false;
 
     }
 
