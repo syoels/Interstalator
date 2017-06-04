@@ -15,8 +15,21 @@ public class GraphManager : MonoBehaviour {
     // accessing statusController
     public ShipStatusController statusController;
 
+    private ItemType heldItem = ItemType.None;
+    public ItemType HeldItem {
+        get {
+            return heldItem;
+        }
+        set {
+            heldItem = value;
+            displayController.SetItem(heldItem.ToString().Replace('_', ' '));
+        }
+    }
+
     private ItemDisplayController displayController;
     private bool runningFlow = false;
+    private GameObject heldItemObject;
+
 
     void Awake() {
         instance = this;
@@ -27,6 +40,24 @@ public class GraphManager : MonoBehaviour {
     void Start() {
         statusController.SetProblem(ShipStatusController.ShipSystem.Air, "No air!");
         Flow();
+    }
+
+    public void GrabItem(TextualItem item) {
+        if (heldItemObject != null) {
+            heldItemObject.SetActive(true);
+        }
+        HeldItem = item.itemType;
+        heldItemObject = item.gameObject;
+        heldItemObject.SetActive(false);
+    }
+
+    public void DropItem() {
+        // Can't drop an item if not holding anything
+        Debug.Assert(HeldItem != ItemType.None);
+        HeldItem = ItemType.None;
+        if (heldItemObject != null) {
+            heldItemObject.SetActive(true);
+        }
     }
 
     public void SetInteractionDescription(string interaction) {

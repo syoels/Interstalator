@@ -19,8 +19,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4894369872637448}
-  - component: {fileID: 114827166061117704}
   - component: {fileID: 61291360314379068}
+  - component: {fileID: 114827166061117704}
   m_Layer: 0
   m_Name: WaterHoze
   m_TagString: Untagged

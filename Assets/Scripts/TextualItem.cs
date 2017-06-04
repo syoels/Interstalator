@@ -5,7 +5,8 @@ using UnityEngine.EventSystems;
 
 namespace Interstalator {
 public enum ItemType {
-    WaterHoze, Tape, NuclearWaste
+    // Names have underscore to easily print them in human readable format
+    None, Water_Hoze, Tape, Nuclear_Waste
 }
 public class TextualItem : MonoBehaviour,
                            IPointerEnterHandler,
@@ -32,6 +33,7 @@ public class TextualItem : MonoBehaviour,
     }
 
     public void OnPointerClick(PointerEventData eventData) {
+        GraphManager.instance.GrabItem(this);
     }
 
     #endregion
