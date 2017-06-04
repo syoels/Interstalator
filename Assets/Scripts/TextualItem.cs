@@ -33,6 +33,7 @@ public class TextualItem : MonoBehaviour,
     }
 
     public void OnPointerClick(PointerEventData eventData) {
+        graphic.color = baseColor;
         GraphManager.instance.GrabItem(this);
     }
 

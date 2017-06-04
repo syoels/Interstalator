@@ -10,10 +10,12 @@ public class ItemDisplayController : MonoBehaviour {
 
     private Text itemText;
     private Text interactionText;
+    private GameObject dropButton;
 
     void Awake() {
         itemText = ItemPanel.transform.Find("ItemName").GetComponent<Text>();
         interactionText = InteractionPanel.transform.Find("Interaction").GetComponent<Text>();
+        dropButton = ItemPanel.transform.Find("Drop").gameObject;
     }
 
     /// <summary>
@@ -21,10 +23,12 @@ public class ItemDisplayController : MonoBehaviour {
     /// </summary>
     /// <param name="item">Item name</param>
     public void SetItem(string item) {
-        if (item == null) {
+        if (item == null || item == "None") {
             itemText.text = "None";
+            dropButton.SetActive(false);
         } else {
             itemText.text = item;
+            dropButton.SetActive(true);
         }
     }
 
