@@ -32,12 +32,19 @@ public class GraphManager : MonoBehaviour {
         displayController.SetInteraction(null);
     }
 
+    /// <summary>
+    /// Runs the flow and updates the state of every component
+    /// </summary>
     public void Flow() {
         StartCoroutine(FlowRoutine());
     }
 
-    //TODO: change to "void" after textual simulation works properly (IEnumerator is for time delay in simulation)
+    /// <summary>
+    /// The main logic of the flow. Runs as a coroutine to allow adding delays
+    /// to play animations
+    /// </summary>
     private IEnumerator FlowRoutine() {
+        // Avoids running two flows at once
         yield return new WaitUntil(() => !runningFlow);
 
         runningFlow = true;
@@ -46,6 +53,7 @@ public class GraphManager : MonoBehaviour {
 
         // Start with origins
         foreach (ShipComponent c in allComponents) {
+            c.ResetIncoming();
             if (c.IsOrigin()) {
                 ShipComponent.Output originComponent = new ShipComponent.Output(c, ElementTypes.None, 0f);
                 queue.Enqueue(originComponent);
@@ -70,7 +78,6 @@ public class GraphManager : MonoBehaviour {
         }
 
         runningFlow = false;
-
     }
 
 
