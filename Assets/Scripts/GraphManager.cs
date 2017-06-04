@@ -6,12 +6,17 @@ namespace Interstalator {
 public class GraphManager : MonoBehaviour {
     // Seconds to wait after processing each component
     private const float DELAY = 0.5f;
-    private bool runningFlow = false;
 
     // Used to access the graph manager globally
     public static GraphManager instance;
+
+    // Used by components to display different ship status
+    // TODO: Make methods in graph/game manager instead of components
+    // accessing statusController
     public ShipStatusController statusController;
+
     private ItemDisplayController displayController;
+    private bool runningFlow = false;
 
     void Awake() {
         instance = this;
