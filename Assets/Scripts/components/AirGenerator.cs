@@ -6,6 +6,7 @@ namespace Interstalator {
 public class AirGenerator : ShipComponent {
 
     public float waterRequirement = 0.3f;
+    public float electricityRequirement = 1f;
 
     protected override string ComponentName {
         get {
@@ -14,25 +15,36 @@ public class AirGenerator : ShipComponent {
     }
 
     protected override void SetRequiredInputs() {
-        AddRequiredInput(ElementTypes.Water);
+        AddRequiredInput(ElementTypes.Water, ElementTypes.Poison);
         AddRequiredInput(ElementTypes.Electricity);
     }
 
 
     protected override List<Output> InnerProcess() {
-        if (incoming[0].amount > waterRequirement) {
-            SetStatus("Creating air");
+        bool notEnoughWater = incoming[0].amount < waterRequirement;
+        bool notEnoughElectrcity = incoming[1].amount < electricityRequirement;
+
+        if (notEnoughWater || notEnoughElectrcity) {
+            GraphManager.instance.statusController.SetProblem(
+                ShipStatusController.ShipSystem.Air,
+                "No air!"
+            );
+            if (notEnoughElectrcity) {
+                SetStatus("Not enough electricity");
+            } else {
+                SetStatus("Not enough water");
+            }
+        } else if (incoming[0].type == ElementTypes.Poison) {
+            GraphManager.instance.statusController.SetProblem(
+                ShipStatusController.ShipSystem.Air,
+                "Posioned air!"
+            );
+        } else {
             GraphManager.instance.statusController.SetOk(
                 ShipStatusController.ShipSystem.Air
             );
-        } else {
-            SetStatus("Not enough water");
-            GraphManager.instance.statusController.SetProblem(
-                ShipStatusController.ShipSystem.Air,
-                "No air"
-            );
+            SetStatus("Generating air");
         }
-
 
         // Not outputtin anything
         return new List<Output>();
