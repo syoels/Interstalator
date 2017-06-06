@@ -5,6 +5,8 @@ using UnityEngine;
 namespace Interstalator {
 public class AirGenerator : ShipComponent {
 
+    public float waterRequirement = 0.3f;
+
     protected override string ComponentName {
         get {
             return "Air Generator";
@@ -18,12 +20,22 @@ public class AirGenerator : ShipComponent {
 
 
     protected override List<Output> InnerProcess() {
-        List<Output> transmissions = new List<Output>();
-        SetStatus("Creating air");
-        GraphManager.instance.statusController.SetOk(
-            ShipStatusController.ShipSystem.Air
-        );
-        return transmissions;
+        if (incoming[0].amount > waterRequirement) {
+            SetStatus("Creating air");
+            GraphManager.instance.statusController.SetOk(
+                ShipStatusController.ShipSystem.Air
+            );
+        } else {
+            SetStatus("Not enough water");
+            GraphManager.instance.statusController.SetProblem(
+                ShipStatusController.ShipSystem.Air,
+                "No air"
+            );
+        }
+
+
+        // Not outputtin anything
+        return new List<Output>();
     }
 }
 }
