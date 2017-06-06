@@ -28,18 +28,25 @@ public abstract class ShipComponent : MonoBehaviour {
     /// Information about the inputs a component expects to receive
     /// </summary>
     public class Input {
-        public ElementTypes[] type;
+        public ElementTypes[] possibleTypes;
+        public ElementTypes? type;
         public bool isReceived;
         public float amount;
 
-        public Input(ElementTypes[] type) {
-            this.type = type; 
-            this.isReceived = true;
+        public Input(ElementTypes[] types) {
+            this.possibleTypes = types; 
+            this.isReceived = false;
         }
 
-        public void Received(float amount) {
+        /// <summary>
+        /// Inserts new values to the input and returns true/false whether they have changed
+        /// </summary>
+        public bool Received(float amount, ElementTypes type) {
+            bool hasChanged = (this.amount != amount) || (this.type != type);
             this.isReceived = true;
             this.amount = amount;
+            this.type = type;
+            return hasChanged;
         }
     }
 
@@ -95,7 +102,7 @@ public abstract class ShipComponent : MonoBehaviour {
     /// component will do
     /// </summary>
     /// <value>The interaction description.</value>
-    public virtual string InteractionDescription { get; }
+    public virtual string InteractionDescription { get { return ""; } }
 
     /// <summary>
     /// Components should override this method to mark what inputs they have.
@@ -124,17 +131,16 @@ public abstract class ShipComponent : MonoBehaviour {
     /// Should be used by manager after every "run" is finished
     /// </summary>
     public void ResetIncoming() {
-        foreach (Input incoming in incoming) {
-            incoming.amount = 0f; 
-            incoming.isReceived = false;
+        foreach (Input incomingInput in incoming) {
+            incomingInput.isReceived = false;
         }
     }
 
     // Returns the number of elements waiting to be recieved
     public int GetRemainingIncoming() {
         int remainingInputs = 0;
-        foreach (Input incoming in incoming) {
-            if (!incoming.isReceived) {
+        foreach (Input incomingInput in incoming) {
+            if (!incomingInput.isReceived) {
                 remainingInputs++;
             }
         }
@@ -163,28 +169,29 @@ public abstract class ShipComponent : MonoBehaviour {
     /// <returns>List of outputs to transfer to the children</returns>
     protected abstract List<Output> InnerProcess();
 
-    // Update inner variables ("current water" etc.)
     /// <summary>
-    /// Updates inner varribles. Returns true if some input was updated
+    /// Updates inner varribles. Returns a float that determines how much delay is needed
+    /// to play the change animataion.
     /// </summary>
-    public bool UpdateInput(ElementTypes type, float amount) {
-
-        txtControl.SetStatus("Trying to add " + amount.ToString() + " " + type.ToString());
-
+    public float UpdateInput(ElementTypes type, float amount) {
         // This can be a problem if shipComponent is waiting for 2 transmissions of the same 
         // type and has to diffrentiate between them. Possible solution: requestSlotNumber from child
-        foreach (Input incoming in incoming) {
-            if (!incoming.isReceived && incoming.type.Contains(type)) {
-                incoming.Received(amount);
-                txtControl.SetStatus("Added" + amount.ToString() + " " + type.ToString());
-                return true;
+        foreach (Input incomingInput in incoming) {
+            if (!incomingInput.isReceived && incomingInput.possibleTypes.Contains(type)) {
+                // Used to check if this is the first update
+                bool firstPass = incomingInput.type == null;
+                bool hasChanged = incomingInput.Received(amount, type);
+                if (!firstPass && hasChanged) {
+                    // TODO: Changed this to the amount of time needed to play the change animation
+                    // (Will be different per element)
+                    return 1f;
+                }
+                return 0f;
             }
         }
 
-        txtControl.SetStatus("No " + type.ToString() + "required");
-
         // No input was updated
-        return false;
+        return 0f;
     }
 }
 }

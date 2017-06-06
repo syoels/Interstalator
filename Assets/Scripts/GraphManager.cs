@@ -4,9 +4,6 @@ using UnityEngine;
 
 namespace Interstalator {
 public class GraphManager : MonoBehaviour {
-    // Seconds to wait after processing each component
-    private const float DELAY = 0.5f;
-
     // Used to access the graph manager globally
     public static GraphManager instance;
 
@@ -97,10 +94,10 @@ public class GraphManager : MonoBehaviour {
         }
 
         while (queue.Count > 0) {
-            yield return new WaitForSeconds(1f);
             ShipComponent.Output transmission = queue.Dequeue();
             ShipComponent curr = transmission.component; 
-            curr.UpdateInput(transmission.type, transmission.amount);
+            float delay = curr.UpdateInput(transmission.type, transmission.amount);
+            yield return new WaitForSeconds(delay);
             int remainingIncoming = curr.GetRemainingIncoming();
             if (remainingIncoming > 0) {
                 curr.SetStatus("Waiting for " + remainingIncoming + " more inputs");
