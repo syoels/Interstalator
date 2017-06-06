@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Interstalator {
 public abstract class GenericPipe : ShipComponent {
-    protected abstract ElementTypes PipeType { get; }
+    protected abstract ElementTypes[] PipeType { get; }
 
     /// <summary>
     /// Pipes only transfer one element type to their children 
@@ -18,11 +18,11 @@ public abstract class GenericPipe : ShipComponent {
 
         List<Output> outputs = new List<Output>();
         foreach (ShipComponent child in children) {
-            Output t = new Output(child, PipeType, amount); 
+            Output t = new Output(child, (ElementTypes)incoming[0].type, amount); 
             outputs.Add(t);
         }
 
-        SetStatus("Transferring " + amount + " " + PipeType);
+        SetStatus("Transferring " + amount + " " + incoming[0].type);
         return outputs;
     }
 }

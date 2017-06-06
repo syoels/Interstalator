@@ -11,9 +11,9 @@ public class ElectricityPipe : GenericPipe {
         }
     }
 
-    protected override ElementTypes PipeType {
+    protected override ElementTypes[] PipeType {
         get {
-            return ElementTypes.Electricity;
+            return new ElementTypes[] { ElementTypes.Electricity };
         }
     }
 }

@@ -11,9 +11,9 @@ public class WaterPipe : GenericPipe {
         }
     }
 
-    protected override ElementTypes PipeType {
+    protected override ElementTypes[] PipeType {
         get {
-            return ElementTypes.Water;
+            return new ElementTypes[] {ElementTypes.Water, ElementTypes.Poison};
         }
     }
 }
