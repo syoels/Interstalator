@@ -101,8 +101,9 @@ public class GraphManager : MonoBehaviour {
             ShipComponent.Output transmission = queue.Dequeue();
             ShipComponent curr = transmission.component; 
             curr.UpdateInput(transmission.type, transmission.amount);
-            if (curr.GetRemainingIncoming().Count > 0) {
-                curr.SetStatus("Waiting for " + curr.GetRemainingIncoming().Count.ToString() + " more inputs");
+            int remainingIncoming = curr.GetRemainingIncoming();
+            if (remainingIncoming > 0) {
+                curr.SetStatus("Waiting for " + remainingIncoming + " more inputs");
                 queue.Enqueue(transmission);
                 continue;
             }
@@ -115,7 +116,5 @@ public class GraphManager : MonoBehaviour {
 
         runningFlow = false;
     }
-
-
 }
 }

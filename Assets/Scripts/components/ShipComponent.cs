@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+// Used to check incoming input
+using System.Linq;
 
 
 namespace Interstalator {
@@ -26,13 +28,13 @@ public abstract class ShipComponent : MonoBehaviour {
     /// Information about the inputs a component expects to receive
     /// </summary>
     public class Input {
-        public ElementTypes type;
+        public ElementTypes[] type;
         public bool isReceived;
         public float amount;
 
-        public Input(ElementTypes type, bool state) {
+        public Input(ElementTypes[] type) {
             this.type = type; 
-            this.isReceived = state;
+            this.isReceived = true;
         }
 
         public void Received(float amount) {
@@ -113,8 +115,8 @@ public abstract class ShipComponent : MonoBehaviour {
     /// <summary>
     /// Adds the given type as a required input and marks it as 'not received'
     /// </summary>
-    protected void AddRequiredInput(ElementTypes type) {
-        incoming.Add(new Input(type, false));
+    protected void AddRequiredInput(params ElementTypes[] type) {
+        incoming.Add(new Input(type));
     }
 
     /// <summary>
@@ -128,13 +130,12 @@ public abstract class ShipComponent : MonoBehaviour {
         }
     }
 
-    // Get all incoming that aren't "false"
-    // TODO: Check if maybe we can change to bool 'HasRemainingIncomin'
-    public List<ElementTypes> GetRemainingIncoming() {
-        List<ElementTypes> remainingInputs = new List<ElementTypes>();
+    // Returns the number of elements waiting to be recieved
+    public int GetRemainingIncoming() {
+        int remainingInputs = 0;
         foreach (Input incoming in incoming) {
             if (!incoming.isReceived) {
-                remainingInputs.Add(incoming.type);
+                remainingInputs++;
             }
         }
         return remainingInputs;
@@ -173,7 +174,7 @@ public abstract class ShipComponent : MonoBehaviour {
         // This can be a problem if shipComponent is waiting for 2 transmissions of the same 
         // type and has to diffrentiate between them. Possible solution: requestSlotNumber from child
         foreach (Input incoming in incoming) {
-            if (!incoming.isReceived && incoming.type == type) {
+            if (!incoming.isReceived && incoming.type.Contains(type)) {
                 incoming.Received(amount);
                 txtControl.SetStatus("Added" + amount.ToString() + " " + type.ToString());
                 return true;
