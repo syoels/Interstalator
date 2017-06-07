@@ -22,7 +22,7 @@ public class SwitchParametersController : MonoBehaviour {
     private RectTransform panelRect;
 
     // Changes for each component that activates it
-    private WaterSwitch switchComponent;
+    private GenericSwitch switchComponent;
     private GameObject[] sliders;
     private float[] originalDistribution;
     private bool keepConstantAmount;
@@ -49,8 +49,8 @@ public class SwitchParametersController : MonoBehaviour {
     /// <param name="switchComponent">Switch component - used to apply the effect on later</param>
     /// <param name="constantAmount">Keep the total sliders amount constant</param>
     public void BringUpSlider(float[] currentDistribution,
-                              WaterSwitch switchComponent,
-                              bool constantAmount=false) {
+                            GenericSwitch switchComponent,
+                            bool constantAmount=false) {
         // Show the switch UI
         gameObject.SetActive(true);
 
