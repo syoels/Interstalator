@@ -83,7 +83,7 @@ public class GraphManager : MonoBehaviour {
         runningFlow = true;
         ShipComponent[] allComponents = FindObjectsOfType<ShipComponent>();
         Queue<ShipComponent.Output> queue = new Queue<ShipComponent.Output>(); 
-        int maxIterations = 1;
+        int maxIterations = allComponents.Length;
         int iterations = 0;
 
         // Start with origins
