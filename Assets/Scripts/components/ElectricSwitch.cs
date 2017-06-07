@@ -2,18 +2,19 @@
 using System;
 
 namespace Interstalator {
-public class WaterSwitch: GenericSwitch {
+public class ElectricSwitch: GenericSwitch {
 
     protected override string ComponentName {
         get {
-            return "Water Switch";
+            return "Electric Switch";
         }
     }
 
     protected override ElementTypes[] SwitchType {
         get {
-            return new ElementTypes[] {ElementTypes.Water};
+            return new ElementTypes[] {ElementTypes.Electricity};
         }
     }
 }
 }
+
