@@ -26,7 +26,8 @@ public class Engine : ShipComponent {
             );
         } else {
             GraphManager.instance.statusController.SetOk(
-                ShipStatusController.ShipSystem.Engine            );
+                ShipStatusController.ShipSystem.Engine
+            );
         }
         ShipComponent[] conveyerBelts = GetChildrenOfType<ConveyorBelt>();
         float ratioPerBelt = incoming[0].amount / conveyerBelts.Length;
