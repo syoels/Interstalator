@@ -12,7 +12,7 @@ public class WaterSwitch: GenericSwitch {
 
     protected override ElementTypes[] SwitchType {
         get {
-            return new ElementTypes[] {ElementTypes.Water};
+            return new ElementTypes[] {ElementTypes.Water, ElementTypes.Poison};
         }
     }
 }
