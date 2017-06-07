@@ -83,7 +83,7 @@ public class GraphManager : MonoBehaviour {
         runningFlow = true;
         ShipComponent[] allComponents = FindObjectsOfType<ShipComponent>();
         Queue<ShipComponent.Output> queue = new Queue<ShipComponent.Output>(); 
-        int maxIterations = allComponents.Length;
+        int maxIterations = allComponents.Length + 1;
         int iterations = 0;
 
         // Start with origins
@@ -113,15 +113,6 @@ public class GraphManager : MonoBehaviour {
             foreach (ShipComponent.Output t in children) {
                 queue.Enqueue(t);
             }
-        }
-
-        // Components that didn't get all their inputs
-        foreach(ShipComponent c in allComponents){
-            int remainingIncoming = c.GetRemainingIncoming();
-            if (remainingIncoming > 0) {
-                c.SetStatus("Did not get " + remainingIncoming + " inputs");
-            }
-
         }
 
         runningFlow = false;
