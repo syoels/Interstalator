@@ -7,6 +7,7 @@ public enum ElementTypes {
     Air,
     Poison,
     NuclearWaste,
+    NuclearWasteRatio,
     None
 }
 }

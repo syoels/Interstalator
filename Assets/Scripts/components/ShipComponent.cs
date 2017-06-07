@@ -126,6 +126,20 @@ public abstract class ShipComponent : MonoBehaviour {
         incoming.Add(new Input(type));
     }
 
+
+    /// <summary>
+    /// Gets Array of children of type T
+    /// </summary>
+    protected ShipComponent[] GetChildrenOfType<T>(){
+        List<ShipComponent> childrenOfTypeT = new List<ShipComponent>();
+        foreach (ShipComponent c in children){
+            if (c is T) {
+                childrenOfTypeT.Add(c);
+            }
+        }
+        return childrenOfTypeT.ToArray();
+    }
+
     /// <summary>
     /// Reset all incoming inputs to false.
     /// Should be used by manager after every "run" is finished
