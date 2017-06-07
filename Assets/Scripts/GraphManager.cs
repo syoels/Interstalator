@@ -83,9 +83,12 @@ public class GraphManager : MonoBehaviour {
         runningFlow = true;
         ShipComponent[] allComponents = FindObjectsOfType<ShipComponent>();
         Queue<ShipComponent.Output> queue = new Queue<ShipComponent.Output>(); 
+        int maxIterations = 1;
+        int iterations = 0;
 
         // Start with origins
         foreach (ShipComponent c in allComponents) {
+            maxIterations += c.GetRemainingIncoming();
             c.ResetIncoming();
             if (c.IsOrigin()) {
                 ShipComponent.Output originComponent = new ShipComponent.Output(c, ElementTypes.None, 0f);
@@ -93,7 +96,8 @@ public class GraphManager : MonoBehaviour {
             }
         }
 
-        while (queue.Count > 0) {
+        while (queue.Count > 0 && iterations <= maxIterations) {
+            iterations += 1;
             ShipComponent.Output transmission = queue.Dequeue();
             ShipComponent curr = transmission.component; 
             float delay = curr.UpdateInput(transmission.type, transmission.amount);
@@ -109,6 +113,15 @@ public class GraphManager : MonoBehaviour {
             foreach (ShipComponent.Output t in children) {
                 queue.Enqueue(t);
             }
+        }
+
+        // Components that didn't get all their inputs
+        foreach(ShipComponent c in allComponents){
+            int remainingIncoming = c.GetRemainingIncoming();
+            if (remainingIncoming > 0) {
+                c.SetStatus("Did not get " + remainingIncoming + " inputs");
+            }
+
         }
 
         runningFlow = false;
