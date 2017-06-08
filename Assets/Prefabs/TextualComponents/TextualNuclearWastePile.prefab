@@ -306,6 +306,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   children: []
   pileSize: 0
+  wastePrefab: {fileID: 1744940628231058, guid: 550d86b5074c4164eb553557610a0d3b,
+    type: 2}
 --- !u!212 &212289607490584052
 SpriteRenderer:
   m_ObjectHideFlags: 1
