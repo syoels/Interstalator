@@ -37,8 +37,9 @@ public class AirGenerator : ShipComponent {
         } else if (incoming[0].type == ElementTypes.Poison) {
             GraphManager.instance.statusController.SetProblem(
                 ShipStatusController.ShipSystem.Air,
-                "Posioned air!"
+                "Posioned!"
             );
+            SetStatus("Generating poisoned air");
         } else {
             GraphManager.instance.statusController.SetOk(
                 ShipStatusController.ShipSystem.Air
@@ -46,7 +47,7 @@ public class AirGenerator : ShipComponent {
             SetStatus("Generating air");
         }
 
-        // Not outputtin anything
+        // Not outputting anything
         return new List<Output>();
     }
 }
