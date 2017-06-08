@@ -22,7 +22,7 @@ public abstract class GenericPipe : ShipComponent {
             outputs.Add(t);
         }
 
-        SetStatus("Transferring " + amount + " " + incoming[0].type);
+        SetStatus("Transferring " + amount.ToString("0.00 ") + incoming[0].type);
         return outputs;
     }
 }

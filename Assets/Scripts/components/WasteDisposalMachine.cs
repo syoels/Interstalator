@@ -36,7 +36,7 @@ public class WasteDisposalMachine : ShipComponent {
             ));
         }
 
-        SetStatus("Failing to dispose of " + outgoingWasteRatio + " waste");
+        SetStatus("Failing to dispose of " + outgoingWasteRatio.ToString("0.00 ") + ElementTypes.WastePerSecond);
         return outputs;
     }
 
