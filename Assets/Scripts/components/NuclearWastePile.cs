@@ -6,6 +6,20 @@ namespace Interstalator {
 public class NuclearWastePile : ShipComponent {
     public int pileSize;
     private const int MAX_PILE_SIZE = 8;
+    private float lastAddTime = 0f;
+    private float wasteRatio = 0f;
+
+    void Update() {
+        if (wasteRatio > 0 && pileSize < MAX_PILE_SIZE) {
+            // How many seconds to wait before increasing pile size
+            float pileIncreaseRate = 1f / wasteRatio;
+            if (Time.time - lastAddTime > pileIncreaseRate) {
+                pileSize = Mathf.Min(pileSize + 1, MAX_PILE_SIZE);
+                lastAddTime = Time.time;
+                GraphManager.instance.Flow();
+            }
+        }
+    }
 
     protected override void SetRequiredInputs() {
         AddRequiredInput(ElementTypes.Water, ElementTypes.Poison);
@@ -13,8 +27,7 @@ public class NuclearWastePile : ShipComponent {
     }
 
     protected override List<Output> InnerProcess() {
-        // As time goes by more and more nuclear waste should be sent here
-        pileSize = Mathf.Min(pileSize + (int)(incoming[1].amount), MAX_PILE_SIZE);
+        wasteRatio = incoming[1].amount;
         List<Output> outputs = new List<Output>();
 
         float distribution = incoming[0].amount / children.Length;
