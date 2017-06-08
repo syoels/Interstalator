@@ -5,6 +5,7 @@ using UnityEngine;
 namespace Interstalator {
 public class NuclearWastePile : ShipComponent {
     public int pileSize;
+    public GameObject wastePrefab;
     private const int MAX_PILE_SIZE = 8;
     private float lastAddTime = 0f;
     private float wasteRatio = 0f;
@@ -50,6 +51,16 @@ public class NuclearWastePile : ShipComponent {
             return "Nuclear Waste Pile";
         }
     }
-    
+
+    public override bool IsInteractable() {
+        return GraphManager.instance.HeldItem == ItemType.None && pileSize > 0;
+    }
+
+    public override void Interact() {
+        GameObject waste = Instantiate(wastePrefab);
+        pileSize--;
+        GraphManager.instance.Flow();
+//        GraphManager.instance.GrabItem(waste.GetComponent<TextualItem>());
+    }
 }
 }
