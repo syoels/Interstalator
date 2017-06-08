@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿  using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -83,12 +83,12 @@ public class GraphManager : MonoBehaviour {
         runningFlow = true;
         ShipComponent[] allComponents = FindObjectsOfType<ShipComponent>();
         Queue<ShipComponent.Output> queue = new Queue<ShipComponent.Output>(); 
-        int maxIterations = allComponents.Length + 1;
-        int iterations = 0;
+//        int maxIterations = allComponents.Length + 1;
+//        int iterations = 0;
 
         // Start with origins
         foreach (ShipComponent c in allComponents) {
-            maxIterations += c.GetRemainingIncoming();
+//            maxIterations += c.GetRemainingIncoming();
             c.ResetIncoming();
             if (c.IsOrigin()) {
                 ShipComponent.Output originComponent = new ShipComponent.Output(c, ElementTypes.None, 0f);
@@ -96,10 +96,12 @@ public class GraphManager : MonoBehaviour {
             }
         }
 
-        while (queue.Count > 0 && iterations <= maxIterations) {
-            iterations += 1;
+//        Debug.Log("Starting flow - max iterations: " + maxIterations);
+//        while (queue.Count > 0 && iterations <= maxIterations) {
+        while(queue.Count > 0) {
+//            iterations += 1;
             ShipComponent.Output transmission = queue.Dequeue();
-            ShipComponent curr = transmission.component; 
+            ShipComponent curr = transmission.component;
             float delay = curr.UpdateInput(transmission.type, transmission.amount);
             yield return new WaitForSeconds(delay);
             int remainingIncoming = curr.GetRemainingIncoming();
@@ -113,6 +115,9 @@ public class GraphManager : MonoBehaviour {
             foreach (ShipComponent.Output t in children) {
                 queue.Enqueue(t);
             }
+        }
+        if (queue.Count > 0) {
+            Debug.Log("Reached max iterations");
         }
 
         runningFlow = false;
