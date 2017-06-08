@@ -43,7 +43,7 @@ public abstract class GenericSwitch : ShipComponent {
         ElementTypes passType = (ElementTypes)incoming[0].type;
         for (int i = 0; i < children.Length; i++) {
             ShipComponent child = children[i];
-            Output t = new Output(child, passType, distribution[i]);
+            Output t = new Output(child, passType, distribution[i] * incoming[0].amount);
             outputs.Add(t);
         }
 
@@ -52,6 +52,7 @@ public abstract class GenericSwitch : ShipComponent {
             textualDistribution += (int)(percentage * 100) + "% - ";
         }
         SetStatus("Distributing " + incoming[0].amount + " " + passType + " by " +
+            // Removing the extra ' - ' from the distribution text
             textualDistribution.Substring(0, textualDistribution.Length - 3));
         return outputs;
     }
