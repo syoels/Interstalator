@@ -106,7 +106,6 @@ public class GraphManager : MonoBehaviour {
             yield return new WaitForSeconds(delay);
             int remainingIncoming = curr.GetRemainingIncoming();
             if (remainingIncoming > 0) {
-                curr.SetStatus("Waiting for " + remainingIncoming + " more inputs");
                 queue.Enqueue(transmission);
                 continue;
             }
