@@ -23,7 +23,7 @@ public class NuclearWastePile : ShipComponent {
 
     protected override void SetRequiredInputs() {
         AddRequiredInput(ElementTypes.Water, ElementTypes.Poison);
-        AddRequiredInput(ElementTypes.NuclearWasteRatio);
+        AddRequiredInput(ElementTypes.WastePerSecond);
     }
 
     protected override List<Output> InnerProcess() {

@@ -13,7 +13,7 @@ public class ConveyorBelt : GenericPipe {
 
     protected override ElementTypes[] PipeType {
         get {
-            return new ElementTypes[] {ElementTypes.NuclearWasteRatio};
+            return new ElementTypes[] {ElementTypes.WastePerSecond};
         }
     }
 }

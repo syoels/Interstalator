@@ -12,7 +12,7 @@ public class WasteDisposalMachine : ShipComponent {
 
     protected override void SetRequiredInputs() {
         AddRequiredInput(ElementTypes.Electricity);
-        AddRequiredInput(ElementTypes.NuclearWasteRatio);
+        AddRequiredInput(ElementTypes.WastePerSecond);
     }
 
     protected override List<Output> InnerProcess() {
@@ -31,7 +31,7 @@ public class WasteDisposalMachine : ShipComponent {
         foreach (ShipComponent child in children) {
             outputs.Add(new Output(
                 child,
-                ElementTypes.NuclearWasteRatio,
+                ElementTypes.WastePerSecond,
                 wastePerChild
             ));
         }

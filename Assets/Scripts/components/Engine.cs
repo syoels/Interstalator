@@ -19,20 +19,24 @@ public class Engine : ShipComponent {
 
     protected override List<Output> InnerProcess() {
         List<Output> transmissions = new List<Output>();
+        float wasteRatio = incoming[0].amount;
         if (incoming[0].amount < minElectricity) {
             GraphManager.instance.statusController.SetProblem(
                 ShipStatusController.ShipSystem.Engine,
                 "Engine stopped"
             );
+            SetStatus("Not enough electricity!");
+            wasteRatio = 0;
         } else {
             GraphManager.instance.statusController.SetOk(
                 ShipStatusController.ShipSystem.Engine
             );
+            SetStatus("Running. Generating " + wasteRatio.ToString("0.00 ") + ElementTypes.WastePerSecond);
         }
-        ShipComponent[] conveyerBelts = GetChildrenOfType<ConveyorBelt>();
-        float ratioPerBelt = incoming[0].amount / conveyerBelts.Length;
-        foreach (ConveyorBelt belt in conveyerBelts) {
-            transmissions.Add(new Output(belt, ElementTypes.NuclearWasteRatio, ratioPerBelt));
+
+        float wastePerChild = wasteRatio / children.Length;
+        foreach (ShipComponent child in children) {
+            transmissions.Add(new Output(child, ElementTypes.WastePerSecond, wastePerChild));
         }
         return transmissions;
     }
