@@ -11,6 +11,7 @@ public class GraphManager : MonoBehaviour {
     // TODO: Make methods in graph/game manager instead of components
     // accessing statusController
     public ShipStatusController statusController;
+    public GameObject itemsContainer;
 
     private ItemType heldItem = ItemType.None;
     public ItemType HeldItem {

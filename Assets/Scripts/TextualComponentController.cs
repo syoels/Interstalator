@@ -68,7 +68,6 @@ public class TextualComponentController : MonoBehaviour,
         if (eventData.button == PointerEventData.InputButton.Left) {
             if (relComponent.IsInteractable()) {
                 relComponent.Interact();
-
             }
         }
     }

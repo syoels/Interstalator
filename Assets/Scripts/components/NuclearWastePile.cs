@@ -57,10 +57,19 @@ public class NuclearWastePile : ShipComponent {
     }
 
     public override void Interact() {
-        GameObject waste = Instantiate(wastePrefab);
+        GameObject waste = Instantiate(
+                               wastePrefab,
+                               GraphManager.instance.itemsContainer.transform
+                           );
         pileSize--;
         GraphManager.instance.Flow();
-//        GraphManager.instance.GrabItem(waste.GetComponent<TextualItem>());
+        GraphManager.instance.GrabItem(waste.GetComponent<TextualItem>());
+    }
+
+    public override string InteractionDescription {
+        get {
+            return "Pick up nuclear waste";
+        }
     }
 }
 }
