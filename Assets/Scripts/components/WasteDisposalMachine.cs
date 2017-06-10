@@ -45,7 +45,8 @@ public class WasteDisposalMachine : ShipComponent {
     }
 
     public override void Interact() {
-        GameObject waste = GraphManager.instance.DropItem();
+        GameObject waste = GraphManager.instance.GetHeldItem();
+        GraphManager.instance.DropItem();
         Destroy(waste);
     }
 

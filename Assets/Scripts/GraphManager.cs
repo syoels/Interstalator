@@ -49,16 +49,19 @@ public class GraphManager : MonoBehaviour {
         heldItemObject.SetActive(false);
     }
 
-    public GameObject DropItem() {
+    public void DropItem() {
         // Can't drop an item if not holding anything
         Debug.Assert(HeldItem != ItemType.None);
         HeldItem = ItemType.None;
-        GameObject currentlyHeldItem = heldItemObject;
-        heldItemObject = null;
-        if (currentlyHeldItem != null) {
-            currentlyHeldItem.SetActive(true);
+        if (heldItemObject != null) {
+            heldItemObject.SetActive(true);
         }
-        return currentlyHeldItem;
+        heldItemObject = null;
+        return;
+    }
+
+    public GameObject GetHeldItem() {
+        return heldItemObject;
     }
 
     public void SetInteractionDescription(string interaction) {

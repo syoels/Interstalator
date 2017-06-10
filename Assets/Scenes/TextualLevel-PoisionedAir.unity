@@ -1368,6 +1368,11 @@ Prefab:
       propertyPath: InteractionPanel
       value: 
       objectReference: {fileID: 623252436}
+    - target: {fileID: 114772756926412928, guid: 4bf3f4644e0c9d040a10ff502476a67a,
+        type: 2}
+      propertyPath: itemsContainer
+      value: 
+      objectReference: {fileID: 928550307}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4bf3f4644e0c9d040a10ff502476a67a, type: 2}
   m_IsPrefabParent: 0
