@@ -53,6 +53,9 @@ public abstract class ShipComponent : MonoBehaviour {
     public ShipComponent[] children;
 
     protected abstract string ComponentName { get; }
+    public override string ToString(){ 
+        return ComponentName;
+    }
 
     // Reuired incoming resources, and have they been received yet
     // TODO: Maybe change to array
