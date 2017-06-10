@@ -113,10 +113,11 @@ public class GraphManager : MonoBehaviour {
             yield return new WaitForSeconds(delay);
             int remainingIncoming = curr.GetRemainingIncoming();
             if (remainingIncoming > 0) {
-                queue.Enqueue(transmission);
+//                queue.Enqueue(transmission);
                 continue;
             }
 
+            Debug.Log("Processing outputs for: " + curr.gameObject.name);
             List<ShipComponent.Output> children = curr.Process();
             foreach (ShipComponent.Output t in children) {
                 queue.Enqueue(t);
