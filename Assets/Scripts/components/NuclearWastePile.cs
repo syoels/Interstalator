@@ -10,6 +10,11 @@ public class NuclearWastePile : ShipComponent {
     private float lastAddTime = 0f;
     private float wasteRatio = 0f;
 
+    // Used to place the nuclear waste on the map 
+    // - used only in textual component and should be deleted
+    private Vector2 wastePosition = new Vector2(23.5f, -9.6f);
+    private const float MAX_WASTE_Y = 2.4f;
+
     void Update() {
         if (wasteRatio > 0 && pileSize < MAX_PILE_SIZE) {
             // How many seconds to wait before increasing pile size
@@ -61,6 +66,13 @@ public class NuclearWastePile : ShipComponent {
                                wastePrefab,
                                GraphManager.instance.itemsContainer.transform
                            );
+        waste.transform.position = wastePosition;
+        wastePosition.y += 2;
+        // Resets the waste drop position (may create objects on top of each other
+        // but the player should realise what's happening by this point
+        if (wastePosition.y > MAX_WASTE_Y) {
+            wastePosition.y = -9.6f;
+        }
         pileSize--;
         GraphManager.instance.Flow();
         GraphManager.instance.GrabItem(waste.GetComponent<TextualItem>());
