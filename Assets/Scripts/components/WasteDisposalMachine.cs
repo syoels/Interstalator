@@ -40,6 +40,20 @@ public class WasteDisposalMachine : ShipComponent {
         return outputs;
     }
 
+    public override bool IsInteractable() {
+        return GraphManager.instance.HeldItem == ItemType.Nuclear_Waste;
+    }
+
+    public override void Interact() {
+        GameObject waste = GraphManager.instance.DropItem();
+        Destroy(waste);
+    }
+
+    public override string InteractionDescription {
+        get {
+            return "Dispose of the held waste";
+        }
+    }
 
 }
 }
