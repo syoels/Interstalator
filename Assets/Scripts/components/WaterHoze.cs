@@ -38,6 +38,8 @@ public class WaterHoze : ShipComponent {
     public override void Interact() {
         connectedChildIndex = (connectedChildIndex + 1) % children.Length;
         GameManager.instance.Flow();
+        // Update interaction display since it should be different now
+        GameManager.instance.interactionDisplay.Set(InteractionDescription);
     }
 
     public override bool IsInteractable() {
