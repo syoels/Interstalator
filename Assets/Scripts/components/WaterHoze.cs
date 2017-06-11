@@ -37,7 +37,7 @@ public class WaterHoze : ShipComponent {
     // Replace child with next possible connect (only works on one child at this point
     public override void Interact() {
         connectedChildIndex = (connectedChildIndex + 1) % children.Length;
-        GraphManager.instance.Flow();
+        GameManager.instance.Flow();
     }
 
     public override bool IsInteractable() {

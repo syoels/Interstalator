@@ -36,7 +36,7 @@ public class WaterLever : ShipComponent {
 
     public override void Interact() {
         activeInput = (activeInput + 1) % incoming.Count;
-        GraphManager.instance.Flow();
+        GameManager.instance.Flow();
     }
 
     public override bool IsInteractable() {

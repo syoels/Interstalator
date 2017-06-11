@@ -21,14 +21,14 @@ public class Engine : ShipComponent {
         List<Output> transmissions = new List<Output>();
         float wasteRatio = incoming[0].amount;
         if (incoming[0].amount < minElectricity) {
-            GraphManager.instance.statusController.SetProblem(
+            GameManager.instance.shipStatus.SetProblem(
                 ShipSystem.Engine,
                 "Engine stopped"
             );
             SetStatus("Not enough electricity!");
             wasteRatio = 0;
         } else {
-            GraphManager.instance.statusController.SetOk(
+            GameManager.instance.shipStatus.SetOk(
                 ShipSystem.Engine
             );
             SetStatus("Running. Generating " + wasteRatio.ToString("0.00 ") + ElementTypes.WastePerSecond);

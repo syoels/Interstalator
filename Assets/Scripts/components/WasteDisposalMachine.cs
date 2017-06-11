@@ -41,12 +41,12 @@ public class WasteDisposalMachine : ShipComponent {
     }
 
     public override bool IsInteractable() {
-        return GraphManager.instance.HeldItem == ItemType.Nuclear_Waste;
+        return GameManager.instance.itemManager.heldItemType == ItemType.Nuclear_Waste;
     }
 
     public override void Interact() {
-        GameObject waste = GraphManager.instance.GetHeldItem();
-        GraphManager.instance.DropItem();
+        GameObject waste = GameManager.instance.itemManager.heldItem.gameObject;
+        GameManager.instance.itemManager.DropItem();
         Destroy(waste);
     }
 

@@ -10,7 +10,7 @@ public class NuclearWastePile : ShipComponent {
     private float lastAddTime = 0f;
     private float wasteRatio = 0f;
 
-    // Used to place the nuclear waste on the map 
+    // Used to place the nuclear waste on the map
     // - used only in textual component and should be deleted
     private Vector2 wastePosition = new Vector2(23.5f, -9.6f);
     private const float MAX_WASTE_Y = 2.4f;
@@ -22,7 +22,7 @@ public class NuclearWastePile : ShipComponent {
             if (Time.time - lastAddTime > pileIncreaseRate) {
                 pileSize = Mathf.Min(pileSize + 1, MAX_PILE_SIZE);
                 lastAddTime = Time.time;
-                GraphManager.instance.Flow();
+                GameManager.instance.Flow();
             }
         }
     }
@@ -58,13 +58,13 @@ public class NuclearWastePile : ShipComponent {
     }
 
     public override bool IsInteractable() {
-        return GraphManager.instance.HeldItem == ItemType.None && pileSize > 0;
+        return GameManager.instance.itemManager.heldItemType == ItemType.None && pileSize > 0;
     }
 
     public override void Interact() {
         GameObject waste = Instantiate(
                                wastePrefab,
-                               GraphManager.instance.itemsContainer.transform
+                               GameManager.instance.itemManager.itemsContainer
                            );
         waste.transform.position = wastePosition;
         wastePosition.y += 2;
@@ -74,8 +74,8 @@ public class NuclearWastePile : ShipComponent {
             wastePosition.y = -9.6f;
         }
         pileSize--;
-        GraphManager.instance.Flow();
-        GraphManager.instance.GrabItem(waste.GetComponent<TextualItem>());
+        GameManager.instance.Flow();
+        GameManager.instance.itemManager.heldItem = waste.GetComponent<TextualItem>();
     }
 
     public override string InteractionDescription {

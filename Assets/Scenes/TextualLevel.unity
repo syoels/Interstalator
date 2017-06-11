@@ -228,98 +228,24 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 114380792224548480, guid: 4bf3f4644e0c9d040a10ff502476a67a,
-        type: 2}
-      propertyPath: statusPanel
-      value: 
-      objectReference: {fileID: 2055509242}
-    - target: {fileID: 114075475954500314, guid: 4bf3f4644e0c9d040a10ff502476a67a,
-        type: 2}
-      propertyPath: ItemPanel
-      value: 
-      objectReference: {fileID: 1756550042}
-    - target: {fileID: 114075475954500314, guid: 4bf3f4644e0c9d040a10ff502476a67a,
+    - target: {fileID: 114988871616405184, guid: 4bf3f4644e0c9d040a10ff502476a67a,
         type: 2}
       propertyPath: InteractionPanel
       value: 
       objectReference: {fileID: 1751390421}
-    - target: {fileID: 1925740012635100, guid: 4bf3f4644e0c9d040a10ff502476a67a, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114772756926412928, guid: 4bf3f4644e0c9d040a10ff502476a67a, type: 2}
-    - {fileID: 114380792224548480, guid: 4bf3f4644e0c9d040a10ff502476a67a, type: 2}
-    - {fileID: 114075475954500314, guid: 4bf3f4644e0c9d040a10ff502476a67a, type: 2}
+    - target: {fileID: 114393646962677326, guid: 4bf3f4644e0c9d040a10ff502476a67a,
+        type: 2}
+      propertyPath: statusPanel
+      value: 
+      objectReference: {fileID: 2055509242}
+    - target: {fileID: 114478750039636850, guid: 4bf3f4644e0c9d040a10ff502476a67a,
+        type: 2}
+      propertyPath: ItemPanel
+      value: 
+      objectReference: {fileID: 1756550042}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4bf3f4644e0c9d040a10ff502476a67a, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &211045846 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1925740012635100, guid: 4bf3f4644e0c9d040a10ff502476a67a,
-    type: 2}
-  m_PrefabInternal: {fileID: 182036638}
---- !u!114 &211045847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 211045846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aca230fd6748e514c9408c9d53501b3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InteractionPanel: {fileID: 1751390421}
---- !u!114 &211045848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 211045846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51a39ae16398f459291bd0f9aa97c536, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  statusPanel: {fileID: 2055509242}
---- !u!114 &211045849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 211045846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77a3608d9351e0e48a3cfc9ecfba4384, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ItemPanel: {fileID: 1756550042}
---- !u!114 &211045850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 211045846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57b7c1a9ad9630344a547decfe29f55d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &211045851
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 211045846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34fc0b345a69f814abed5ca8babc9f14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flowManager: {fileID: 0}
-  itemManager: {fileID: 0}
-  interactionDisplay: {fileID: 0}
-  shipStatus: {fileID: 0}
 --- !u!1001 &260514026
 Prefab:
   m_ObjectHideFlags: 0
