@@ -5,7 +5,6 @@ using UnityEngine;
 namespace Interstalator {
 public abstract class GenericSwitch : ShipComponent {
 
-
     protected abstract ElementTypes[] SwitchType { get; }
     [SerializeField] private float[] distribution;
     public SwitchParametersController switchController;
@@ -33,8 +32,8 @@ public abstract class GenericSwitch : ShipComponent {
         Debug.Assert(newDistribution.Length == children.Length);
         distribution = newDistribution;
         // Used to avoid referenceing null object at the start of the game
-        if (GraphManager.instance != null) {
-            GraphManager.instance.Flow();
+        if (GameManager.instance != null) {
+            GameManager.instance.Flow();
         }
     }
 

@@ -25,7 +25,7 @@ public class AirGenerator : ShipComponent {
         bool notEnoughElectrcity = incoming[1].amount < electricityRequirement;
 
         if (notEnoughWater || notEnoughElectrcity) {
-            GraphManager.instance.statusController.SetProblem(
+            GameManager.instance.shipStatus.SetProblem(
                 ShipSystem.Air,
                 "No air!"
             );
@@ -35,13 +35,13 @@ public class AirGenerator : ShipComponent {
                 SetStatus("Not enough water");
             }
         } else if (incoming[0].type == ElementTypes.Poison) {
-            GraphManager.instance.statusController.SetProblem(
+            GameManager.instance.shipStatus.SetProblem(
                 ShipSystem.Air,
                 "Posioned!"
             );
             SetStatus("Generating poisoned air");
         } else {
-            GraphManager.instance.statusController.SetOk(
+            GameManager.instance.shipStatus.SetOk(
                 ShipSystem.Air
             );
             SetStatus("Generating air");

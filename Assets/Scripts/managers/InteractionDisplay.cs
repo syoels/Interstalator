@@ -20,12 +20,19 @@ public class InteractionDisplay : MonoBehaviour {
     /// Write the description of the currently available interaction
     /// </summary>
     /// <param name="interaction">Interaction description</param>
-    public void SetInteraction(string interaction) {
+    public void Set(string interaction) {
         if (interaction == null) {
             interactionText.text = "None";
         } else {
             interactionText.text = interaction;
         }
+    }
+
+    /// <summary>
+    /// Removes the current interaction text
+    /// </summary>
+    public void Clear() {
+        Set(null);
     }
 }
 }

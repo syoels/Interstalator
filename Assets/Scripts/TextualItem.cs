@@ -22,19 +22,29 @@ public class TextualItem : MonoBehaviour,
         baseColor = graphic.color;
     }
 
+    private bool CanInteract() {
+        return GameManager.instance.itemManager.heldItemType == ItemType.None;
+    }
+
     #region IPointer implementations
 
     public void OnPointerEnter(PointerEventData eventData) {
-        graphic.color = Color.magenta;
+        if (CanInteract()) {
+            graphic.color = Color.magenta;
+            GameManager.instance.interactionDisplay.Set("Pick up " + this.itemType);
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData) {
         graphic.color = baseColor;
+        GameManager.instance.interactionDisplay.Clear();
     }
 
     public void OnPointerClick(PointerEventData eventData) {
-        graphic.color = baseColor;
-        GraphManager.instance.GrabItem(this);
+        if (CanInteract()) {
+            graphic.color = baseColor;
+            GameManager.instance.itemManager.heldItem = this;
+        }
     }
 
     #endregion

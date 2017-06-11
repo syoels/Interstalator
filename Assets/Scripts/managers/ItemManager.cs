@@ -31,6 +31,7 @@ public class ItemManager : MonoBehaviour {
                 dropButton.SetActive(false);
             } else {
                 itemText.text = _heldItem.name;
+                _heldItem.gameObject.SetActive(false);
                 dropButton.SetActive(true);
             }
         }

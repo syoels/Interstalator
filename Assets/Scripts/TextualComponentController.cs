@@ -55,13 +55,13 @@ public class TextualComponentController : MonoBehaviour,
     public void OnPointerEnter(PointerEventData eventData) {
         if (relComponent.IsInteractable()) {
             graphic.color = Color.yellow;
-            GraphManager.instance.SetInteractionDescription(relComponent.InteractionDescription);
+            GameManager.instance.interactionDisplay.Set(relComponent.InteractionDescription);
         }
     }
 
     public void OnPointerExit(PointerEventData eventData) {
         graphic.color = baseColor;
-        GraphManager.instance.CancelInteractionDescription();
+        GameManager.instance.interactionDisplay.Clear();
     }
 
     public void OnPointerClick(PointerEventData eventData) {
