@@ -36,7 +36,6 @@ public class GraphManager : MonoBehaviour {
     }
 
     void Start() {
-        statusController.SetProblem(ShipStatusController.ShipSystem.Air, "No air!");
         Flow();
     }
 
