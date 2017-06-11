@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace Interstalator {
+public enum ShipSystem { Air, Engine, Gravity }
+
 public class ShipStatusController : MonoBehaviour {
-    public enum ShipSystem { Air, Engine, Gravity }
 
     [Tooltip("UI panel under the canvas should be referenced here")]
     public GameObject statusPanel;
 
-    private float startTime;
     private Dictionary<ShipSystem, Text> systemTexts = new Dictionary<ShipSystem, Text>();
 
     void Awake() {
