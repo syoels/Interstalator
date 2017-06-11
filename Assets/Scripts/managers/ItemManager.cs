@@ -8,7 +8,9 @@ namespace Interstalator {
 /// player script should be in charge of these.
 /// </summary>
 public class ItemManager : MonoBehaviour {
-    public GameObject ItemPanel;
+    public GameObject itemPanel;
+    [Tooltip("Used for convinience to place all items in same object in inspector")]
+    public Transform itemsContainer;
 
     private Text itemText;
     private GameObject dropButton;
@@ -30,7 +32,7 @@ public class ItemManager : MonoBehaviour {
                 itemText.text = "None";
                 dropButton.SetActive(false);
             } else {
-                itemText.text = _heldItem.name;
+                itemText.text = _heldItem.itemType.ToString().Replace('_', ' ');
                 _heldItem.gameObject.SetActive(false);
                 dropButton.SetActive(true);
             }
@@ -38,8 +40,8 @@ public class ItemManager : MonoBehaviour {
     }
 
     void Awake() {
-        itemText = ItemPanel.transform.Find("ItemName").GetComponent<Text>();
-        dropButton = ItemPanel.transform.Find("Drop").gameObject;
+        itemText = itemPanel.transform.Find("ItemName").GetComponent<Text>();
+        dropButton = itemPanel.transform.Find("Drop").gameObject;
         // Could be set via editor but this makes sure the button works
         Button dropButtonScript = dropButton.GetComponent<Button>();
         dropButtonScript.onClick.AddListener(DropItem);
