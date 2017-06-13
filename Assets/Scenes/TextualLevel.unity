@@ -243,6 +243,21 @@ Prefab:
       propertyPath: ItemPanel
       value: 
       objectReference: {fileID: 1756550042}
+    - target: {fileID: 114621718963119294, guid: 4bf3f4644e0c9d040a10ff502476a67a,
+        type: 2}
+      propertyPath: switchController
+      value: 
+      objectReference: {fileID: 154372078}
+    - target: {fileID: 114478750039636850, guid: 4bf3f4644e0c9d040a10ff502476a67a,
+        type: 2}
+      propertyPath: itemPanel
+      value: 
+      objectReference: {fileID: 1756550042}
+    - target: {fileID: 114478750039636850, guid: 4bf3f4644e0c9d040a10ff502476a67a,
+        type: 2}
+      propertyPath: itemsContainer
+      value: 
+      objectReference: {fileID: 80999232}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4bf3f4644e0c9d040a10ff502476a67a, type: 2}
   m_IsPrefabParent: 0

@@ -805,7 +805,6 @@ MonoBehaviour:
   distribution:
   - 0.5
   - 0.5
-  switchController: {fileID: 2048706537}
 --- !u!1 &618681772
 GameObject:
   m_ObjectHideFlags: 0
@@ -1493,6 +1492,16 @@ Prefab:
       propertyPath: itemPanel
       value: 
       objectReference: {fileID: 2125582288}
+    - target: {fileID: 114621718963119294, guid: 4bf3f4644e0c9d040a10ff502476a67a,
+        type: 2}
+      propertyPath: switchController
+      value: 
+      objectReference: {fileID: 2048706537}
+    - target: {fileID: 114478750039636850, guid: 4bf3f4644e0c9d040a10ff502476a67a,
+        type: 2}
+      propertyPath: itemsContainer
+      value: 
+      objectReference: {fileID: 928550308}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4bf3f4644e0c9d040a10ff502476a67a, type: 2}
   m_IsPrefabParent: 0
