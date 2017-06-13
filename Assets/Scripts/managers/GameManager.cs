@@ -12,6 +12,7 @@ public class GameManager : MonoSingleton<GameManager> {
     public ItemManager itemManager;
     public InteractionDisplay interactionDisplay;
     public ShipStatusController shipStatus;
+    public SwitchParametersController switchController;
     
     public override void Init() {
         if (flowManager == null) {

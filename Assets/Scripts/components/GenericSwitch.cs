@@ -7,7 +7,6 @@ public abstract class GenericSwitch : ShipComponent {
 
     protected abstract ElementTypes[] SwitchType { get; }
     [SerializeField] private float[] distribution;
-    public SwitchParametersController switchController;
 
     /// <summary>
     /// Switches only transfer one element type to their children 
@@ -61,7 +60,7 @@ public abstract class GenericSwitch : ShipComponent {
     }
 
     override public void Interact() {
-        switchController.BringUpSlider(
+        GameManager.instance.switchController.BringUpSlider(
             distribution,
             this,
             true
