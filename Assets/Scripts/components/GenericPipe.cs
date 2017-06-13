@@ -6,6 +6,10 @@ namespace Interstalator {
 public abstract class GenericPipe : ShipComponent {
     protected abstract ElementTypes[] PipeType { get; }
 
+    public Directions from = Directions.Right;
+    public Directions to = Directions.Left;
+    //TODO: add method to change sprite according to from & to
+
     /// <summary>
     /// Pipes only transfer one element type to their children 
     /// </summary>

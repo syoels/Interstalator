@@ -82,7 +82,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b923daf88661be94693406f31ec4caaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  children: []
+  children:
+  - {fileID: 0}
+  from: 0
+  to: 1
 --- !u!114 &114300019271545000
 MonoBehaviour:
   m_ObjectHideFlags: 1

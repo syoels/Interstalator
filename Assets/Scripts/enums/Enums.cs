@@ -10,5 +10,13 @@ public enum ElementTypes {
     WastePerSecond,
     None
 }
+
+public enum Directions {
+    Right, 
+    Left, 
+    Up, 
+    Down
+}
+
 }
 
