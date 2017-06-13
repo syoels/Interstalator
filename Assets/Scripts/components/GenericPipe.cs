@@ -8,7 +8,8 @@ public abstract class GenericPipe : ShipComponent {
 
     public Directions from = Directions.Right;
     public Directions to = Directions.Left;
-    //TODO: add method to change sprite according to from & to
+    // TODO: add abstract method to change sprite according to "from" & "to" 
+    // (astract because graphics adjustments are different for different pipe types)
 
     /// <summary>
     /// Pipes only transfer one element type to their children 
