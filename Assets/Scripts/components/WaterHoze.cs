@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Interstalator {
-public class WaterHoze : ShipComponent {
+public class WaterHoze : AltShipComponent {
 
     public int connectedChildIndex;
 

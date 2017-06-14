@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Interstalator {
-public class WaterLever : ShipComponent {
+public class WaterLever : AltShipComponent {
 
     public int activeInput = 0;
 

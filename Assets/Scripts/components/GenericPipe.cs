@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Interstalator {
-public abstract class GenericPipe : ShipComponent {
+public abstract class GenericPipe : AltShipComponent {
     protected abstract ElementTypes[] PipeType { get; }
 
     public Directions from = Directions.Right;

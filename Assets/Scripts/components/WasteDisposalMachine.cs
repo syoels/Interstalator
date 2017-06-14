@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Interstalator {
-public class WasteDisposalMachine : ShipComponent {
+public class WasteDisposalMachine : AltShipComponent {
     protected override string ComponentName {
         get {
             return "Waste Disposal";

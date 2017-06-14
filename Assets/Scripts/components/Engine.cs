@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Interstalator {
-public class Engine : ShipComponent {
+public class Engine : AltShipComponent {
 
     public float minElectricity = 0.1f;
 

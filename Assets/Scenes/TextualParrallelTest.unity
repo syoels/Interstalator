@@ -700,6 +700,22 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224552701406826604, guid: b070fe32a629d7541bb1a772d466a607,
     type: 2}
   m_PrefabInternal: {fileID: 104452508}
+--- !u!1 &954379785 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1925740012635100, guid: 4bf3f4644e0c9d040a10ff502476a67a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1286329753}
+--- !u!114 &954379786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 954379785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb313c611938148498b194f12d38ff6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1048151028 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1482158069229812, guid: b6ca7809d77a3de48abb2c21d1f2fcc7,
@@ -869,7 +885,18 @@ Prefab:
       propertyPath: switchController
       value: 
       objectReference: {fileID: 1579350789}
-    m_RemovedComponents: []
+    - target: {fileID: 114829166218619950, guid: 4bf3f4644e0c9d040a10ff502476a67a,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114621718963119294, guid: 4bf3f4644e0c9d040a10ff502476a67a,
+        type: 2}
+      propertyPath: flowManager
+      value: 
+      objectReference: {fileID: 954379786}
+    m_RemovedComponents:
+    - {fileID: 114829166218619950, guid: 4bf3f4644e0c9d040a10ff502476a67a, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 4bf3f4644e0c9d040a10ff502476a67a, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1304868244

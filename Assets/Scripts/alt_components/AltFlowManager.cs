@@ -10,7 +10,8 @@ public class AltFlowManager : FlowManager {
     /// The main logic of the flow. Runs as a coroutine to allow adding delays
     /// to play animations
     /// </summary>
-    private IEnumerator FlowRoutine() {
+    override protected IEnumerator FlowRoutine() {
+        Debug.Log("running new flow!");
         // Avoids running two flows at once
         yield return new WaitUntil(() => !runningFlow);
 

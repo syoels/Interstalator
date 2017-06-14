@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Interstalator {
-public class Garden : ShipComponent {
+public class Garden : AltShipComponent {
 
     protected override string ComponentName {
         get {

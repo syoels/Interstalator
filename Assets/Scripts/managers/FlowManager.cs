@@ -24,7 +24,7 @@ public class FlowManager : MonoBehaviour {
     /// The main logic of the flow. Runs as a coroutine to allow adding delays
     /// to play animations
     /// </summary>
-    private IEnumerator FlowRoutine() {
+    virtual protected IEnumerator FlowRoutine() {
         // Avoids running two flows at once
         yield return new WaitUntil(() => !runningFlow);
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Interstalator {
-public class AirGenerator : ShipComponent {
+public class AirGenerator : AltShipComponent {
 
     public float waterRequirement = 0.3f;
     public float electricityRequirement = 1f;

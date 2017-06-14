@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Interstalator {
-public class NuclearWastePile : ShipComponent {
+public class NuclearWastePile : AltShipComponent {
     public int pileSize;
     public GameObject wastePrefab;
     private const int MAX_PILE_SIZE = 8;

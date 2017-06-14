@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Interstalator {
-public abstract class GenericGenerator : ShipComponent {
+public abstract class GenericGenerator : AltShipComponent {
     public float amount;
 
     protected abstract ElementTypes GeneratorType { get; }

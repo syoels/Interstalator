@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Interstalator {
-public abstract class GenericSwitch : ShipComponent {
+public abstract class GenericSwitch : AltShipComponent {
 
     protected abstract ElementTypes[] SwitchType { get; }
     [SerializeField] private float[] distribution;
