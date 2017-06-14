@@ -5,8 +5,8 @@ using System.Collections.Generic;
 namespace Interstalator {
 public class FlowManager : MonoBehaviour {
 
-    private bool runningFlow = false;
-    private ShipComponent[] allComponents;
+    protected bool runningFlow = false;
+    protected ShipComponent[] allComponents;
 
     void Start() {
         allComponents = FindObjectsOfType<ShipComponent>();
