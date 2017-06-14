@@ -731,6 +731,22 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 424434891}
   m_Script: {fileID: 11500000, guid: 6db470c22221da24a8b147ca3d2f79cf, type: 3}
+--- !u!1 &492947871 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1925740012635100, guid: 4bf3f4644e0c9d040a10ff502476a67a,
+    type: 2}
+  m_PrefabInternal: {fileID: 978983220}
+--- !u!114 &492947872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 492947871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb313c611938148498b194f12d38ff6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &592374338
 Prefab:
   m_ObjectHideFlags: 0
@@ -1496,7 +1512,7 @@ Prefab:
         type: 2}
       propertyPath: flowManager
       value: 
-      objectReference: {fileID: 1900183469}
+      objectReference: {fileID: 0}
     - target: {fileID: 114621718963119294, guid: 4bf3f4644e0c9d040a10ff502476a67a,
         type: 2}
       propertyPath: itemManager
@@ -1517,7 +1533,8 @@ Prefab:
       propertyPath: switchController
       value: 
       objectReference: {fileID: 2048706537}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114829166218619950, guid: 4bf3f4644e0c9d040a10ff502476a67a, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 4bf3f4644e0c9d040a10ff502476a67a, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1002348152 stripped
@@ -2228,12 +2245,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1900183469 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114829166218619950, guid: 4bf3f4644e0c9d040a10ff502476a67a,
-    type: 2}
-  m_PrefabInternal: {fileID: 978983220}
-  m_Script: {fileID: 11500000, guid: 57b7c1a9ad9630344a547decfe29f55d, type: 3}
 --- !u!114 &1900183470 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114478750039636850, guid: 4bf3f4644e0c9d040a10ff502476a67a,
