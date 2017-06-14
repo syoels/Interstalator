@@ -1268,6 +1268,11 @@ Prefab:
       propertyPath: to
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114152438793819722, guid: 38f31dc17a1d0af43957f27c110d1b78,
+        type: 2}
+      propertyPath: children.Array.data[0]
+      value: 
+      objectReference: {fileID: 1766655216}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 38f31dc17a1d0af43957f27c110d1b78, type: 2}
   m_IsPrefabParent: 0
@@ -15485,6 +15490,12 @@ Transform:
   m_PrefabParentObject: {fileID: 4395580249957710, guid: 4d208a0bb297f864f8686af2f72d8d7c,
     type: 2}
   m_PrefabInternal: {fileID: 1761965485}
+--- !u!114 &1766655216 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114152438793819722, guid: 38f31dc17a1d0af43957f27c110d1b78,
+    type: 2}
+  m_PrefabInternal: {fileID: 1396848819}
+  m_Script: {fileID: 11500000, guid: b923daf88661be94693406f31ec4caaf, type: 3}
 --- !u!1001 &1768295326
 Prefab:
   m_ObjectHideFlags: 0
@@ -17002,7 +17013,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1998437099
 SpriteRenderer:
   m_ObjectHideFlags: 0
