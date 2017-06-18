@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4234135673360212}
   - component: {fileID: 212117697410459252}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: step (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4639648823732394}
   - component: {fileID: 212791326097900598}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: step (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4226847170544382}
   - component: {fileID: 212800586741295122}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: step
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4490678775157018}
   - component: {fileID: 212064082426864366}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: step (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4795489768862218}
   - component: {fileID: 212591686701672104}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: step (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,9 +101,9 @@ GameObject:
   - component: {fileID: 4037030880171018}
   - component: {fileID: 61948020254929052}
   - component: {fileID: 114611721622849972}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ladder
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,8 +114,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1654867361262434}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5, y: 0.5, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.5, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4226847170544382}
