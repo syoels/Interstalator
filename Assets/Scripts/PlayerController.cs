@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour {
 
     public float moveSpeed = 240f;
     public float jumpForce = 300;
-    private float currSpeed = 0f;
     private float gravityScale;
     private Animator animator = null;
     private int animatorSpeed = 0;
@@ -23,7 +22,6 @@ public class PlayerController : MonoBehaviour {
 
     protected Rigidbody2D body;
     private ShipComponent closestInteractable;
-    private bool grounded = true;
     private int playerLayer;
 
     private bool isOnLadder = false;
@@ -68,10 +66,6 @@ public class PlayerController : MonoBehaviour {
 
     // Set closest interactable once we're in range
     void OnTriggerStay2D(Collider2D other) {
-        if (other.CompareTag("Floor")) {
-            grounded = true;
-        }
-
         if (other.CompareTag("Ladder")) {
             isOnLadder = true;
         }
@@ -79,12 +73,7 @@ public class PlayerController : MonoBehaviour {
 
     // Change the closest interactable once we're out of range
     void OnTriggerExit2D(Collider2D other) {
-        if (other.CompareTag("Floor")) {
-            grounded = false;
-        }
-
         if (other.CompareTag("Ladder")) {
-            Debug.Log("Exiting ladder!");
             isOnLadder = false;
             isClimbing = false;
         }
@@ -98,7 +87,6 @@ public class PlayerController : MonoBehaviour {
         velocity.x = movement * Time.deltaTime * moveSpeed;
 
         body.velocity = velocity;
-        currSpeed = velocity.x;
         if (animator != null) {
             animator.SetFloat(animatorSpeed, velocity.x);
         }
