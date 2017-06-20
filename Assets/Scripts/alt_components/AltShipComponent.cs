@@ -5,6 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace Interstalator {
+/// <summary>
+/// Subclass of ship component that allows processing using coroutines.
+/// TODO: Merge this into ship component since all components inherit this one
+/// anyway
+/// </summary>
 public abstract class AltShipComponent : ShipComponent {
     private bool _isProcessing = false;
     public bool isProcessing {

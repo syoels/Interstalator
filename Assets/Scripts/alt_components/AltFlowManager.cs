@@ -3,6 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 
 namespace Interstalator {
+/// <summary>
+/// Small change to flow manager that should be incorportated in the main flow
+/// manager
+/// </summary>
 public class AltFlowManager : FlowManager {
     private List<AltShipComponent> originList = new List<AltShipComponent>();
 
