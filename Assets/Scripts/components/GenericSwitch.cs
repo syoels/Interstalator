@@ -69,7 +69,8 @@ public abstract class GenericSwitch : AltShipComponent {
 
     override public string InteractionDescription {
         get {
-            return "Change " + (ElementTypes)incoming[0].type + " levels";
+            string t = (incoming[0].type == null) ? "NONE" : incoming[0].type.ToString();
+            return "Change " + t + " levels";
         }
     }
 
