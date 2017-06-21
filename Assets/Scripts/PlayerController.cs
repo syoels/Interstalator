@@ -61,6 +61,8 @@ public class PlayerController : MonoBehaviour {
             Vector2 velocity = body.velocity;
             velocity.y = vMovement * Time.deltaTime * moveSpeed;
             body.velocity = velocity;
+        } else {
+            animator.SetFloat(animatorSpeed, Mathf.Abs(body.velocity.x));
         }
     }
 

@@ -6,7 +6,6 @@ using System.Linq;
 
 
 namespace Interstalator {
-[RequireComponent(typeof(TextualComponentController))]
 public abstract class ShipComponent : MonoBehaviour {
 
     /// <summary>
