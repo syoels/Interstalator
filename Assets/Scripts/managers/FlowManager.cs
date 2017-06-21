@@ -44,7 +44,8 @@ public class FlowManager : MonoBehaviour {
         while(queue.Count > 0) {
             ShipComponent.Output transmission = queue.Dequeue();
             ShipComponent curr = transmission.component;
-            float delay = curr.UpdateInput(transmission.type, transmission.amount);
+            curr.UpdateInput(transmission.type, transmission.amount);
+            float delay = 0f;
             yield return new WaitForSeconds(delay);
             int remainingIncoming = curr.GetRemainingIncoming();
             if (remainingIncoming > 0) {

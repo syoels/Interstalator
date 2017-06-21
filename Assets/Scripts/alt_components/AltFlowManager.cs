@@ -23,7 +23,7 @@ public class AltFlowManager : FlowManager {
             altComp.ResetIncoming();
             if (altComp.IsOrigin()) {
                 originList.Add(altComp);
-                StartCoroutine(altComp.StartProcessing(0));
+                StartCoroutine(altComp.StartProcessing());
             }
         }
 

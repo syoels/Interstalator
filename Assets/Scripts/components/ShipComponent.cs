@@ -64,8 +64,51 @@ public abstract class ShipComponent : MonoBehaviour {
     private TextualComponentController txtControl;
     private bool isOrigin = false;
 
+    // Animation related
+    protected Animator anim; 
+    protected void SetAnimationBoolParam(string id, bool val){
+        int hashedId = Animator.StringToHash(id);
+        anim.SetBool(hashedId, val);
+    }
+    protected void SetAnimationFloatParam(string id, float val){
+        int hashedId = Animator.StringToHash(id);
+        anim.SetFloat(hashedId, val);
+    }
+    protected void SetAnimationIntParam(string id, int val){
+        int hashedId = Animator.StringToHash(id);
+        anim.SetInteger(hashedId, val);
+    }
+
+    protected virtual void SetAnimationParams(){
+        //Default: no animation.
+    }
+
+    /// <summary>
+    /// If current animation requires wait - return remaining secinds to end
+    /// otherwise, return 0. 
+    /// </summary>
+    protected float GetRemainingAnimationTime(){
+        float defaultWaitTime = 0.5f;
+        if (anim == null) {
+            return defaultWaitTime;
+        }
+        int idx = anim.GetLayerIndex("Base Layer");
+        AnimatorStateInfo currState = anim.GetCurrentAnimatorStateInfo(idx);
+        if (!currState.IsTag("wait")) {
+            return 0f;
+        } else {
+            AnimatorClipInfo[] currPlayingClips = anim.GetCurrentAnimatorClipInfo(idx);
+            if (currPlayingClips.Length == 0) { return defaultWaitTime; }
+            float clipLength = currPlayingClips[0].clip.length;
+            float stateElapsedTime = currState.length;
+            float remainingTime = clipLength - (stateElapsedTime % clipLength);
+            return remainingTime;
+        }
+    }
+
     void Awake() {
         txtControl = GetComponent<TextualComponentController>();
+        anim = GetComponent<Animator>();
         incoming = new List<Input>();
         SetRequiredInputs();
         isOrigin = SetIsOrigin();
@@ -190,25 +233,14 @@ public abstract class ShipComponent : MonoBehaviour {
     /// Updates inner varribles. Returns a float that determines how much delay is needed
     /// to play the change animataion.
     /// </summary>
-    public float UpdateInput(ElementTypes type, float amount) {
+    public void UpdateInput(ElementTypes type, float amount) {
         // This can be a problem if shipComponent is waiting for 2 transmissions of the same 
         // type and has to diffrentiate between them. Possible solution: requestSlotNumber from child
         foreach (Input incomingInput in incoming) {
             if (!incomingInput.isReceived && incomingInput.possibleTypes.Contains(type)) {
-                // Used to check if this is the first update
-                bool firstPass = incomingInput.type == null;
-                bool hasChanged = incomingInput.Received(amount, type);
-                if (!firstPass && hasChanged) {
-                    // TODO: Changed this to the amount of time needed to play the change animation
-                    // (Will be different per element)
-                    return 1f;
-                }
-                return 0f;
+                incomingInput.Received(amount, type);
             }
         }
-
-        // No input was updated
-        return 0f;
     }
 }
 }
