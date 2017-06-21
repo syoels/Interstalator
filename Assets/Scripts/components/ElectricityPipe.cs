@@ -16,5 +16,9 @@ public class ElectricityPipe : GenericPipe {
             return new ElementTypes[] { ElementTypes.Electricity };
         }
     }
+
+    protected override void SetAnimationParams(){
+        this.SetAnimationFloatParam("electricity", 2f);
+    }
 }
 }
