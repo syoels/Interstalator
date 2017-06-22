@@ -19,10 +19,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4680102691538502}
-  - component: {fileID: 61242441960521306}
   - component: {fileID: 50637859789062730}
   - component: {fileID: 114465588971067190}
   - component: {fileID: 95693641128280242}
+  - component: {fileID: 70269785080901808}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -93,8 +93,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &61242441960521306
-BoxCollider2D:
+--- !u!70 &70269785080901808
+CapsuleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -104,9 +104,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0.023245335}
-  serializedVersion: 2
-  m_Size: {x: 0.73, y: 2.0464907}
+  m_Offset: {x: 0.05, y: 0}
+  m_Size: {x: 0.8, y: 2}
+  m_Direction: 0
 --- !u!95 &95693641128280242
 Animator:
   serializedVersion: 3
