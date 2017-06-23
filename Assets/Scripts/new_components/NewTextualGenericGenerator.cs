@@ -7,7 +7,7 @@ public class NewTextualGenericGenerator :  NewTextualShipComponent {
     public ElementTypes type;
 
     protected override NewShipComponentOutput[] InnerProcess() {
-        SetStatus("Sending " + amount.ToString("0.0") + " " + type);
+        SetStatus("Generating " + amount.ToString("0.0 ") + type);
         return DistributeAmongChildren(type, amount);
     }
 }
