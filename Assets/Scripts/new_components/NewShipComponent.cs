@@ -18,7 +18,7 @@ public abstract class NewShipComponent : MonoBehaviour {
         }
     }
 
-    void Awake() {
+    protected void Awake() {
         // Define inputs and outputs
         outputs = new NewShipComponentOutput[children.Length];
         for (int i = 0; i < children.Length; i++) {
@@ -83,6 +83,11 @@ public abstract class NewShipComponent : MonoBehaviour {
     // Main function that holds the logic for each component
     protected abstract NewShipComponentOutput[] InnerProcess();
 
+    // Checks how long we should wait before updating the children
+    protected abstract float SetProcessingDelay();
+
+    // Main processing function that processes this component and
+    // it's children
     public IEnumerator Process () {
         Debug.Assert(GetAwaitingInputs() == 0);
         yield return new WaitUntil(() => (!isProcessing));
@@ -99,7 +104,9 @@ public abstract class NewShipComponent : MonoBehaviour {
             }
         }
         _isProcessing = false;
-
     }
+
+    // These methods are used by Interactable
+    abstract public void SetGlow(bool isGlowing);
 }
 }
