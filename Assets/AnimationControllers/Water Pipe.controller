@@ -260,7 +260,7 @@ AnimatorStateTransition:
     m_ConditionEvent: fromWater
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: fromWater
+    m_ConditionEvent: fromPoison
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: toWater
@@ -296,7 +296,7 @@ AnimatorStateTransition:
     m_ConditionEvent: fromWater
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: fromWater
+    m_ConditionEvent: fromPoison
     m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: toPoison
