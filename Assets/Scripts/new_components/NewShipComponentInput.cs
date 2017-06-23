@@ -5,15 +5,12 @@ public class NewShipComponentInput {
     public ElementTypes type;
     public float amount;
     public bool received;
-    public bool assigned {
-        get {
-            return type == null;
-        }
-    }
+    public bool assigned;
 
     public NewShipComponentInput(ElementTypes[] possibleTypes) {
         this.possibleTypes = possibleTypes;
         received = false;
+        assigned = false;
     }
 
     public bool IsTypeOK(ElementTypes type) {

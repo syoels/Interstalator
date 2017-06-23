@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace Interstalator {
 public abstract class NewShipComponent : MonoBehaviour {
-    [SerializeField]private NewShipComponent[] children;
+    public NewShipComponent[] children;
     private NewShipComponentInput[] inputs;
     private NewShipComponentOutput[] outputs;
     private bool _isProcessing;
@@ -20,14 +20,14 @@ public abstract class NewShipComponent : MonoBehaviour {
 
     void Awake() {
         // Define inputs and outputs
-        outputs = new NewShipComponentOutput[children.Length]();
+        outputs = new NewShipComponentOutput[children.Length];
         for (int i = 0; i < children.Length; i++) {
             NewShipComponent child = children[i];
             outputs[i] = new NewShipComponentOutput(child);
         }
 
         ElementTypes[][] possibleInputTypes = DefineInputs();
-        inputs = new NewShipComponentInput[possibleInputTypes.Length]();
+        inputs = new NewShipComponentInput[possibleInputTypes.Length];
         for (int i = 0; i < possibleInputTypes.Length; i++) {
             inputs[i] = new NewShipComponentInput(possibleInputTypes[i]);
         }
@@ -46,17 +46,19 @@ public abstract class NewShipComponent : MonoBehaviour {
     }
 
     // Insert new inputs to the component
-    public int UpdateInput(ElementTypes type, float amount, int index=null) {
-        if (index != null && !inputs[index].received) {
+    public int UpdateInput(ElementTypes type, float amount, int index) {
+        if (index != -1 && !inputs[index].received) {
             // TODO: Maybe check here if inputs have changed
             inputs[index].type = type;
             inputs[index].amount = amount;
+            return index;
         } else {
             // Should only happen in the initial flow
             for (int i = 0; i < inputs.Length; i++) {
                 if (inputs[i].IsTypeOK(type) && !inputs[i].received && !inputs[i].assigned) {
                     inputs[i].type = type;
                     inputs[i].amount = amount;
+                    inputs[i].assigned = true;
                     // Gives the input index for future updates
                     return i;
                 }
@@ -66,7 +68,6 @@ public abstract class NewShipComponent : MonoBehaviour {
         throw new UnityException(
             gameObject.name  + " does not have available input for given type: " + type
         );
-        return null;
     }
 
     public int GetAwaitingInputs() {
@@ -84,7 +85,7 @@ public abstract class NewShipComponent : MonoBehaviour {
 
     public IEnumerator Process () {
         Debug.Assert(GetAwaitingInputs() == 0);
-        yield return new WaitUntil(!isProcessing);
+        yield return new WaitUntil(() => (!isProcessing));
         _isProcessing = true;
 
         NewShipComponentOutput[] outputs = InnerProcess();

@@ -8,8 +8,10 @@ public class NewShipComponentOutput {
     private ElementTypes type;
     private float amount;
 
-    public NewShipComponentOutput(ShipComponent comp) {
+    public NewShipComponentOutput(NewShipComponent comp) {
         this._component = comp; 
+        // Dummy value - means the index is not set
+        inputIndex = -1;
     }
 
     public void Set(ElementTypes type, float amount) {
@@ -18,12 +20,7 @@ public class NewShipComponentOutput {
     }
 
     public void Send() {
-        Debug.Assert(type != null && amount != null, "Output parameters not defined", this);
-        if (this.inputIndex != null) {
-            _component.UpdateInput(this.type, this.amount, inputIndex);
-        } else {
-            inputIndex = _component.UpdateInput(this.type, this.amount);
-        }
+        inputIndex = _component.UpdateInput(type, amount, inputIndex);
     }
 }
 }
