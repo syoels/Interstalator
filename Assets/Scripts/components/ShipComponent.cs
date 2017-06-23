@@ -75,6 +75,11 @@ public abstract class ShipComponent : MonoBehaviour {
         int hashedId = Animator.StringToHash(id);
         anim.SetFloat(hashedId, val);
     }
+    protected void SetAnimationTriggerParam(string id){
+        if (anim == null) { return; }
+        int hashedId = Animator.StringToHash(id);
+        anim.SetTrigger(hashedId);
+    }
     protected void SetAnimationIntParam(string id, int val){
 		if (anim == null) { return; }
         int hashedId = Animator.StringToHash(id);
@@ -96,7 +101,8 @@ public abstract class ShipComponent : MonoBehaviour {
         }
         int idx = anim.GetLayerIndex("Base Layer");
         AnimatorStateInfo currState = anim.GetCurrentAnimatorStateInfo(idx);
-        if (!currState.IsTag("wait")) {
+        ComponentStateController animController = anim.GetBehaviour<ComponentStateController>();
+        if (!animController.requiresWait) {
             return 0f;
         } else {
             AnimatorClipInfo[] currPlayingClips = anim.GetCurrentAnimatorClipInfo(idx);
@@ -117,8 +123,10 @@ public abstract class ShipComponent : MonoBehaviour {
     }
 
     protected void Start() {
-        txtControl.SetName(ComponentName);
-        txtControl.SetStatus("Awake");
+        if (txtControl != null) {
+            txtControl.SetName(ComponentName);
+            txtControl.SetStatus("Awake");
+        }
     }
 
     /// <summary>
@@ -216,13 +224,17 @@ public abstract class ShipComponent : MonoBehaviour {
     /// </summary>
     // TODO: Examine if we want to know which child should get what output
     public List<Output> Process() {
-        txtControl.SetStatus("Start Processing");
+        if (txtControl != null) {
+            txtControl.SetStatus("Start Processing");
+        }
         return InnerProcess();
     }
 
     //TODO: delete after textual level is finished
     public void SetStatus(string status) {
-        txtControl.SetStatus(status);
+        if (txtControl != null) {
+            txtControl.SetStatus(status);
+        }
     }
 
     /// <summary>
