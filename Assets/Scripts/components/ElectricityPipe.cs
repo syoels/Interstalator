@@ -18,6 +18,7 @@ public class ElectricityPipe : GenericPipe {
     }
 
     protected override void SetAnimationParams(){
+		base.SetAnimationParams();
         this.SetAnimationFloatParam("electricity", 2f);
     }
 }

@@ -66,14 +66,17 @@ public abstract class ShipComponent : MonoBehaviour {
     // Animation related
     protected Animator anim; 
     protected void SetAnimationBoolParam(string id, bool val){
+		if (anim == null) { return; }
         int hashedId = Animator.StringToHash(id);
         anim.SetBool(hashedId, val);
     }
     protected void SetAnimationFloatParam(string id, float val){
+		if (anim == null) { return; }
         int hashedId = Animator.StringToHash(id);
         anim.SetFloat(hashedId, val);
     }
     protected void SetAnimationIntParam(string id, int val){
+		if (anim == null) { return; }
         int hashedId = Animator.StringToHash(id);
         anim.SetInteger(hashedId, val);
     }
