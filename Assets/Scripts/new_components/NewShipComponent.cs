@@ -18,6 +18,12 @@ public abstract class NewShipComponent : MonoBehaviour {
         }
     }
 
+    public bool isOrigin {
+        get {
+            return inputs.Length == 0;
+        }
+    }
+
     protected void Awake() {
         // Define inputs and outputs
         outputs = new NewShipComponentOutput[children.Length];
