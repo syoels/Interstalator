@@ -3,10 +3,13 @@ using System.Collections;
 
 namespace Interstalator {
 public abstract class NewShipComponent : MonoBehaviour {
+    #region variables and properties
     public NewShipComponent[] children;
-    private NewShipComponentInput[] inputs;
-    private NewShipComponentOutput[] outputs;
+    protected NewShipComponentInput[] inputs;
+    protected NewShipComponentOutput[] outputs;
     private bool _isProcessing;
+    protected bool stateChanged;
+
     public bool isProcessing {
         get {
             foreach (NewShipComponent child in children) {
@@ -23,6 +26,7 @@ public abstract class NewShipComponent : MonoBehaviour {
             return inputs.Length == 0;
         }
     }
+    #endregion
 
     protected void Awake() {
         // Define inputs and outputs
@@ -39,6 +43,7 @@ public abstract class NewShipComponent : MonoBehaviour {
         }
     }
 
+    #region input methods
     // Used by ship component to build the initial inputs list
     virtual protected ElementTypes[][] DefineInputs() {
         return new ElementTypes[0][];
@@ -46,6 +51,7 @@ public abstract class NewShipComponent : MonoBehaviour {
 
     // Mark inputs as not received to allow running the next flow
     public void ResetInputs() {
+        stateChanged = false;
         foreach (NewShipComponentInput input in inputs) {
             input.received = false;
         }
@@ -54,9 +60,8 @@ public abstract class NewShipComponent : MonoBehaviour {
     // Insert new inputs to the component
     public int UpdateInput(ElementTypes type, float amount, int index) {
         if (index != -1 && !inputs[index].received) {
-            // TODO: Maybe check here if inputs have changed
-            inputs[index].type = type;
-            inputs[index].amount = amount;
+            // Mark if there were changes to the inputs
+            stateChanged = (stateChanged || inputs[index].Set(type, amount));
             return index;
         } else {
             // Should only happen in the initial flow
@@ -85,7 +90,9 @@ public abstract class NewShipComponent : MonoBehaviour {
         }
         return waitingInputs;
     }
+    #endregion
 
+    #region processing methods
     // Main function that holds the logic for each component
     protected abstract NewShipComponentOutput[] InnerProcess();
 
@@ -110,6 +117,16 @@ public abstract class NewShipComponent : MonoBehaviour {
             }
         }
         _isProcessing = false;
+    }
+    #endregion
+
+    // Helper method for components
+    protected NewShipComponentOutput[] DistributeAmongChildren(ElementTypes type, float amount) {
+        float amountPerChild = amount / children.Length;
+        foreach (NewShipComponentOutput output in outputs) {
+            output.Set(type, amountPerChild);
+        }
+        return outputs;
     }
 
     // These methods are used by Interactable
