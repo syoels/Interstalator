@@ -1,4 +1,5 @@
-﻿
+﻿using UnityEngine;
+
 namespace Interstalator {
 public class NewShipComponentInput {
     private ElementTypes[] possibleTypes;
@@ -20,6 +21,16 @@ public class NewShipComponentInput {
             }
         }
         return false;
+    }
+
+    public bool Set(ElementTypes type, float amount) {
+        if (!IsTypeOK(type)) {
+            throw new UnityException("Got input of wrong type: " + type);
+        }
+        bool changed = (type != this.type || amount != this.amount);
+        this.type = type;
+        this.amount = amount;
+        return changed;
     }
 }
 }
