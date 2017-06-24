@@ -13,7 +13,7 @@ public abstract class NewShipComponent : MonoBehaviour {
     public bool isProcessing {
         get {
             foreach (NewShipComponent child in children) {
-                if (child.isProcessing) {
+                if (_isProcessing) {
                     return true;
                 }
             }
@@ -29,6 +29,7 @@ public abstract class NewShipComponent : MonoBehaviour {
     #endregion
 
     protected void Awake() {
+        _isProcessing = false;
         // Define inputs and outputs
         outputs = new NewShipComponentOutput[children.Length];
         for (int i = 0; i < children.Length; i++) {
@@ -46,7 +47,7 @@ public abstract class NewShipComponent : MonoBehaviour {
     #region input methods
     // Used by ship component to build the initial inputs list
     virtual protected ElementTypes[][] DefineInputs() {
-        return new ElementTypes[0][];
+        return new ElementTypes[][] {};
     }
 
     // Mark inputs as not received to allow running the next flow
@@ -109,6 +110,8 @@ public abstract class NewShipComponent : MonoBehaviour {
         NewShipComponentOutput[] outputs = InnerProcess();
         // TODO: Add delay here
 
+        _isProcessing = false;
+
         foreach (NewShipComponentOutput output in outputs) {
             output.Send();
             NewShipComponent child = output.component;
@@ -116,7 +119,7 @@ public abstract class NewShipComponent : MonoBehaviour {
                 StartCoroutine(child.Process());
             }
         }
-        _isProcessing = false;
+
     }
     #endregion
 
