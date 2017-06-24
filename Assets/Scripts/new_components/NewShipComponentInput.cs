@@ -30,6 +30,7 @@ public class NewShipComponentInput {
         bool changed = (type != this.type || amount != this.amount);
         this.type = type;
         this.amount = amount;
+        this.received = true;
         return changed;
     }
 }

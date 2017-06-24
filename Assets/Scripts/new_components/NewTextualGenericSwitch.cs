@@ -7,7 +7,7 @@ public class NewTextualGenericSwitch : NewTextualShipComponent {
     [SerializeField] private float[] distribution;
 
     protected override ElementTypes[][] DefineInputs() {
-        return new ElementTypes[][] { switchElements };
+        return new ElementTypes[1][] { switchElements };
     }
 
     private void InitDistribution(){

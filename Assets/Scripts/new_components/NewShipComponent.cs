@@ -68,8 +68,7 @@ public abstract class NewShipComponent : MonoBehaviour {
             // Should only happen in the initial flow
             for (int i = 0; i < inputs.Length; i++) {
                 if (inputs[i].IsTypeOK(type) && !inputs[i].received && !inputs[i].assigned) {
-                    inputs[i].type = type;
-                    inputs[i].amount = amount;
+                    inputs[i].Set(type, amount);
                     inputs[i].assigned = true;
                     // Gives the input index for future updates
                     return i;
