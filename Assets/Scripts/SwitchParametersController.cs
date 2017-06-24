@@ -6,10 +6,8 @@ using UnityEngine.UI;
 
 namespace Interstalator {
 
-public abstract class SwitchCaller {
-    public SwitchParametersController switchController;
-
-    public abstract void ApplyDistribution(float[] newDistribution);
+public interface SwitchCaller {
+    void ApplyDistribution(float[] newDistribution);
 }
 
 public class SwitchParametersController : MonoBehaviour {
@@ -22,7 +20,7 @@ public class SwitchParametersController : MonoBehaviour {
     private RectTransform panelRect;
 
     // Changes for each component that activates it
-    private GenericSwitch switchComponent;
+    private SwitchCaller switchComponent;
     private GameObject[] sliders;
     private float[] originalDistribution;
     private bool keepConstantAmount;
@@ -49,8 +47,8 @@ public class SwitchParametersController : MonoBehaviour {
     /// <param name="switchComponent">Switch component - used to apply the effect on later</param>
     /// <param name="constantAmount">Keep the total sliders amount constant</param>
     public void BringUpSlider(float[] currentDistribution,
-                            GenericSwitch switchComponent,
-                            bool constantAmount=false) {
+                              SwitchCaller switchComponent,
+                              bool constantAmount=false) {
         // Show the switch UI
         gameObject.SetActive(true);
 
