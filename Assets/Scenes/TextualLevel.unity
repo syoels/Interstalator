@@ -1409,9 +1409,18 @@ MonoBehaviour:
   - {fileID: 47321162}
   - {fileID: 567148574}
   switchElements: 0000000003000000
-  distribution:
-  - 0.9
-  - 0.1
+  _distribution: []
+--- !u!114 &1398801227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1398801224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0b9489ca18e04f43b249e57801eac7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1403450008 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4504227379418422, guid: 3a81d9af17fcc461a9fb511d2d5fdda3,
