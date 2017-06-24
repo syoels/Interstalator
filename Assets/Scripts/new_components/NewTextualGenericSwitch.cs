@@ -2,28 +2,33 @@
 using System.Collections;
 
 namespace Interstalator {
-public class NewTextualGenericSwitch : NewTextualShipComponent {
+public class NewTextualGenericSwitch : NewTextualShipComponent, SwitchCaller {
     [SerializeField] private ElementTypes[] switchElements;
-    [SerializeField] private float[] distribution;
+    [SerializeField] private float[] _distribution;
+    public float[] distribution {
+        get {
+            return _distribution;
+        }
+    }
 
     protected override ElementTypes[][] DefineInputs() {
+        InitDistribution();
         return new ElementTypes[1][] { switchElements };
     }
 
     private void InitDistribution(){
-        if (distribution.Length != children.Length) {
-            distribution = new float[children.Length];
+        if (_distribution.Length != children.Length) {
+            _distribution = new float[children.Length];
             float division = 1f / children.Length;
             for (int i = 0; i < children.Length; i++) {
-                distribution[i] = division;
+                _distribution[i] = division;
             }
         }
-        ApplyDistribution(distribution);
     }
 
     public void ApplyDistribution(float[] newDistribution) {
         Debug.Assert(newDistribution.Length == children.Length);
-        distribution = newDistribution;
+        _distribution = newDistribution;
         // Used to avoid referenceing null object at the start of the game
         if (GameManager.instance != null) {
             GameManager.instance.Flow();
@@ -37,11 +42,11 @@ public class NewTextualGenericSwitch : NewTextualShipComponent {
 
         for (int i = 0; i < outputs.Length; i++) {
             NewShipComponentOutput output = outputs[i];
-            output.Set(passType, distribution[i] * inputs[0].amount);
+            output.Set(passType, _distribution[i] * amount);
         }
 
         string textualDistribution = "";
-        foreach (float percentage in distribution) {
+        foreach (float percentage in _distribution) {
             textualDistribution += (int)(percentage * 100) + "% - ";
         }
         SetStatus("Distributing " + amount + " " + passType + " by " +
