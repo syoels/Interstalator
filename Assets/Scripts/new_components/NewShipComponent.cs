@@ -13,7 +13,7 @@ public abstract class NewShipComponent : MonoBehaviour {
     public bool isProcessing {
         get {
             foreach (NewShipComponent child in children) {
-                if (_isProcessing) {
+                if (child.isProcessing) {
                     return true;
                 }
             }
@@ -97,7 +97,7 @@ public abstract class NewShipComponent : MonoBehaviour {
     protected abstract NewShipComponentOutput[] InnerProcess();
 
     // Checks how long we should wait before updating the children
-    protected abstract float SetProcessingDelay();
+    protected abstract float GetProcessingDelay();
 
     // Main processing function that processes this component and
     // it's children
@@ -107,7 +107,7 @@ public abstract class NewShipComponent : MonoBehaviour {
         _isProcessing = true;
 
         NewShipComponentOutput[] outputs = InnerProcess();
-        // TODO: Add delay here
+        yield return new WaitForSeconds(GetProcessingDelay());
 
         _isProcessing = false;
 

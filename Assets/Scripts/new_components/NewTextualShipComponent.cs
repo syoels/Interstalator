@@ -40,7 +40,7 @@ public abstract class NewTextualShipComponent : NewShipComponent {
         statusText.text = status;
     }
 
-    protected override float SetProcessingDelay() {
+    protected override float GetProcessingDelay() {
         if (stateChanged) {
             return DEFAULT_DELAY;
         }
