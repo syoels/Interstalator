@@ -98,11 +98,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1847601937}
     m_Modifications:
-    - target: {fileID: 114733562765129728, guid: 02d791b4df2dedb4fb6d8b11112a6e5e,
-        type: 2}
-      propertyPath: children.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4035107506799810, guid: 02d791b4df2dedb4fb6d8b11112a6e5e, type: 2}
       propertyPath: m_LocalPosition.x
       value: -2
@@ -511,11 +506,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1847601937}
     m_Modifications:
-    - target: {fileID: 114267573391810766, guid: 00429b85731349a49946c594ad14aaa9,
-        type: 2}
-      propertyPath: children.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4477180518722790, guid: 00429b85731349a49946c594ad14aaa9, type: 2}
       propertyPath: m_LocalPosition.x
       value: -2
@@ -553,16 +543,6 @@ Prefab:
       propertyPath: children.Array.data[0]
       value: 
       objectReference: {fileID: 675525492}
-    - target: {fileID: 114267573391810766, guid: 00429b85731349a49946c594ad14aaa9,
-        type: 2}
-      propertyPath: numberOfInputs
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114267573391810766, guid: 00429b85731349a49946c594ad14aaa9,
-        type: 2}
-      propertyPath: currentInputIndex
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 00429b85731349a49946c594ad14aaa9, type: 2}
   m_IsPrefabParent: 0
@@ -768,23 +748,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 424434891}
   m_Script: {fileID: 11500000, guid: 4632f8caca53d5d4d986a8ee038e3f1e, type: 3}
---- !u!1 &494503526 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1106407132045630, guid: 00429b85731349a49946c594ad14aaa9,
-    type: 2}
-  m_PrefabInternal: {fileID: 219240871}
---- !u!114 &494503528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 494503526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 472dfe4916046de419b7f55a3750bad7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  description: Switch incoming input
 --- !u!1001 &592374338
 Prefab:
   m_ObjectHideFlags: 0
@@ -2219,23 +2182,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0b1439a4dc5c436bb35ffb3ef800cfc, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1635126616 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1528632241982388, guid: 02d791b4df2dedb4fb6d8b11112a6e5e,
-    type: 2}
-  m_PrefabInternal: {fileID: 25072292}
---- !u!114 &1635126618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1635126616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 472dfe4916046de419b7f55a3750bad7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  description: Change hoze connection
 --- !u!4 &1681197962 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4299704152170168, guid: 19bc22601ef1f4bb1b487947aaa8cbae,

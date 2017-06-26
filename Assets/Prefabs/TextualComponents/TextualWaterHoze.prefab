@@ -54,6 +54,7 @@ GameObject:
   - component: {fileID: 4035107506799810}
   - component: {fileID: 61919202832979450}
   - component: {fileID: 114733562765129728}
+  - component: {fileID: 114348755063615238}
   m_Layer: 0
   m_Name: TextualWaterHoze
   m_TagString: Untagged
@@ -281,6 +282,18 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294910208
+--- !u!114 &114348755063615238
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1528632241982388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 472dfe4916046de419b7f55a3750bad7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: Change hoze connection
 --- !u!114 &114733562765129728
 MonoBehaviour:
   m_ObjectHideFlags: 1
