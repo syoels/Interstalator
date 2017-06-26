@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Interstalator {
 [RequireComponent(typeof (Animator))]
-public abstract class NewGraphicalShipComponent : NewShipComponent {
+    public abstract class NewGraphicalShipComponent : NewShipComponent {
     const string WAIT_TAG = "Wait";
     const float DEFAULT_WAIT_TIME = 0.5f;
 
