@@ -108,7 +108,7 @@ public abstract class NewShipComponent : MonoBehaviour {
 
         NewShipComponentOutput[] outputs = InnerProcess();
         // Bit of a hack - used so animations will start to change before calculating them.
-        yield return new WaitForSeconds(0.01f);
+        yield return new WaitForSeconds(0.1f);
         yield return new WaitForSeconds(GetProcessingDelay());
 
         _isProcessing = false;

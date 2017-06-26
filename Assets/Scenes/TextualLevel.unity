@@ -241,6 +241,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114621718963119294, guid: 4bf3f4644e0c9d040a10ff502476a67a,
+        type: 2}
+      propertyPath: switchController
+      value: 
+      objectReference: {fileID: 154372078}
     - target: {fileID: 114988871616405184, guid: 4bf3f4644e0c9d040a10ff502476a67a,
         type: 2}
       propertyPath: InteractionPanel
@@ -253,16 +258,6 @@ Prefab:
       objectReference: {fileID: 2055509242}
     - target: {fileID: 114478750039636850, guid: 4bf3f4644e0c9d040a10ff502476a67a,
         type: 2}
-      propertyPath: ItemPanel
-      value: 
-      objectReference: {fileID: 1756550042}
-    - target: {fileID: 114621718963119294, guid: 4bf3f4644e0c9d040a10ff502476a67a,
-        type: 2}
-      propertyPath: switchController
-      value: 
-      objectReference: {fileID: 154372078}
-    - target: {fileID: 114478750039636850, guid: 4bf3f4644e0c9d040a10ff502476a67a,
-        type: 2}
       propertyPath: itemPanel
       value: 
       objectReference: {fileID: 1756550042}
@@ -271,8 +266,7 @@ Prefab:
       propertyPath: itemsContainer
       value: 
       objectReference: {fileID: 80999232}
-    m_RemovedComponents:
-    - {fileID: 114829166218619950, guid: 4bf3f4644e0c9d040a10ff502476a67a, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4bf3f4644e0c9d040a10ff502476a67a, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &260514026
@@ -467,22 +461,6 @@ MonoBehaviour:
   - {fileID: 405142117}
   amount: 2
   type: 0
---- !u!1 &478050256 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1925740012635100, guid: 4bf3f4644e0c9d040a10ff502476a67a,
-    type: 2}
-  m_PrefabInternal: {fileID: 182036638}
---- !u!114 &478050258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 478050256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dbc545daced58c469739e0a999d9d26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &496951148
 GameObject:
   m_ObjectHideFlags: 0

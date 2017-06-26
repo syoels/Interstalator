@@ -6,7 +6,6 @@ namespace Interstalator {
 public class NewGraphicalGenericPipe : NewGraphicalShipComponent {
 
     public ElementTypes[] possibleTypes;
-    protected Dictionary<ElementTypes, int> animatorElements; // Used to map between element enums and animator params.
     protected int amountParamId; 
     protected int elementParamId; 
 
@@ -14,13 +13,7 @@ public class NewGraphicalGenericPipe : NewGraphicalShipComponent {
         return new ElementTypes[1][] { possibleTypes };
     }
 
-    protected override void SetAnimationParameterIds(){
-        animatorElements = new Dictionary<ElementTypes, int>(){
-            {ElementTypes.None, 0}, 
-            {ElementTypes.Electricity, 1}, 
-            {ElementTypes.Water, 2}, 
-            {ElementTypes.Poison, 3}, 
-        };
+    protected override void SetAnimationParameterIds(){  
         amountParamId = Animator.StringToHash("Amount");
         elementParamId = Animator.StringToHash("Element");
     }
