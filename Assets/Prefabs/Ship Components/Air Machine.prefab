@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 95625053874396744}
   - component: {fileID: 114726239136122338}
   m_Layer: 0
-  m_Name: Air Generator
+  m_Name: Air Machine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
