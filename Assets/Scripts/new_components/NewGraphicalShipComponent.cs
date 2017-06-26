@@ -20,6 +20,8 @@ public abstract class NewGraphicalShipComponent : NewShipComponent {
             {ElementTypes.Electricity, 1}, 
             {ElementTypes.Water, 2}, 
             {ElementTypes.Poison, 3}, 
+            {ElementTypes.Air, 4},
+            {ElementTypes.PoisonousAir, 5}
         };
         SetAnimationParameterIds();
         animator = GetComponent<Animator>();

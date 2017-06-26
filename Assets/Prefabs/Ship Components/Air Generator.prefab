@@ -19,9 +19,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4612652892552134}
-  - component: {fileID: 114025270040672592}
-  - component: {fileID: 114213446943685762}
   - component: {fileID: 95625053874396744}
+  - component: {fileID: 114726239136122338}
   m_Layer: 0
   m_Name: Air Generator
   m_TagString: Untagged
@@ -47,7 +46,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1931046744600060
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
@@ -67,12 +66,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1931046744600060}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.15, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4612652892552134}
-  m_RootOrder: 1
+  m_Father: {fileID: 4865386410620762}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4612652892552134
 Transform:
@@ -81,11 +80,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1719748985668186}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -44, y: 10, z: 0}
+  m_LocalPosition: {x: -4.9, y: -1.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4865386410620762}
-  - {fileID: 4458136696225794}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -98,7 +96,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4458136696225794}
   m_Father: {fileID: 4612652892552134}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -119,7 +118,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114025270040672592
+--- !u!114 &114726239136122338
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -127,23 +126,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1719748985668186}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d8d35988bfab4af2a464cf6dc14308e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114213446943685762
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1719748985668186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16d3d38debade404caa42f391f8510ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 44df37639528a2b4ab8b45b9b0a4f92e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   children: []
-  waterRequirement: 0.3
-  electricityRequirement: 1
+  minElectricity: 0.2
+  minLiquid: 0.2
 --- !u!212 &212044852869376692
 SpriteRenderer:
   m_ObjectHideFlags: 1
