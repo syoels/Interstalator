@@ -6,6 +6,11 @@ namespace Interstalator {
 public abstract class GenericPipe : AltShipComponent {
     protected abstract ElementTypes[] PipeType { get; }
 
+    protected int currElement; //0 = Empty, 1 = Main, 2 = Alternative, etc.
+    protected float threshold = 0.001f; // Above threshold: flow, below: stop.
+    protected float amountToSpeedRatio = 1f; 
+    protected float amount = 0f; 
+
     /// <summary>
     /// Pipes only transfer one element type to their children 
     /// </summary>

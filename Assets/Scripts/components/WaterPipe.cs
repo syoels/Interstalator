@@ -10,7 +10,7 @@ public class WaterPipe : GenericPipe {
     [SerializeField] float amount; 
     float prevAmount = 0f;
     [Range (1f, 20f)]
-    public float WaterToSpeedRAtio = 10f;
+    public float WaterToSpeedRatio = 10f;
 
     protected override string ComponentName {
         get {
@@ -59,7 +59,7 @@ public class WaterPipe : GenericPipe {
             break;
         }
 
-        SetAnimationFloatParam("speed", amount * WaterToSpeedRAtio);
+        SetAnimationFloatParam("speed", amount * WaterToSpeedRatio);
         if (prevAmount == 0f && amount > 0f) {
             SetAnimationTriggerParam("flow");
         }

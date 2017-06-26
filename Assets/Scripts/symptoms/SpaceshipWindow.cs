@@ -10,7 +10,7 @@ public class SpaceshipWindow : MonoBehaviour {
     [SerializeField] int aliens = 0; 
     [SerializeField] int maxAliens = 4; 
     public GameObject alienPrefab; 
-    [SerializeField] List<GameObject> aliensList; 
+    private List<GameObject> aliensList; 
     private GameObject aliensParent; 
 
     // Animation related
@@ -22,7 +22,7 @@ public class SpaceshipWindow : MonoBehaviour {
     private float windowSize; 
     private float aliensXDistance;
     private float alienSpawnInterval = 4f;
-    Vector3 firstAlienPosition; 
+    private Vector3 firstAlienPosition; 
 
     // Speed
     private float maxSpeed = 1f; 
@@ -104,7 +104,7 @@ public class SpaceshipWindow : MonoBehaviour {
     }
 
 
-    //TODO: test functions, delete
+    //TODO: test functions, delete on production version
     public void increaseSpeed(){ Speed += 0.1f; }
     public void decreaseSpeed(){ Speed -= 0.1f; }
 
