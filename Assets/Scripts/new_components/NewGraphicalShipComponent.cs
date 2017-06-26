@@ -11,9 +11,12 @@ public abstract class NewGraphicalShipComponent : NewShipComponent {
 
     new void Awake() {
         base.Awake();
+        SetAnimationParameterIds();
         animator = GetComponent<Animator>();
         baseLayerIndex = animator.GetLayerIndex("Base Layer");
     }
+
+    protected abstract void SetAnimationParameterIds();
 
     protected override float GetProcessingDelay() {
         AnimatorStateInfo currState = animator.GetNextAnimatorStateInfo(baseLayerIndex);
@@ -31,5 +34,9 @@ public abstract class NewGraphicalShipComponent : NewShipComponent {
         float remainingTime = clipLength - (stateElapsedTime % clipLength);
         return remainingTime;
     }
+
+    public override void SetGlow(bool isGlowing) {
+            throw new System.NotImplementedException();
+        }
 }
 }

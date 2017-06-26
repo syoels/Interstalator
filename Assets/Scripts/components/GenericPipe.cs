@@ -4,7 +4,15 @@ using UnityEngine;
 
 namespace Interstalator {
 public abstract class GenericPipe : AltShipComponent {
+
+    //Animation related
+    protected int currElement = 0; // 0 = None, 1 = Main, 2 = Alternative, etc. 
+    protected float currAmount = 0f; 
+    protected int currElementParamId;
+    protected int currAmountParamId;
+
     protected abstract ElementTypes[] PipeType { get; }
+
 
     /// <summary>
     /// Pipes only transfer one element type to their children 
@@ -14,15 +22,16 @@ public abstract class GenericPipe : AltShipComponent {
     }
 
     protected override List<Output> InnerProcess() {
-        float amount = incoming[0].amount / children.Length;
+        currAmount = incoming[0].amount;
+        float amountPerChild = currAmount / children.Length;
 
         List<Output> outputs = new List<Output>();
         foreach (ShipComponent child in children) {
-            Output t = new Output(child, (ElementTypes)incoming[0].type, amount); 
+            Output t = new Output(child, (ElementTypes)incoming[0].type, amountPerChild); 
             outputs.Add(t);
         }
 
-        SetStatus("Transferring " + amount.ToString("0.00 ") + incoming[0].type);
+        SetStatus("Transferring " + amountPerChild.ToString("0.00 ") + incoming[0].type);
         return outputs;
     }
 }
