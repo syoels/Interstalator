@@ -36,8 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4226086615157136}
   - component: {fileID: 61078344603665732}
-  - component: {fileID: 114484589458786376}
-  - component: {fileID: 114611784302195748}
+  - component: {fileID: 114491670425572138}
   m_Layer: 0
   m_Name: TextualGarden
   m_TagString: Untagged
@@ -102,7 +101,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1396379493625870}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.97, y: -3.41, z: 0}
+  m_LocalPosition: {x: 25.39, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4525844321493680}
@@ -282,7 +281,7 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4278190335
---- !u!114 &114484589458786376
+--- !u!114 &114491670425572138
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -290,18 +289,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1396379493625870}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d8d35988bfab4af2a464cf6dc14308e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114611784302195748
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1396379493625870}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6db470c22221da24a8b147ca3d2f79cf, type: 3}
+  m_Script: {fileID: 11500000, guid: 4632f8caca53d5d4d986a8ee038e3f1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   children: []

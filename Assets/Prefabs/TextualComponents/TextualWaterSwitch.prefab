@@ -53,8 +53,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4985047107409804}
   - component: {fileID: 61524227905992152}
-  - component: {fileID: 114586911170478854}
-  - component: {fileID: 114810257347663404}
+  - component: {fileID: 114462490587316468}
+  - component: {fileID: 114335358549782798}
   m_Layer: 0
   m_Name: TextualWaterSwitch
   m_TagString: Untagged
@@ -155,7 +155,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1212907914150414}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.252883, y: -3.094027, z: 0}
+  m_LocalPosition: {x: 15, y: -3.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4756755368403290}
@@ -282,7 +282,7 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294910208
---- !u!114 &114586911170478854
+--- !u!114 &114335358549782798
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -290,10 +290,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1212907914150414}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d8d35988bfab4af2a464cf6dc14308e, type: 3}
+  m_Script: {fileID: 11500000, guid: f0b9489ca18e04f43b249e57801eac7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114810257347663404
+--- !u!114 &114462490587316468
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -301,14 +301,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1212907914150414}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6547b5db40452ce4187ef2b9f83b1016, type: 3}
+  m_Script: {fileID: 11500000, guid: 5220a35422d2d7a46991409b0d84abd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  children:
-  - {fileID: 0}
-  - {fileID: 0}
-  distribution: []
-  switchController: {fileID: 0}
+  children: []
+  switchElements: 0000000003000000
+  _distribution: []
 --- !u!212 &212058982967906244
 SpriteRenderer:
   m_ObjectHideFlags: 1

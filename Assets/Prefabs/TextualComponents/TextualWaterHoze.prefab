@@ -53,8 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4035107506799810}
   - component: {fileID: 61919202832979450}
-  - component: {fileID: 114763914521956624}
-  - component: {fileID: 114279138258528602}
+  - component: {fileID: 114733562765129728}
   m_Layer: 0
   m_Name: TextualWaterHoze
   m_TagString: Untagged
@@ -282,7 +281,7 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294910208
---- !u!114 &114279138258528602
+--- !u!114 &114733562765129728
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -290,25 +289,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1528632241982388}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42f76ed5cfcf93b4c82df7babc9d93b0, type: 3}
+  m_Script: {fileID: 11500000, guid: 633b0b30003fc3046a746d8fafe66b16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   children:
   - {fileID: 0}
-  possibleChildren:
   - {fileID: 0}
-  - {fileID: 0}
---- !u!114 &114763914521956624
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1528632241982388}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d8d35988bfab4af2a464cf6dc14308e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  connectedChildIndex: 0
 --- !u!212 &212518795958902798
 SpriteRenderer:
   m_ObjectHideFlags: 1

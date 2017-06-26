@@ -69,8 +69,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4853316338086958}
   - component: {fileID: 61949602260803812}
-  - component: {fileID: 114655884937161790}
-  - component: {fileID: 114376718015407770}
+  - component: {fileID: 114446755577310226}
+  - component: {fileID: 114432077911990270}
   m_Layer: 0
   m_Name: TextualElectricitySwitch
   m_TagString: Untagged
@@ -155,7 +155,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1607150066929136}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15, y: -27.17, z: 0}
+  m_LocalPosition: {x: 23.5, y: -25.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4412973668269504}
@@ -282,7 +282,7 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294910208
---- !u!114 &114376718015407770
+--- !u!114 &114432077911990270
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -290,23 +290,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 1607150066929136}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a104791fb6b3f41429d8f67db601ae5b, type: 3}
+  m_Script: {fileID: 11500000, guid: f0b9489ca18e04f43b249e57801eac7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114446755577310226
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1607150066929136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5220a35422d2d7a46991409b0d84abd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   children: []
-  distribution: []
-  switchController: {fileID: 0}
---- !u!114 &114655884937161790
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1607150066929136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d8d35988bfab4af2a464cf6dc14308e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  switchElements: 01000000
+  _distribution: []
 --- !u!212 &212791653654085998
 SpriteRenderer:
   m_ObjectHideFlags: 1

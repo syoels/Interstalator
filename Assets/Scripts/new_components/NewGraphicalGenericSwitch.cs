@@ -4,7 +4,7 @@ using System.Collections;
 namespace Interstalator {
 public class NewGraphicalGenericSwitch : NewGraphicalShipComponent,
                                          SwitchCaller {
-    [SerializeField] private ElementTypes[] switchElements;
+    public ElementTypes[] switchElements;
     [SerializeField] private float[] _distribution;
     public float[] distribution {
         get {

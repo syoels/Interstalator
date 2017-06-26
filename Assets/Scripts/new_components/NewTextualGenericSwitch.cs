@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace Interstalator {
 public class NewTextualGenericSwitch : NewTextualShipComponent, SwitchCaller {
-    [SerializeField] private ElementTypes[] switchElements;
+    public ElementTypes[] switchElements;
     [SerializeField] private float[] _distribution;
     public float[] distribution {
         get {

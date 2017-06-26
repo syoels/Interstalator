@@ -54,8 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4448763158149868}
   - component: {fileID: 61388153976852236}
-  - component: {fileID: 114804384260000862}
-  - component: {fileID: 114027171259173698}
+  - component: {fileID: 114643198544076328}
   m_Layer: 0
   m_Name: TextualElectricityPipe
   m_TagString: Untagged
@@ -282,7 +281,7 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4278190335
---- !u!114 &114027171259173698
+--- !u!114 &114643198544076328
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -290,22 +289,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1625664386769142}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b923daf88661be94693406f31ec4caaf, type: 3}
+  m_Script: {fileID: 11500000, guid: 2705b4834feea994a9f9d25d40e1e189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   children:
   - {fileID: 0}
---- !u!114 &114804384260000862
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1625664386769142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d8d35988bfab4af2a464cf6dc14308e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  possibleTypes: 01000000
 --- !u!212 &212151118051001144
 SpriteRenderer:
   m_ObjectHideFlags: 1
