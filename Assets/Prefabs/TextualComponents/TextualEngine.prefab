@@ -20,8 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4141089810238024}
   - component: {fileID: 61554541391752030}
-  - component: {fileID: 114304373228427982}
-  - component: {fileID: 114470221356577382}
+  - component: {fileID: 114266971877977964}
   m_Layer: 0
   m_Name: TextualEngine
   m_TagString: Untagged
@@ -282,7 +281,7 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4278190335
---- !u!114 &114304373228427982
+--- !u!114 &114266971877977964
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -290,22 +289,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1016276425506028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d8d35988bfab4af2a464cf6dc14308e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114470221356577382
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1016276425506028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 414275fa6849020498f1983dbb023baa, type: 3}
+  m_Script: {fileID: 11500000, guid: c95bd34ce0d3f7b47b48775ebb84ede8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   children: []
   minElectricity: 0.1
+  electricityToWasteRatio: 1
 --- !u!212 &212113694886181348
 SpriteRenderer:
   m_ObjectHideFlags: 1

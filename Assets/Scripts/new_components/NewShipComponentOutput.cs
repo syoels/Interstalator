@@ -20,6 +20,12 @@ public class NewShipComponentOutput {
     }
 
     public void Send() {
+        Debug.Log(
+            string.Format("Sending {0:0.00} {1} to {2}",
+                amount,
+                type,
+                component.name)
+        );
         inputIndex = _component.UpdateInput(type, amount, inputIndex);
     }
 }
