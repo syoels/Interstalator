@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 4693362503428246}
   - component: {fileID: 61759192392592086}
   - component: {fileID: 114300849886887538}
+  - component: {fileID: 114881601807618176}
   m_Layer: 0
   m_Name: TextualNuclearWastePile
   m_TagString: Untagged
@@ -292,8 +293,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21bc03ba59100ce458273df02c4c4947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  children: []
+  children:
+  - {fileID: 0}
   pileSize: 0
+--- !u!114 &114881601807618176
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1395127495431260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b4df2d63f693074cacb380fb2ea8b64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   wastePrefab: {fileID: 1744940628231058, guid: 550d86b5074c4164eb553557610a0d3b,
     type: 2}
 --- !u!212 &212289607490584052

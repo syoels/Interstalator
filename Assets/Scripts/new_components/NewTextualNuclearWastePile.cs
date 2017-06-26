@@ -4,7 +4,6 @@ using System.Collections;
 namespace Interstalator {
 public class NewTextualNuclearWastePile : NewTextualShipComponent {
     public int pileSize;
-    public GameObject wastePrefab;
     private const int MAX_PILE_SIZE = 8;
     private float lastAddTime = 0f;
     private float wasteRatio = 0f;

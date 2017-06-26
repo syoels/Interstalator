@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Interstalator {
 public class NewGraphicalWaterHoze : NewGraphicalShipComponent{
-    [SerializeField] private int connectedChildIndex;
+    [SerializeField] private int connectedChildIndex = 0;
 
     private int direction = 0;
     private int directions = 3;

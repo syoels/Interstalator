@@ -755,11 +755,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1847601937}
     m_Modifications:
-    - target: {fileID: 114151608995261496, guid: 38da8302b60f844ab8a4199d02e61a97,
-        type: 2}
-      propertyPath: children.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4687703140219622, guid: 38da8302b60f844ab8a4199d02e61a97, type: 2}
       propertyPath: m_LocalPosition.x
       value: 23.5
@@ -2443,11 +2438,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1847601937}
     m_Modifications:
-    - target: {fileID: 114300849886887538, guid: 8b80c6f2a7d533b4ba3816878f829bea,
-        type: 2}
-      propertyPath: children.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4693362503428246, guid: 8b80c6f2a7d533b4ba3816878f829bea, type: 2}
       propertyPath: m_LocalPosition.x
       value: 15
@@ -2485,11 +2475,6 @@ Prefab:
       propertyPath: children.Array.data[0]
       value: 
       objectReference: {fileID: 2055520753}
-    - target: {fileID: 114300849886887538, guid: 8b80c6f2a7d533b4ba3816878f829bea,
-        type: 2}
-      propertyPath: pileSize
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8b80c6f2a7d533b4ba3816878f829bea, type: 2}
   m_IsPrefabParent: 0
