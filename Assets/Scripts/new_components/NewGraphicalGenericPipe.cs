@@ -5,10 +5,14 @@ using System.Collections.Generic;
 namespace Interstalator {
 public class NewGraphicalGenericPipe : NewGraphicalShipComponent {
 
-    // Used to map between element enums and animator params.
-    protected Dictionary<ElementTypes, int> animatorElements;
+    public ElementTypes[] possibleTypes;
+    protected Dictionary<ElementTypes, int> animatorElements; // Used to map between element enums and animator params.
     protected int amountParamId; 
     protected int elementParamId; 
+
+    protected override ElementTypes[][] DefineInputs() {
+        return new ElementTypes[1][] { possibleTypes };
+    }
 
     protected override void SetAnimationParameterIds(){
         animatorElements = new Dictionary<ElementTypes, int>(){
