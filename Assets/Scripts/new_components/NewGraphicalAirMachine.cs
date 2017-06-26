@@ -30,8 +30,10 @@ public class NewGraphicalAirMachine : NewGraphicalShipComponent{
             generatedElement = ElementTypes.PoisonousAir;
             GameManager.instance.shipStatus.SetProblem(
                 ShipSystem.Air, 
-                "Poisonous air!");  
-        } 
+                "Posioned!");  
+        } else {
+            GameManager.instance.shipStatus.SetOk(ShipSystem.Air);
+        }
 
         animator.SetInteger(elementParamInt, animatorElements[generatedElement]);
         return DistributeAmongChildren(generatedElement, amount * electricity);
