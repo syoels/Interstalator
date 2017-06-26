@@ -5,6 +5,7 @@ public enum ElementTypes {
     Water,
     Electricity,
     Air,
+    PoisonousAir,
     Poison,
     NuclearWaste,
     WastePerSecond,

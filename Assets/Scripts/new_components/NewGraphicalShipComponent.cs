@@ -18,6 +18,8 @@ public abstract class NewGraphicalShipComponent : NewShipComponent {
             {ElementTypes.Electricity, 1}, 
             {ElementTypes.Water, 2}, 
             {ElementTypes.Poison, 3}, 
+            {ElementTypes.Air, 4},
+            {ElementTypes.PoisonousAir, 5}
         };
         SetAnimationParameterIds();
         animator = GetComponent<Animator>();
@@ -33,9 +35,6 @@ public abstract class NewGraphicalShipComponent : NewShipComponent {
         if (!requiresWait) {
             return 0f;
         }
-
-            
-
         AnimatorClipInfo[] currPlayingClips = animator.GetCurrentAnimatorClipInfo(baseLayerIndex);
         if (currPlayingClips.Length == 0) { return DEFAULT_WAIT_TIME; }
         // Used to wait for animation that allready started to wait

@@ -240,6 +240,11 @@ Prefab:
       propertyPath: children.Array.data[0]
       value: 
       objectReference: {fileID: 1717361490}
+    - target: {fileID: 114353931143783924, guid: 516d9aa6227e17342aaf080738d13b0c,
+        type: 2}
+      propertyPath: type
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 516d9aa6227e17342aaf080738d13b0c, type: 2}
   m_IsPrefabParent: 0
@@ -675,7 +680,7 @@ RectTransform:
   - {fileID: 1653699294}
   - {fileID: 692773087}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -833,6 +838,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114051893205669650, guid: 57df87615241b264387f37be665ed3cf,
+        type: 2}
+      propertyPath: children.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4703763020974276, guid: 57df87615241b264387f37be665ed3cf, type: 2}
       propertyPath: m_LocalPosition.x
       value: -3.16
@@ -869,6 +879,11 @@ Prefab:
       propertyPath: m_Name
       value: Electricity Pipe New (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 114051893205669650, guid: 57df87615241b264387f37be665ed3cf,
+        type: 2}
+      propertyPath: children.Array.data[0]
+      value: 
+      objectReference: {fileID: 1606394500}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 57df87615241b264387f37be665ed3cf, type: 2}
   m_IsPrefabParent: 0
@@ -982,6 +997,48 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224113527636975378, guid: b6ca7809d77a3de48abb2c21d1f2fcc7,
     type: 2}
   m_PrefabInternal: {fileID: 1113227587}
+--- !u!1001 &1308424842
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4612652892552134, guid: a7ce8cc763d68bd4e823600d17e2df78, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -4.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4612652892552134, guid: a7ce8cc763d68bd4e823600d17e2df78, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4612652892552134, guid: a7ce8cc763d68bd4e823600d17e2df78, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4612652892552134, guid: a7ce8cc763d68bd4e823600d17e2df78, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4612652892552134, guid: a7ce8cc763d68bd4e823600d17e2df78, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4612652892552134, guid: a7ce8cc763d68bd4e823600d17e2df78, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4612652892552134, guid: a7ce8cc763d68bd4e823600d17e2df78, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4612652892552134, guid: a7ce8cc763d68bd4e823600d17e2df78, type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: a7ce8cc763d68bd4e823600d17e2df78, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1394142772
 Prefab:
   m_ObjectHideFlags: 0
@@ -1019,7 +1076,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4066607422312108, guid: 4bf3f4644e0c9d040a10ff502476a67a, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 114478750039636850, guid: 4bf3f4644e0c9d040a10ff502476a67a,
         type: 2}
@@ -1039,6 +1096,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4bf3f4644e0c9d040a10ff502476a67a, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1606394500 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114726239136122338, guid: a7ce8cc763d68bd4e823600d17e2df78,
+    type: 2}
+  m_PrefabInternal: {fileID: 1308424842}
+  m_Script: {fileID: 11500000, guid: 44df37639528a2b4ab8b45b9b0a4f92e, type: 3}
 --- !u!1 &1653699293 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1096101757818208, guid: b070fe32a629d7541bb1a772d466a607,
@@ -1179,7 +1242,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1840794698
 GameObject:
@@ -1207,7 +1270,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1869910522
 Prefab:
@@ -1252,6 +1315,11 @@ Prefab:
       propertyPath: m_Name
       value: Water Pipe (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 114810112996840420, guid: 148979c6bac487547bad80b7d4860ff2,
+        type: 2}
+      propertyPath: children.Array.data[0]
+      value: 
+      objectReference: {fileID: 1606394500}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 148979c6bac487547bad80b7d4860ff2, type: 2}
   m_IsPrefabParent: 0
@@ -1414,6 +1482,10 @@ Prefab:
       propertyPath: children.Array.data[0]
       value: 
       objectReference: {fileID: 861676308}
+    - target: {fileID: 1047766515193692, guid: 148979c6bac487547bad80b7d4860ff2, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 148979c6bac487547bad80b7d4860ff2, type: 2}
   m_IsPrefabParent: 0
