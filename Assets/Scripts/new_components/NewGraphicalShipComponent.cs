@@ -32,6 +32,11 @@ namespace Interstalator {
     protected virtual void SetAnimationParameterIds() {}
 
     protected override float GetProcessingDelay() {
+        // Used in initial flow to get everything working fast.
+        // TODO: Either remove this or bring it to parent class
+        if (!stateChanged) {
+            return 0f;
+        }
         AnimatorStateInfo currState = animator.GetNextAnimatorStateInfo(baseLayerIndex);
 
         bool requiresWait = currState.IsTag(WAIT_TAG);
