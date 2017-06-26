@@ -20,9 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4703763020974276}
   - component: {fileID: 114524431238459894}
-  - component: {fileID: 114391675520031668}
   - component: {fileID: 95634717355672984}
   - component: {fileID: 212411077908565524}
+  - component: {fileID: 114051893205669650}
   m_Layer: 0
   m_Name: Electricity Pipe New
   m_TagString: Untagged
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 4909784937109332}
   - component: {fileID: 212065804429670858}
   m_Layer: 0
-  m_Name: Electricity Flow
+  m_Name: Window
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,7 +83,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1037609930281434}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.151625, y: -14.897184, z: 0}
+  m_LocalPosition: {x: -1.8540004, y: -3.553922, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4607467919729914}
@@ -120,7 +120,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114391675520031668
+--- !u!114 &114051893205669650
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -128,13 +128,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1037609930281434}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b923daf88661be94693406f31ec4caaf, type: 3}
+  m_Script: {fileID: 11500000, guid: 3aef019730d133244b3ec9164127d09b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  children:
-  - {fileID: 0}
-  from: 0
-  to: 1
+  children: []
+  possibleTypes: 01000000
 --- !u!114 &114524431238459894
 MonoBehaviour:
   m_ObjectHideFlags: 1
