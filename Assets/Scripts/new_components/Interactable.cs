@@ -9,9 +9,11 @@ public abstract class Interactable : MonoBehaviour,
                                      IPointerClickHandler {
 
     protected NewShipComponent relComponent;
+    private bool isTextual;
 
     void Awake() {
         relComponent = GetComponent<NewShipComponent>();
+        isTextual = (relComponent is NewTextualShipComponent);
     }
 
     abstract public bool IsInteractable();
@@ -20,8 +22,18 @@ public abstract class Interactable : MonoBehaviour,
 
     abstract public string GetInteractionText();
 
+    // Here to allow player controller to decide on component glowing
+    public void SetGlow(bool isGlowing) {
+        relComponent.SetGlow(isGlowing);
+    }
+
     #region IPointer handlers
     public void OnPointerEnter(PointerEventData eventData) {
+        // Avoid mouse clicking on graphical components
+        if (!isTextual) {
+            return;
+        }
+
         if (IsInteractable()) {
             relComponent.SetGlow(true);
             GameManager.instance.interactionDisplay.Set(GetInteractionText());
@@ -29,11 +41,17 @@ public abstract class Interactable : MonoBehaviour,
     }
 
     public void OnPointerExit(PointerEventData eventData) {
+        if (!isTextual) {
+            return;
+        }
         relComponent.SetGlow(false);
         GameManager.instance.interactionDisplay.Clear();
     }
 
     public void OnPointerClick(PointerEventData eventData) {
+        if (!isTextual) {
+            return;
+        }
         if (eventData.button == PointerEventData.InputButton.Left) {
             if (IsInteractable()) {
                 Interact();
@@ -41,5 +59,6 @@ public abstract class Interactable : MonoBehaviour,
         }
     }
     #endregion
+
 }
 }

@@ -2,7 +2,8 @@
 using System.Collections;
 
 namespace Interstalator {
-public class NewTextualGenericSwitch : NewTextualShipComponent, SwitchCaller {
+public class NewGraphicalGenericSwitch : NewGraphicalShipComponent,
+                                         SwitchCaller {
     [SerializeField] private ElementTypes[] switchElements;
     [SerializeField] private float[] _distribution;
     public float[] distribution {
@@ -20,6 +21,7 @@ public class NewTextualGenericSwitch : NewTextualShipComponent, SwitchCaller {
     }
 
     protected override ElementTypes[][] DefineInputs() {
+        // Perhapse we should find a better place to put this
         InitDistribution();
         return new ElementTypes[1][] { switchElements };
     }
@@ -34,7 +36,6 @@ public class NewTextualGenericSwitch : NewTextualShipComponent, SwitchCaller {
         }
     }
 
-
     protected override NewShipComponentOutput[] InnerProcess() {
         ElementTypes passType = inputs[0].type;
         float amount = inputs[0].amount;
@@ -44,13 +45,8 @@ public class NewTextualGenericSwitch : NewTextualShipComponent, SwitchCaller {
             output.Set(passType, _distribution[i] * amount);
         }
 
-        string textualDistribution = "";
-        foreach (float percentage in _distribution) {
-            textualDistribution += (int)(percentage * 100) + "% - ";
-        }
-        SetStatus("Distributing " + amount + " " + passType + " by " +
-            // Removing the extra ' - ' from the distribution text
-            textualDistribution.Substring(0, textualDistribution.Length - 3));
+        // Change animation params here
+
         return outputs;
     }
 }
