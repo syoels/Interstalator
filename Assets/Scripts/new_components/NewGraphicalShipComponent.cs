@@ -45,7 +45,6 @@ public abstract class NewGraphicalShipComponent : NewShipComponent {
         float clipLength = currPlayingClips[0].clip.length;
         float stateElapsedTime = currState.length;
         float remainingTime = clipLength - (stateElapsedTime % clipLength);
-        Debug.Log("Requires Wait of " + remainingTime.ToString());
         return remainingTime;
     }
 
