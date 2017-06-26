@@ -6,11 +6,6 @@ namespace Interstalator {
 public abstract class GenericPipe : AltShipComponent {
     protected abstract ElementTypes[] PipeType { get; }
 
-    public Directions from = Directions.Right;
-    public Directions to = Directions.Left;
-    // TODO: add abstract method to change sprite according to "from" & "to" 
-    // (astract because graphics adjustments are different for different pipe types)
-
     /// <summary>
     /// Pipes only transfer one element type to their children 
     /// </summary>
