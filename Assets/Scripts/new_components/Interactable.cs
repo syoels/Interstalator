@@ -22,6 +22,11 @@ public abstract class Interactable : MonoBehaviour,
 
     abstract public string GetInteractionText();
 
+    // Here to allow player controller to decide on component glowing
+    public void SetGlow(bool isGlowing) {
+        relComponent.SetGlow(isGlowing);
+    }
+
     #region IPointer handlers
     public void OnPointerEnter(PointerEventData eventData) {
         // Avoid mouse clicking on graphical components
@@ -54,5 +59,6 @@ public abstract class Interactable : MonoBehaviour,
         }
     }
     #endregion
+
 }
 }
