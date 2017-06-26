@@ -2,14 +2,14 @@
 using System.Collections;
 
 namespace Interstalator {
-[RequireComponent(Animator)]
+[RequireComponent(typeof (Animator))]
 public abstract class NewGraphicalShipComponent : NewShipComponent {
     const string WAIT_TAG = "Wait";
     const float DEFAULT_WAIT_TIME = 0.5f;
     protected Animator animator;
     private int baseLayerIndex;
 
-    void Awake() {
+    new void Awake() {
         base.Awake();
         animator = GetComponent<Animator>();
         baseLayerIndex = animator.GetLayerIndex("Base Layer");
