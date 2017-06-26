@@ -16,6 +16,7 @@ public class NewTextualGenericLever : NewTextualShipComponent {
         for (int i = 0; i < inputDefinitions.Length; i++) {
             inputDefinitions[i] = possibleTypes;
         }
+
         return inputDefinitions;
     }
 

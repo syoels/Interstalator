@@ -106,7 +106,6 @@ public abstract class NewShipComponent : MonoBehaviour {
     // it's children
     public IEnumerator Process () {
         Debug.Assert(GetAwaitingInputs() == 0);
-        yield return new WaitUntil(() => (!isProcessing));
         _isProcessing = true;
 
         NewShipComponentOutput[] outputs = InnerProcess();
@@ -114,7 +113,6 @@ public abstract class NewShipComponent : MonoBehaviour {
         yield return new WaitForSeconds(0.1f);
         yield return new WaitForSeconds(GetProcessingDelay());
 
-        _isProcessing = false;
 
         foreach (NewShipComponentOutput output in outputs) {
             output.Send();
@@ -123,6 +121,8 @@ public abstract class NewShipComponent : MonoBehaviour {
                 StartCoroutine(child.Process());
             }
         }
+
+        _isProcessing = false;
 
     }
     #endregion

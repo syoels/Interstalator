@@ -304,8 +304,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5220a35422d2d7a46991409b0d84abd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  children: []
-  switchElements: 0000000003000000
+  children:
+  - {fileID: 0}
+  - {fileID: 0}
+  switchElements: 0000000004000000
   _distribution: []
 --- !u!212 &212058982967906244
 SpriteRenderer:

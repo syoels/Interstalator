@@ -26,10 +26,10 @@ public class NewTextualNuclearWastePile : NewTextualShipComponent {
     }
 
     protected override ElementTypes[][] DefineInputs() {
-        return new ElementTypes[][]
+        return new ElementTypes[2][]
         {
             new ElementTypes[] { ElementTypes.Water, ElementTypes.Poison },
-            new ElementTypes[] { ElementTypes.WastePerSecond },
+            new ElementTypes[] { ElementTypes.WastePerSecond }
         };
     }
 

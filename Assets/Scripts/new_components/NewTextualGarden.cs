@@ -4,7 +4,7 @@ using System.Collections;
 namespace Interstalator {
 public class NewTextualGarden : NewTextualShipComponent {
     protected override ElementTypes[][] DefineInputs() {
-        return new ElementTypes[][] { new ElementTypes[] { ElementTypes.Water } };
+        return new ElementTypes[][] { new ElementTypes[] { ElementTypes.Water, ElementTypes.Poison } };
     }
 
     protected override NewShipComponentOutput[] InnerProcess() {
