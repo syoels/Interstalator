@@ -7,7 +7,7 @@ using UnityEngine.UI;
 namespace Interstalator {
 
 public interface SwitchCaller {
-    void ApplyDistribution(float[] newDistribution);
+    float[] distribution { get; set; }
 }
 
 public class SwitchParametersController : MonoBehaviour {
@@ -180,7 +180,7 @@ public class SwitchParametersController : MonoBehaviour {
         if (switchComponent == null) {
             Debug.LogError("Tried applying switch controls without switch component");
         } else {
-            switchComponent.ApplyDistribution(GetCurrentDistribution());
+            switchComponent.distribution = GetCurrentDistribution();
         }
         ClearSwitchControls();
     }

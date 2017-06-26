@@ -8,7 +8,7 @@ public class InteractableSwitch : Interactable {
     }
 
     public override void Interact() {
-        NewTextualGenericSwitch relSwitch = (NewTextualGenericSwitch)relComponent;
+        SwitchCaller relSwitch = (SwitchCaller)relComponent;
         GameManager.instance.switchController.BringUpSlider(
             relSwitch.distribution,
             relSwitch,

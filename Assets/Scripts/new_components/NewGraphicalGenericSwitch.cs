@@ -10,6 +10,14 @@ public class NewGraphicalGenericSwitch : NewGraphicalShipComponent,
         get {
             return _distribution;
         }
+        set {
+            Debug.Assert(value.Length == children.Length);
+            _distribution = value;
+            // Used to avoid referenceing null object at the start of the game
+            if (GameManager.instance != null) {
+                GameManager.instance.Flow();
+            }
+        }
     }
 
     protected override ElementTypes[][] DefineInputs() {
@@ -25,15 +33,6 @@ public class NewGraphicalGenericSwitch : NewGraphicalShipComponent,
             for (int i = 0; i < children.Length; i++) {
                 _distribution[i] = division;
             }
-        }
-    }
-
-    public void ApplyDistribution(float[] newDistribution) {
-        Debug.Assert(newDistribution.Length == children.Length);
-        _distribution = newDistribution;
-        // Used to avoid referenceing null object at the start of the game
-        if (GameManager.instance != null) {
-            GameManager.instance.Flow();
         }
     }
 

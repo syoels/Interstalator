@@ -7,9 +7,11 @@ namespace Interstalator {
 public abstract class NewGraphicalShipComponent : NewShipComponent {
     const string WAIT_TAG = "Wait";
     const float DEFAULT_WAIT_TIME = 0.5f;
+
     protected Animator animator;
     protected Dictionary<ElementTypes, int> animatorElements; // Used to map between element enums and animator params.
     private int baseLayerIndex;
+    private GameObject glowObj;
 
     new void Awake() {
         base.Awake();
@@ -22,6 +24,7 @@ public abstract class NewGraphicalShipComponent : NewShipComponent {
         SetAnimationParameterIds();
         animator = GetComponent<Animator>();
         baseLayerIndex = animator.GetLayerIndex("Base Layer");
+        glowObj = transform.Find("Glow").gameObject;
     }
 
     protected virtual void SetAnimationParameterIds() {}
@@ -47,7 +50,9 @@ public abstract class NewGraphicalShipComponent : NewShipComponent {
     }
 
     public override void SetGlow(bool isGlowing) {
-            throw new System.NotImplementedException();
+        if (glowObj != null) {
+            glowObj.SetActive(isGlowing);
         }
+    }
 }
 }

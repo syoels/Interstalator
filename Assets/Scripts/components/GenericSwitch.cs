@@ -6,7 +6,20 @@ namespace Interstalator {
 public abstract class GenericSwitch : AltShipComponent, SwitchCaller {
 
     protected abstract ElementTypes[] SwitchType { get; }
-    [SerializeField] private float[] distribution;
+    [SerializeField] private float[] _distribution;
+    public float[] distribution {
+        get {
+            return _distribution;
+        }
+        set {
+            Debug.Assert(value.Length == children.Length);
+            _distribution = value;
+
+            if (GameManager.instance != null) {
+                GameManager.instance.Flow();
+            }
+        }
+    }
 
     /// <summary>
     /// Switches only transfer one element type to their children 
@@ -17,22 +30,12 @@ public abstract class GenericSwitch : AltShipComponent, SwitchCaller {
     }
 
     protected void InitDistribution(){
-        if (distribution.Length != children.Length) {
-            distribution = new float[children.Length];
+        if (_distribution.Length != children.Length) {
+            _distribution = new float[children.Length];
             float division = 1f / children.Length;
             for (int i = 0; i < children.Length; i++) {
-                distribution[i] = division;
+                _distribution[i] = division;
             }
-        }
-        ApplyDistribution(distribution);
-    }
-
-    public void ApplyDistribution(float[] newDistribution) {
-        Debug.Assert(newDistribution.Length == children.Length);
-        distribution = newDistribution;
-        // Used to avoid referenceing null object at the start of the game
-        if (GameManager.instance != null) {
-            GameManager.instance.Flow();
         }
     }
 
