@@ -15,7 +15,7 @@ public abstract class AltShipComponent : ShipComponent {
     public bool isProcessing {
         get {
             foreach (AltShipComponent child in children) {
-                if (_isProcessing) {
+                if (child.isProcessing) {
                     return true;
                 }
             }

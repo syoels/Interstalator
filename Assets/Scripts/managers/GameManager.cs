@@ -7,7 +7,7 @@ namespace Interstalator {
 /// </summary>
 public class GameManager : MonoSingleton<GameManager> {
 
-    public FlowManager flowManager;
+    public NewFlowManager flowManager;
     // Will probably be replaced by player controller
     public ItemManager itemManager;
     public InteractionDisplay interactionDisplay;
@@ -16,7 +16,7 @@ public class GameManager : MonoSingleton<GameManager> {
     
     public override void Init() {
         if (flowManager == null) {
-            flowManager = GetComponent<FlowManager>();
+            flowManager = GetComponent<NewFlowManager>();
         }
 
         if (itemManager == null) {

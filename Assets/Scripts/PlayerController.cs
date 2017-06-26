@@ -11,6 +11,27 @@ public class PlayerController : MonoBehaviour {
     private Animator animator = null;
     private int animatorSpeed = 0;
     private SpriteRenderer sr;
+    private Interactable _closestInteractable;
+    private Interactable closestInteractable {
+        get { return _closestInteractable; }
+        set {
+            if (value == _closestInteractable) {
+                return;
+            }
+
+            if (_closestInteractable != null) {
+                _closestInteractable.SetGlow(false);
+                _closestInteractable = null;
+            }
+
+            // Assumes that closest interactable is interactable
+            _closestInteractable = value;
+
+            if (_closestInteractable != null) {
+                _closestInteractable.SetGlow(true);
+            }
+        }
+    }
 
     // Easier property for setting facing direction
     private bool facingRight {
@@ -21,7 +42,6 @@ public class PlayerController : MonoBehaviour {
     }
 
     protected Rigidbody2D body;
-    private ShipComponent closestInteractable;
     private int playerLayer;
 
     private bool isOnLadder = false;
@@ -41,7 +61,7 @@ public class PlayerController : MonoBehaviour {
 
     }
 
-    virtual protected void Awake() {
+    void Awake() {
         playerLayer = gameObject.layer;
         body = GetComponent<Rigidbody2D>();
         gravityScale = body.gravityScale;
@@ -51,25 +71,41 @@ public class PlayerController : MonoBehaviour {
     }
 
     // Handle movement and interaction input
-    virtual protected void Update() {
+    void Update() {
         // Movement
         HandleStandardMovement();
 
+        // Ladders
         float vMovement = Input.GetAxis("Vertical");
         if (isOnLadder && vMovement != 0f) {
             isClimbing = true;
             Vector2 velocity = body.velocity;
             velocity.y = vMovement * Time.deltaTime * moveSpeed;
             body.velocity = velocity;
-        } else {
-            animator.SetFloat(animatorSpeed, Mathf.Abs(body.velocity.x));
+        } 
+            
+        animator.SetFloat(animatorSpeed, Mathf.Abs(body.velocity.x));
+
+        // Interaction button
+        if (Input.GetButtonDown("Interact")) {
+            if (closestInteractable != null && closestInteractable.IsInteractable()) {
+                closestInteractable.Interact();
+            }
         }
     }
+
+    #region Collisions
 
     // Set closest interactable once we're in range
     void OnTriggerStay2D(Collider2D other) {
         if (other.CompareTag("Ladder")) {
             isOnLadder = true;
+            return;
+        }
+
+        Interactable interactable = other.GetComponent<Interactable>();
+        if (interactable != null && interactable.IsInteractable()) {
+            closestInteractable = interactable;
         }
     }
 
@@ -78,20 +114,24 @@ public class PlayerController : MonoBehaviour {
         if (other.CompareTag("Ladder")) {
             isOnLadder = false;
             isClimbing = false;
+            return;
+        }
+
+        Interactable interactable = other.GetComponent<Interactable>();
+        if (interactable == closestInteractable) {
+            closestInteractable = null;
         }
     }
 
-    virtual protected void HandleStandardMovement() {
+    #endregion
+
+    private void HandleStandardMovement() {
 
         // Left-Right
         Vector2 velocity = body.velocity;
         float movement = Input.GetAxis("Horizontal");
         velocity.x = movement * Time.deltaTime * moveSpeed;
-
         body.velocity = velocity;
-        if (animator != null) {
-            animator.SetFloat(animatorSpeed, velocity.x);
-        }
 
         // Change sprite direction
         if (movement != 0) {

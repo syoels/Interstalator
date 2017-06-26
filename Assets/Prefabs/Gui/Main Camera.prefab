@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 81602989280273216}
   - component: {fileID: 114012730217362198}
   - component: {fileID: 114814487183764518}
+  - component: {fileID: 114323912224781316}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -106,6 +107,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   edgeDistancePercentage: 15
   movementSpeed: 7
+--- !u!114 &114323912224781316
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1917574239210846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96abbe8f1c838484cbb47e1970e396fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interpVelocity: 0
+  minDistance: 0
+  followDistance: 0
+  target: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!114 &114814487183764518
 MonoBehaviour:
   m_ObjectHideFlags: 1
