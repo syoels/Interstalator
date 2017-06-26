@@ -145,6 +145,11 @@ Prefab:
       propertyPath: children.Array.data[1]
       value: 
       objectReference: {fileID: 1283000988}
+    - target: {fileID: 114687772983321132, guid: 55c0d84b95d93e143a92c4ea9886252e,
+        type: 2}
+      propertyPath: switchElements.Array.data[1]
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 55c0d84b95d93e143a92c4ea9886252e, type: 2}
   m_IsPrefabParent: 0

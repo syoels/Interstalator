@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour {
         animator.SetFloat(animatorSpeed, Mathf.Abs(body.velocity.x));
 
         // Interaction button
-        if (Input.GetButtonDown("Fire1")) {
+        if (Input.GetButtonDown("Interact")) {
             if (closestInteractable != null && closestInteractable.IsInteractable()) {
                 closestInteractable.Interact();
             }
