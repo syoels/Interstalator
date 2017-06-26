@@ -129,8 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 662e9ce535a126948a350790cf8b1ed4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  children:
-  - {fileID: 0}
+  children: []
   amount: 1
   type: 1
 --- !u!212 &212026633087606114

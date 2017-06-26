@@ -11,7 +11,7 @@ public abstract class NewGraphicalShipComponent : NewShipComponent {
     protected Animator animator;
     protected Dictionary<ElementTypes, int> animatorElements; // Used to map between element enums and animator params.
     private int baseLayerIndex;
-    private GameObject glowObj;
+    private Transform glowObj;
 
     new void Awake() {
         base.Awake();
@@ -26,7 +26,7 @@ public abstract class NewGraphicalShipComponent : NewShipComponent {
         SetAnimationParameterIds();
         animator = GetComponent<Animator>();
         baseLayerIndex = animator.GetLayerIndex("Base Layer");
-        glowObj = transform.Find("Glow").gameObject;
+        glowObj = transform.Find("Glow");
     }
 
     protected virtual void SetAnimationParameterIds() {}
@@ -38,6 +38,7 @@ public abstract class NewGraphicalShipComponent : NewShipComponent {
         if (!requiresWait) {
             return 0f;
         }
+
         AnimatorClipInfo[] currPlayingClips = animator.GetCurrentAnimatorClipInfo(baseLayerIndex);
         if (currPlayingClips.Length == 0) { return DEFAULT_WAIT_TIME; }
         // Used to wait for animation that allready started to wait
@@ -49,7 +50,7 @@ public abstract class NewGraphicalShipComponent : NewShipComponent {
 
     public override void SetGlow(bool isGlowing) {
         if (glowObj != null) {
-            glowObj.SetActive(isGlowing);
+            glowObj.gameObject.SetActive(isGlowing);
         }
     }
 }
