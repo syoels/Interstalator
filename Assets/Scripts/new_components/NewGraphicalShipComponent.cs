@@ -24,7 +24,7 @@ public abstract class NewGraphicalShipComponent : NewShipComponent {
         baseLayerIndex = animator.GetLayerIndex("Base Layer");
     }
 
-    protected abstract void SetAnimationParameterIds();
+    protected virtual void SetAnimationParameterIds() {}
 
     protected override float GetProcessingDelay() {
         AnimatorStateInfo currState = animator.GetNextAnimatorStateInfo(baseLayerIndex);
