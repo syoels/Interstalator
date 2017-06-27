@@ -21,7 +21,8 @@ namespace Interstalator {
             {ElementTypes.Water, 2}, 
             {ElementTypes.Poison, 3}, 
             {ElementTypes.Air, 4},
-            {ElementTypes.PoisonousAir, 5}
+            {ElementTypes.PoisonousAir, 5}, 
+            {ElementTypes.WastePerSecond, 6}, 
         };
         animator = GetComponent<Animator>();
         SetAnimationParameterIds();
