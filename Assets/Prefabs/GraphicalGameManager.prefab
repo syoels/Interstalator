@@ -20,17 +20,17 @@ GameObject:
   m_Component:
   - component: {fileID: 4347788230581932}
   - component: {fileID: 114154848086994948}
-  - component: {fileID: 114861072372448476}
   - component: {fileID: 114513664457304724}
   - component: {fileID: 114702092403797582}
   - component: {fileID: 114392881418501892}
+  - component: {fileID: 114931532790593730}
   m_Layer: 0
   m_Name: GraphicalGameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4347788230581932
 Transform:
   m_ObjectHideFlags: 1
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InteractionPanel: {fileID: 0}
---- !u!114 &114861072372448476
+--- !u!114 &114931532790593730
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -106,6 +106,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1929140398952266}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57b7c1a9ad9630344a547decfe29f55d, type: 3}
+  m_Script: {fileID: 11500000, guid: 1dbc545daced58c469739e0a999d9d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
