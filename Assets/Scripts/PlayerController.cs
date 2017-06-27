@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour {
 
             if (_closestInteractable != null) {
                 _closestInteractable.SetGlow(false);
+                GameManager.instance.interactionDisplay.Clear();
                 _closestInteractable = null;
             }
 
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour {
 
             if (_closestInteractable != null) {
                 _closestInteractable.SetGlow(true);
+                GameManager.instance.interactionDisplay.Set(_closestInteractable.GetInteractionText());
             }
         }
     }
