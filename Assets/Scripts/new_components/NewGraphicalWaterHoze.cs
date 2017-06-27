@@ -3,9 +3,8 @@ using UnityEngine;
 
 namespace Interstalator {
 public class NewGraphicalWaterHoze : NewGraphicalShipComponent{
-    [SerializeField] private int connectedChildIndex;
-
-    private int direction = 0;
+    
+    [SerializeField] private int direction = 1;
     private int directions = 3;
     private int directionParamId;
     private int elementParamId;
@@ -37,7 +36,7 @@ public class NewGraphicalWaterHoze : NewGraphicalShipComponent{
         ElementTypes type = inputs[0].type;
 
         for (int i = 0; i < children.Length; i++) { 
-            if (i == connectedChildIndex) {
+            if (i == direction) {
                 outputs[i].Set(type, amount);                
             } else {
                 outputs[i].Set(type, 0);
@@ -57,6 +56,7 @@ public class NewGraphicalWaterHoze : NewGraphicalShipComponent{
 
     public void Toggle(){
         direction = (direction + 1) % directions;
+        animator.SetInteger(directionParamId, direction);
         GameManager.instance.flowManager.Flow();
     }
 }
