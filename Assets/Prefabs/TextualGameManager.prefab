@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114621718963119294}
   - component: {fileID: 114115919235713876}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: TextualGameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,6 +96,7 @@ MonoBehaviour:
   interactionDisplay: {fileID: 0}
   shipStatus: {fileID: 0}
   switchController: {fileID: 0}
+  player: {fileID: 0}
 --- !u!114 &114988871616405184
 MonoBehaviour:
   m_ObjectHideFlags: 1
