@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour {
             return;
         }
 
-        InteractableComponent interactable = other.GetComponent<InteractableComponent>();
+        Interactable interactable = other.GetComponent<Interactable>();
         if (interactable != null && interactable.IsInteractable()) {
             closestInteractable = interactable;
         }
@@ -120,7 +120,7 @@ public class PlayerController : MonoBehaviour {
             return;
         }
 
-        InteractableComponent interactable = other.GetComponent<InteractableComponent>();
+        Interactable interactable = other.GetComponent<Interactable>();
         if (interactable == closestInteractable) {
             closestInteractable = null;
         }
