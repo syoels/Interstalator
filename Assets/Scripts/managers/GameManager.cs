@@ -34,9 +34,12 @@ public class GameManager : MonoSingleton<GameManager> {
     }
 
     // A series of helper methods to easier writing of common actions
-
     public void Flow() {
         flowManager.Flow();
+    }
+
+    public ItemType heldItemType {
+        get { return itemManager.heldItemType; }
     }
 }
 }
