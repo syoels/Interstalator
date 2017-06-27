@@ -18,6 +18,10 @@ public class NewGraphicalWasteDisposalMachine : NewGraphicalShipComponent {
         };
     }
 
+    void Start(){
+        wastePile = (NewGraphicalWastePile)children[0];
+    }
+
     protected override void SetAnimationParameterIds() {
         base.SetAnimationParameterIds();
         inParamId = Animator.StringToHash("In");
@@ -35,15 +39,18 @@ public class NewGraphicalWasteDisposalMachine : NewGraphicalShipComponent {
         
     //SHould be run through event when "teeth" are open
     public void Open(){
+        Debug.Log("open");
         open = true; 
     }
 
     //SHould be run through event when "teeth" are closed
     public void Close(){
+        Debug.Log("close");
         open = false; 
     }
 
     public void onWasteReachOpen(){
+        Debug.Log("Open: " + open.ToString());
         animator.SetBool(inParamId, open);
     }
 
