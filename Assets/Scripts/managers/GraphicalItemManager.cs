@@ -4,6 +4,11 @@ using UnityEngine.UI;
 
 namespace Interstalator {
 public class GraphicalItemManager : ItemManager {
+    private Transform playerGraphics;
+
+    void Start() {
+        playerGraphics = GameManager.instance.player.transform.Find("Graphics");
+    }
 
     override public Item heldItem {
         get {
@@ -15,8 +20,12 @@ public class GraphicalItemManager : ItemManager {
                 SetItemText("None");
             } else {
                 SetItemText(_heldItem.ToString());
-                _heldItem.transform.SetParent(GameManager.instance.player.transform);
-//                _heldItem.gameObject.SetActive(false);
+                _heldItem.transform.SetParent(playerGraphics);
+                // Place item in the middle of the player
+                _heldItem.transform.localPosition = new Vector2(0f, 0f);
+                SpriteRenderer sprite = ((GraphicalItem)_heldItem).GetSprite();
+                sprite.sortingLayerName = "Foreground";
+                sprite.sortingOrder = -1;
             }
         }
     }
