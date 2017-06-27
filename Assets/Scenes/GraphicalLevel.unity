@@ -1537,9 +1537,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 479225784}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 472dfe4916046de419b7f55a3750bad7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  description: Twist Garden Tap
 --- !u!61 &479225787
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5249,7 +5250,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1047766515193692, guid: 148979c6bac487547bad80b7d4860ff2, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4773790641301604, guid: 148979c6bac487547bad80b7d4860ff2, type: 2}
       propertyPath: m_LocalScale.x
@@ -5517,7 +5518,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1047766515193692, guid: 148979c6bac487547bad80b7d4860ff2, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4773790641301604, guid: 148979c6bac487547bad80b7d4860ff2, type: 2}
       propertyPath: m_LocalScale.x

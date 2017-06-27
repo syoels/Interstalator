@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace Interstalator {
-public class NewGraphicalWaterHoze : NewGraphicalShipComponent{
+public class NewGraphicalWaterHoze : NewGraphicalShipComponent, Toggleable{
     
     [SerializeField] private int direction = 1;
     private int directions = 3;
