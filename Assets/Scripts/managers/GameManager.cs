@@ -13,6 +13,7 @@ public class GameManager : MonoSingleton<GameManager> {
     public InteractionDisplay interactionDisplay;
     public ShipStatusController shipStatus;
     public SwitchParametersController switchController;
+    public PlayerController player;
     
     public override void Init() {
         if (flowManager == null) {

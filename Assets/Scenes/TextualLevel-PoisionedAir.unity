@@ -231,6 +231,71 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 57584962}
   m_Script: {fileID: 11500000, guid: 2705b4834feea994a9f9d25d40e1e189, type: 3}
+--- !u!1 &62610056
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1925740012635100, guid: 4bf3f4644e0c9d040a10ff502476a67a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 62610059}
+  - component: {fileID: 1900183472}
+  - component: {fileID: 1900183471}
+  - component: {fileID: 1900183470}
+  - component: {fileID: 62610058}
+  - component: {fileID: 62610057}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &62610057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114115919235713876, guid: 4bf3f4644e0c9d040a10ff502476a67a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 62610056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dbc545daced58c469739e0a999d9d26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &62610058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114621718963119294, guid: 4bf3f4644e0c9d040a10ff502476a67a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 62610056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34fc0b345a69f814abed5ca8babc9f14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flowManager: {fileID: 0}
+  itemManager: {fileID: 1900183470}
+  interactionDisplay: {fileID: 1900183472}
+  shipStatus: {fileID: 1900183471}
+  switchController: {fileID: 2048706537}
+  player: {fileID: 0}
+--- !u!4 &62610059
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4066607422312108, guid: 4bf3f4644e0c9d040a10ff502476a67a,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 62610056}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &62734737 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4687703140219622, guid: 38da8302b60f844ab8a4199d02e61a97,
@@ -1464,94 +1529,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 948518121}
   m_Script: {fileID: 11500000, guid: 2705b4834feea994a9f9d25d40e1e189, type: 3}
---- !u!1001 &978983220
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4066607422312108, guid: 4bf3f4644e0c9d040a10ff502476a67a, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4066607422312108, guid: 4bf3f4644e0c9d040a10ff502476a67a, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4066607422312108, guid: 4bf3f4644e0c9d040a10ff502476a67a, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4066607422312108, guid: 4bf3f4644e0c9d040a10ff502476a67a, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4066607422312108, guid: 4bf3f4644e0c9d040a10ff502476a67a, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4066607422312108, guid: 4bf3f4644e0c9d040a10ff502476a67a, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4066607422312108, guid: 4bf3f4644e0c9d040a10ff502476a67a, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4066607422312108, guid: 4bf3f4644e0c9d040a10ff502476a67a, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114988871616405184, guid: 4bf3f4644e0c9d040a10ff502476a67a,
-        type: 2}
-      propertyPath: InteractionPanel
-      value: 
-      objectReference: {fileID: 623252436}
-    - target: {fileID: 114393646962677326, guid: 4bf3f4644e0c9d040a10ff502476a67a,
-        type: 2}
-      propertyPath: statusPanel
-      value: 
-      objectReference: {fileID: 1214310996}
-    - target: {fileID: 114478750039636850, guid: 4bf3f4644e0c9d040a10ff502476a67a,
-        type: 2}
-      propertyPath: itemPanel
-      value: 
-      objectReference: {fileID: 2125582288}
-    - target: {fileID: 114621718963119294, guid: 4bf3f4644e0c9d040a10ff502476a67a,
-        type: 2}
-      propertyPath: flowManager
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114621718963119294, guid: 4bf3f4644e0c9d040a10ff502476a67a,
-        type: 2}
-      propertyPath: itemManager
-      value: 
-      objectReference: {fileID: 1900183470}
-    - target: {fileID: 114621718963119294, guid: 4bf3f4644e0c9d040a10ff502476a67a,
-        type: 2}
-      propertyPath: interactionDisplay
-      value: 
-      objectReference: {fileID: 1900183472}
-    - target: {fileID: 114621718963119294, guid: 4bf3f4644e0c9d040a10ff502476a67a,
-        type: 2}
-      propertyPath: shipStatus
-      value: 
-      objectReference: {fileID: 1900183471}
-    - target: {fileID: 114621718963119294, guid: 4bf3f4644e0c9d040a10ff502476a67a,
-        type: 2}
-      propertyPath: switchController
-      value: 
-      objectReference: {fileID: 2048706537}
-    - target: {fileID: 114478750039636850, guid: 4bf3f4644e0c9d040a10ff502476a67a,
-        type: 2}
-      propertyPath: itemsContainer
-      value: 
-      objectReference: {fileID: 928550308}
-    m_RemovedComponents:
-    - {fileID: 114829166218619950, guid: 4bf3f4644e0c9d040a10ff502476a67a, type: 2}
-  m_ParentPrefab: {fileID: 100100000, guid: 4bf3f4644e0c9d040a10ff502476a67a, type: 2}
-  m_IsPrefabParent: 0
 --- !u!4 &1002348152 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4141089810238024, guid: e0b1439a4dc5c436bb35ffb3ef800cfc,
@@ -2297,24 +2274,46 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 2054921134}
   m_Script: {fileID: 11500000, guid: 21bc03ba59100ce458273df02c4c4947, type: 3}
---- !u!114 &1900183470 stripped
+--- !u!114 &1900183470
 MonoBehaviour:
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 114478750039636850, guid: 4bf3f4644e0c9d040a10ff502476a67a,
     type: 2}
-  m_PrefabInternal: {fileID: 978983220}
-  m_Script: {fileID: 11500000, guid: 77a3608d9351e0e48a3cfc9ecfba4384, type: 3}
---- !u!114 &1900183471 stripped
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 62610056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fbc95e564e312e4a9d274f62f5a6552, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPanel: {fileID: 2125582288}
+  itemsContainer: {fileID: 928550308}
+--- !u!114 &1900183471
 MonoBehaviour:
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 114393646962677326, guid: 4bf3f4644e0c9d040a10ff502476a67a,
     type: 2}
-  m_PrefabInternal: {fileID: 978983220}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 62610056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51a39ae16398f459291bd0f9aa97c536, type: 3}
---- !u!114 &1900183472 stripped
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statusPanel: {fileID: 1214310996}
+--- !u!114 &1900183472
 MonoBehaviour:
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 114988871616405184, guid: 4bf3f4644e0c9d040a10ff502476a67a,
     type: 2}
-  m_PrefabInternal: {fileID: 978983220}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 62610056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aca230fd6748e514c9408c9d53501b3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InteractionPanel: {fileID: 623252436}
 --- !u!4 &1958598907 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4035107506799810, guid: 02d791b4df2dedb4fb6d8b11112a6e5e,
