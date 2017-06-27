@@ -5,7 +5,7 @@ namespace Interstalator {
 public class NewGraphicalGenericLever : NewGraphicalShipComponent, Toggleable {
 
     public ElementTypes[] possibleTypes;
-    private int CurrInputParamId;
+    private int currInputParamId;
     [SerializeField] private int currInput = 0; 
 
 
@@ -14,8 +14,8 @@ public class NewGraphicalGenericLever : NewGraphicalShipComponent, Toggleable {
     }
 
     protected override void SetAnimationParameterIds() {
-        base.SetAnimationParameterIds();
-        CurrInputParamId = Animator.StringToHash("Input");
+        currInputParamId = Animator.StringToHash("Input");
+        animator.SetInteger(currInputParamId, currInput);
     }
 
     protected override NewShipComponentOutput[] InnerProcess() {
@@ -27,7 +27,7 @@ public class NewGraphicalGenericLever : NewGraphicalShipComponent, Toggleable {
 
     public void Toggle() {
         currInput = (currInput + 1) % inputs.Length;
-        animator.SetInteger(CurrInputParamId, currInput);
+        animator.SetInteger(currInputParamId, currInput);
         GameManager.instance.Flow();
     }
 }
