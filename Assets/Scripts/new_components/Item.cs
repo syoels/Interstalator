@@ -14,15 +14,27 @@ public abstract class Item : MonoBehaviour, Interactable {
         return type.ToString().Replace("_", " ");
     }
 
+    private bool IsHeld() {
+        return GameManager.instance.itemManager.heldItem == this;
+    }
+
     public bool IsInteractable() {
-        return GameManager.instance.itemManager.heldItemType == ItemType.None;
+        return GameManager.instance.itemManager.heldItemType == ItemType.None || IsHeld();
     }
 
     public void Interact() {
+        if (IsHeld()) {
+            GameManager.instance.itemManager.DropItem();
+            return;
+        }
+
         GameManager.instance.itemManager.heldItem = this;
     }
 
     public string GetInteractionText() {
+        if (IsHeld()) {
+            return "Drop " + this;
+        }
         return "Pick up " + this;
     }
 

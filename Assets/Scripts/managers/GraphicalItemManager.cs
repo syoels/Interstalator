@@ -16,7 +16,7 @@ public class GraphicalItemManager : ItemManager {
         }
         set {
             _heldItem = value;
-            if (_heldItem == null) {
+            if (value == null) {
                 SetItemText("None");
             } else {
                 SetItemText(_heldItem.ToString());
@@ -31,12 +31,16 @@ public class GraphicalItemManager : ItemManager {
     }
 
     override public void DropItem() {
-        // TODO: Write graphical logic
         // Can't drop an item if not holding anything
         Debug.Assert(heldItem != null);
-//        TextualItem item = heldItem;
-//        heldItem = null;
-//        item.gameObject.SetActive(true);
+        _heldItem.transform.SetParent(itemsContainer);
+        Vector3 position = _heldItem.transform.position;
+        position.y -= 0.5f;
+        SpriteRenderer sprite = ((GraphicalItem)_heldItem).GetSprite();
+        sprite.sortingLayerName = "Components";
+        _heldItem.transform.position = position;
+
+        heldItem = null;
         return;
     }
 }

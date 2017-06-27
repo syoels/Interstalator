@@ -16,13 +16,9 @@ public class PlayerController : MonoBehaviour {
     private SpriteRenderer sr;
 
     private Interactable _closestInteractable;
-    private Interactable closestInteractable {
+    public Interactable closestInteractable {
         get { return _closestInteractable; }
         set {
-            if (value == _closestInteractable) {
-                return;
-            }
-
             if (_closestInteractable != null) {
                 _closestInteractable.SetGlow(false);
                 GameManager.instance.interactionDisplay.Clear();
@@ -34,6 +30,10 @@ public class PlayerController : MonoBehaviour {
 
             if (_closestInteractable != null) {
                 _closestInteractable.SetGlow(true);
+                GameManager.instance.interactionDisplay.Set(_closestInteractable.GetInteractionText());
+            } else if (GameManager.instance.itemManager.heldItem != null) {
+                // If we're holding an item than dropping it should be the available interaction
+                _closestInteractable = GameManager.instance.itemManager.heldItem;
                 GameManager.instance.interactionDisplay.Set(_closestInteractable.GetInteractionText());
             }
         }
@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour {
     #region Collisions
 
     // Set closest interactable once we're in range
-    void OnTriggerStay2D(Collider2D other) {
+    void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Ladder")) {
             isOnLadder = true;
             return;
