@@ -2,15 +2,15 @@
 using UnityEngine;
 
 namespace Interstalator {
-public class NewGraphicalGenericGenerator : NewGraphicalShipComponent{
+public class NewGraphicalGenericGenerator : NewGraphicalShipComponent, Toggleable {
 
     public float amount;
     public ElementTypes type;
-    protected int amountParamId; 
-    protected int elementParamId; 
+    protected int amountParamId;
+    protected int elementParamId;
     protected bool isWorking = true;
 
-    protected override void SetAnimationParameterIds(){
+    protected override void SetAnimationParameterIds() {
         amountParamId = Animator.StringToHash("Amount");
         elementParamId = Animator.StringToHash("Element");
     }
@@ -19,19 +19,18 @@ public class NewGraphicalGenericGenerator : NewGraphicalShipComponent{
         float generatedAmount = isWorking ? amount : 0f;
         animator.SetFloat(amountParamId, generatedAmount);
         animator.SetInteger(elementParamId, animatorElements[type]);
-        return DistributeAmongChildren(type, amount);
+        return DistributeAmongChildren(type, generatedAmount);
     }
 
-    public void Toggle(){
+    public void Toggle() {
         isWorking = !isWorking;
         GameManager.instance.Flow();
     }
 
-    public void SetAmount(float newAmount){
+    public void SetAmount(float newAmount) {
         amount = newAmount; 
         GameManager.instance.Flow();
     }
-
 
 }
 }
