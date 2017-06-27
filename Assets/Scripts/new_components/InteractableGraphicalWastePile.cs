@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace Interstalator {
 [RequireComponent(typeof (NewGraphicalWastePile))]
-public class InteractableGraphicalWastePile : Interactable {
+public class InteractableGraphicalWastePile : InteractableComponent {
 
     private NewGraphicalWastePile wastePile {
         get { return (NewGraphicalWastePile)relComponent; }

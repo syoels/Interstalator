@@ -6,7 +6,7 @@ public interface Toggleable {
     void Toggle();
 }
 
-public class InteractableToggle : Interactable {
+public class InteractableToggle : InteractableComponent {
     public string description;
 
     public override void Interact() {
