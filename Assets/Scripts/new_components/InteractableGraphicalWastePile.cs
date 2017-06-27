@@ -10,14 +10,29 @@ public class InteractableGraphicalWastePile : InteractableComponent {
     }
 
     public override bool IsInteractable() {
-        return wastePile.pileSize > 0;
+        ItemType heldItemType = GameManager.instance.heldItemType;
+        if (heldItemType == ItemType.Nuclear_Waste) {
+            return true;
+        }
+        return heldItemType == ItemType.None && wastePile.pileSize > 0;
     }
 
     public override void Interact() {
-        wastePile.pileSize--;
+        if (GameManager.instance.heldItemType == ItemType.Nuclear_Waste) {
+            wastePile.pileSize++;
+            Item currentWaste = GameManager.instance.itemManager.heldItem;
+            GameManager.instance.itemManager.DropItem();
+            Destroy(currentWaste.gameObject);
+
+        } else {
+            wastePile.pileSize--;
+        }
     }
 
     public override string GetInteractionText() {
+        if (GameManager.instance.heldItemType == ItemType.Nuclear_Waste) {
+            return "Add waste to pile";
+        }
         return "Pick nuclear waste from pile";
     }
 }
