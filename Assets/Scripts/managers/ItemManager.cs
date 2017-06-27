@@ -1,75 +1,34 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 
 namespace Interstalator {
-/// <summary>
-/// Manages item holding, dropping and displaying. Only relevant for textual game since
-/// player script should be in charge of these.
-/// </summary>
-public class ItemManager : MonoBehaviour {
+public abstract class ItemManager : MonoBehaviour {
     public GameObject itemPanel;
     [Tooltip("Used for convinience to place all items in same object in inspector")]
     public Transform itemsContainer;
 
     private Text itemText;
-    private GameObject dropButton;
+    protected Item _heldItem;
+    abstract public Item heldItem { get; set; }
 
-    private TextualItem _heldItem;
-
-    /// <summary>
-    /// Gets or sets the held item. If None is received instead of a TextualItem -
-    /// sets the current item to non.
-    /// </summary>
-    /// <value>The held item.</value>
-    public TextualItem heldItem {
-        get {
-            return _heldItem;
-        }
-        set {
-            _heldItem = value;
-            if (_heldItem == null) {
-                itemText.text = "None";
-                dropButton.SetActive(false);
-            } else {
-                itemText.text = _heldItem.itemType.ToString().Replace('_', ' ');
-                _heldItem.gameObject.SetActive(false);
-                dropButton.SetActive(true);
-            }
-        }
-    }
-
-    void Awake() {
+    protected void Awake() {
         itemText = itemPanel.transform.Find("ItemName").GetComponent<Text>();
-        dropButton = itemPanel.transform.Find("Drop").gameObject;
-        // Could be set via editor but this makes sure the button works
-        Button dropButtonScript = dropButton.GetComponent<Button>();
-        dropButtonScript.onClick.AddListener(DropItem);
     }
 
-    /// <summary>
-    /// Returns the type of the currently held item - IsInteractable checks should use this
-    /// </summary>
-    /// <value>The type of the held item.</value>
+    protected void SetItemText(string text) {
+        itemText.text = text;
+    }
+
     public ItemType heldItemType {
         get {
             if (_heldItem != null) {
-                return _heldItem.itemType;
+                return _heldItem.type;
             }
             return ItemType.None;
         }
     }
 
-    /// <summary>
-    /// Drops the currently held item - should not be activated when no items are held
-    /// </summary>
-    public void DropItem() {
-        // Can't drop an item if not holding anything
-        Debug.Assert(heldItem != null);
-        TextualItem item = heldItem;
-        heldItem = null;
-        item.gameObject.SetActive(true);
-        return;
-    }
+    abstract public void DropItem();
 }
 }

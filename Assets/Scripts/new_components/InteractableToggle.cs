@@ -14,7 +14,7 @@ public class InteractableToggle : InteractableComponent {
     }
 
     public override bool IsInteractable() {
-        return true;
+        return GameManager.instance.itemManager.heldItemType == ItemType.None;
     }
 
     public override string GetInteractionText() {
