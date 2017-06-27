@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace Interstalator {
 // Receives water and sends it to one of its children
-public class NewTextualWaterHoze : NewTextualShipComponent {
+public class NewTextualWaterHoze : NewTextualShipComponent, Toggleable {
     [SerializeField] private int connectedChildIndex;
 
     protected override ElementTypes[][] DefineInputs() {

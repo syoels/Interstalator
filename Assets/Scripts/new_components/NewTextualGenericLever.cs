@@ -5,7 +5,8 @@ namespace Interstalator {
 /// <summary>
 /// Chooses between one of its given inputs
 /// </summary>
-public class NewTextualGenericLever : NewTextualShipComponent {
+public class NewTextualGenericLever : NewTextualShipComponent, Toggleable {
+    
     public ElementTypes[] possibleTypes;
     [Tooltip("This number must correspound with the number of incoming connections")]
     public int numberOfInputs;
@@ -16,6 +17,7 @@ public class NewTextualGenericLever : NewTextualShipComponent {
         for (int i = 0; i < inputDefinitions.Length; i++) {
             inputDefinitions[i] = possibleTypes;
         }
+
         return inputDefinitions;
     }
 
@@ -34,7 +36,7 @@ public class NewTextualGenericLever : NewTextualShipComponent {
     }
 
     public void Toggle() {
-        currentInputIndex = (currentInputIndex+ 1) % children.Length;
+        currentInputIndex = (currentInputIndex + 1) % inputs.Length;
         GameManager.instance.Flow();
     }
 }

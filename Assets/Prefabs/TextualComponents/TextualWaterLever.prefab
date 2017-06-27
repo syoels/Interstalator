@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4477180518722790}
   - component: {fileID: 61601054617158270}
   - component: {fileID: 114267573391810766}
+  - component: {fileID: 114920312879381220}
   m_Layer: 0
   m_Name: TextualWaterLever
   m_TagString: Untagged
@@ -292,9 +293,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d16ca752815aea48aac65d6779136f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  children: []
+  children:
+  - {fileID: 0}
   possibleTypes: 0000000004000000
-  numberOfInputs: 0
+  numberOfInputs: 2
+  currentInputIndex: 1
+--- !u!114 &114920312879381220
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1106407132045630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 472dfe4916046de419b7f55a3750bad7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: Switch incoming input
 --- !u!212 &212347959754472724
 SpriteRenderer:
   m_ObjectHideFlags: 1

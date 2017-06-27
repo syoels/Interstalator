@@ -53,8 +53,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4687703140219622}
   - component: {fileID: 61520501137655202}
-  - component: {fileID: 114853955945009272}
-  - component: {fileID: 114772748024947300}
+  - component: {fileID: 114151608995261496}
+  - component: {fileID: 114108163055770174}
   m_Layer: 0
   m_Name: TextualWasteDisposalMachine
   m_TagString: Untagged
@@ -282,7 +282,7 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4278190335
---- !u!114 &114772748024947300
+--- !u!114 &114108163055770174
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -290,10 +290,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1565276778755174}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75694aa02556b47c1830af6cad1c8c1f, type: 3}
+  m_Script: {fileID: 11500000, guid: 582195afad8821c4b955810e53cc04f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114853955945009272
+--- !u!114 &114151608995261496
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -301,9 +301,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1565276778755174}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d8d35988bfab4af2a464cf6dc14308e, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a7b69e574756cc40b884ee7c862f1d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  children:
+  - {fileID: 0}
 --- !u!212 &212204014559380046
 SpriteRenderer:
   m_ObjectHideFlags: 1

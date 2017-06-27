@@ -62,7 +62,8 @@ public abstract class NewShipComponent : MonoBehaviour {
     public int UpdateInput(ElementTypes type, float amount, int index) {
         if (index != -1 && !inputs[index].received) {
             // Mark if there were changes to the inputs
-            stateChanged = (stateChanged || inputs[index].Set(type, amount));
+            bool inputStateChanged = inputs[index].Set(type, amount);
+            stateChanged = (stateChanged || inputStateChanged);
             return index;
         } else {
             // Should only happen in the initial flow
@@ -70,11 +71,13 @@ public abstract class NewShipComponent : MonoBehaviour {
                 if (inputs[i].IsTypeOK(type) && !inputs[i].received && !inputs[i].assigned) {
                     inputs[i].Set(type, amount);
                     inputs[i].assigned = true;
+
                     // Gives the input index for future updates
                     return i;
                 }
             }
         }
+
         // Shouldn't reach here
         throw new UnityException(
             gameObject.name  + " does not have available input for given type: " + type
@@ -103,7 +106,6 @@ public abstract class NewShipComponent : MonoBehaviour {
     // it's children
     public IEnumerator Process () {
         Debug.Assert(GetAwaitingInputs() == 0);
-        yield return new WaitUntil(() => (!isProcessing));
         _isProcessing = true;
 
         NewShipComponentOutput[] outputs = InnerProcess();
@@ -111,7 +113,6 @@ public abstract class NewShipComponent : MonoBehaviour {
         yield return new WaitForSeconds(0.1f);
         yield return new WaitForSeconds(GetProcessingDelay());
 
-        _isProcessing = false;
 
         foreach (NewShipComponentOutput output in outputs) {
             output.Send();
@@ -120,6 +121,8 @@ public abstract class NewShipComponent : MonoBehaviour {
                 StartCoroutine(child.Process());
             }
         }
+
+        _isProcessing = false;
 
     }
     #endregion

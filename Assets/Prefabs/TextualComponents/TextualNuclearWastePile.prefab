@@ -37,8 +37,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4693362503428246}
   - component: {fileID: 61759192392592086}
-  - component: {fileID: 114786569658721802}
-  - component: {fileID: 114936801831470834}
+  - component: {fileID: 114300849886887538}
+  - component: {fileID: 114881601807618176}
   m_Layer: 0
   m_Name: TextualNuclearWastePile
   m_TagString: Untagged
@@ -142,7 +142,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1395127495431260}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15, y: -14.41, z: 0}
+  m_LocalPosition: {x: 15, y: -14.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4531922241777904}
@@ -282,7 +282,7 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4278190335
---- !u!114 &114786569658721802
+--- !u!114 &114300849886887538
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -290,22 +290,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 1395127495431260}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d8d35988bfab4af2a464cf6dc14308e, type: 3}
+  m_Script: {fileID: 11500000, guid: 21bc03ba59100ce458273df02c4c4947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114936801831470834
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1395127495431260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a23a059f4c322eb448e550161139018a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  children: []
+  children:
+  - {fileID: 0}
   pileSize: 0
+--- !u!114 &114881601807618176
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1395127495431260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b4df2d63f693074cacb380fb2ea8b64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   wastePrefab: {fileID: 1744940628231058, guid: 550d86b5074c4164eb553557610a0d3b,
     type: 2}
 --- !u!212 &212289607490584052
