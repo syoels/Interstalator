@@ -23,8 +23,8 @@ namespace Interstalator {
             {ElementTypes.Air, 4},
             {ElementTypes.PoisonousAir, 5}
         };
-        SetAnimationParameterIds();
         animator = GetComponent<Animator>();
+        SetAnimationParameterIds();
         baseLayerIndex = animator.GetLayerIndex("Base Layer");
         glowObj = transform.Find("Glow");
     }
