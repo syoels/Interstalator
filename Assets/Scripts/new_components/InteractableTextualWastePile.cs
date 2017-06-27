@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace Interstalator {
 [RequireComponent(typeof (NewTextualNuclearWastePile))]
-public class InteractableTextualWastePile : Interactable {
+public class InteractableTextualWastePile : InteractableComponent {
     public GameObject wastePrefab;
 
     // Used to place the nuclear waste on the map

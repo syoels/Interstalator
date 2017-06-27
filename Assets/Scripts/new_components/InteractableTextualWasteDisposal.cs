@@ -2,7 +2,7 @@
 using System.Collections;
 
 namespace Interstalator {
-public class InteractableTextualWasteDisposal : Interactable {
+public class InteractableTextualWasteDisposal : InteractableComponent {
     public override bool IsInteractable() {
         return GameManager.instance.itemManager.heldItemType == ItemType.Nuclear_Waste;
     }
