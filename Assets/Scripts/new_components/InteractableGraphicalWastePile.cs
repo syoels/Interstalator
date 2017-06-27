@@ -4,6 +4,7 @@ using System.Collections;
 namespace Interstalator {
 [RequireComponent(typeof (NewGraphicalWastePile))]
 public class InteractableGraphicalWastePile : InteractableComponent {
+    public GameObject wastePrefab;
 
     private NewGraphicalWastePile wastePile {
         get { return (NewGraphicalWastePile)relComponent; }
@@ -23,9 +24,10 @@ public class InteractableGraphicalWastePile : InteractableComponent {
             Item currentWaste = GameManager.instance.itemManager.heldItem;
             GameManager.instance.itemManager.DropItem();
             Destroy(currentWaste.gameObject);
-
         } else {
             wastePile.pileSize--;
+            GameObject waste = Instantiate(wastePrefab);
+            GameManager.instance.itemManager.heldItem = waste.GetComponent<Item>();
         }
     }
 

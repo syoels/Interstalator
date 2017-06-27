@@ -145,6 +145,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310973f00a105e443a69030649adab42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wastePrefab: {fileID: 1540740778220758, guid: 74513423915c9674f80e3868d77a3e43,
+    type: 2}
 --- !u!114 &114961876994764874
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -157,7 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   children: []
-  _pileSize: 8
+  _pileSize: 6
 --- !u!212 &212735134326476728
 SpriteRenderer:
   m_ObjectHideFlags: 1
