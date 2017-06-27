@@ -34,11 +34,11 @@ public class NewGraphicalWastePile : NewGraphicalShipComponent {
     }
 
     protected override ElementTypes[][] DefineInputs() {
-        return new ElementTypes[2][]
+        return new ElementTypes[1][]
         {
-            new ElementTypes[] { ElementTypes.Water, ElementTypes.Poison },
+            new ElementTypes[] { ElementTypes.Water, ElementTypes.Poison }
             // Maybe not necessary...
-            new ElementTypes[] { ElementTypes.WastePerSecond }
+//            new ElementTypes[] { ElementTypes.WastePerSecond }
         };
     }
 
