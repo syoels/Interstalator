@@ -4,7 +4,7 @@ using System.Collections;
 namespace Interstalator {
 public class InteractableSwitch : InteractableComponent {
     public override bool IsInteractable() {
-        return true;
+        return GameManager.instance.itemManager.heldItemType == ItemType.None;
     }
 
     public override void Interact() {
