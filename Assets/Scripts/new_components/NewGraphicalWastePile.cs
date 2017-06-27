@@ -30,6 +30,7 @@ public class NewGraphicalWastePile : NewGraphicalShipComponent {
 
     protected override void SetAnimationParameterIds() {
         sizeParamId = Animator.StringToHash("Size");
+        animator.SetInteger(sizeParamId, _pileSize);
     }
 
     protected override ElementTypes[][] DefineInputs() {
