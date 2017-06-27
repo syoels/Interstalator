@@ -21,7 +21,7 @@ public class SpaceshipWindow : MonoBehaviour {
     private int alienLeaveParamInt; 
     private float windowSize; 
     private float aliensXDistance;
-    private float alienSpawnInterval = 4f;
+    private float alienSpawnInterval = 12f;
     private Vector3 firstAlienPosition; 
 
     // Speed
