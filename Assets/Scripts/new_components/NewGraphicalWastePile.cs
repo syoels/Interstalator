@@ -5,13 +5,16 @@ namespace Interstalator {
 public class NewGraphicalWastePile : NewGraphicalShipComponent {
     private const int MAX_PILE_SIZE = 8;
     private int sizeParamId;
+    private int pileThreshold = 0;
 
     [SerializeField] private int _pileSize = 0;
+    private int prevPileSize = 0;
     public int pileSize {
         get {
             return _pileSize;
         }
         set {
+            prevPileSize = _pileSize;
             if (value == _pileSize) {
                 return;
             }
@@ -23,7 +26,11 @@ public class NewGraphicalWastePile : NewGraphicalShipComponent {
             }
 
             animator.SetInteger(sizeParamId, _pileSize);
-            GameManager.instance.Flow();
+            if ((prevPileSize <= pileThreshold && _pileSize > pileThreshold) || 
+                (_pileSize <= pileThreshold && prevPileSize > pileThreshold)) {
+                Debug.Log("Flowing from pile");
+                GameManager.instance.Flow();
+            }
 
         }
     }

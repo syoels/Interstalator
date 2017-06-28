@@ -34,23 +34,21 @@ public class NewGraphicalWasteDisposalMachine : NewGraphicalShipComponent {
         float speed = inputs[1].amount; 
         animator.SetFloat(wasteRatioParamId, ratio);
         animator.SetFloat(speedParamId, speed);
-        return outputs;
+        NewShipComponentOutput[] empty = new NewShipComponentOutput[0]{ };
+        return empty;
     }
         
     //SHould be run through event when "teeth" are open
     public void Open(){
-        Debug.Log("open");
         open = true; 
     }
 
     //SHould be run through event when "teeth" are closed
     public void Close(){
-        Debug.Log("close");
         open = false; 
     }
 
     public void onWasteReachOpen(){
-        Debug.Log("Open: " + open.ToString());
         animator.SetBool(inParamId, open);
     }
 
