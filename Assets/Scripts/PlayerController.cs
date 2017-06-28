@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour {
     private float gravityScale;
     private Animator animator = null;
     private int animatorSpeed = 0;
+    private int animatorClimb = 0;
     private SpriteRenderer sr;
 
     private Interactable _closestInteractable;
@@ -75,7 +76,8 @@ public class PlayerController : MonoBehaviour {
         body = GetComponent<Rigidbody2D>();
         gravityScale = body.gravityScale;
         animator = GetComponent<Animator>();
-        animatorSpeed = Animator.StringToHash("speed");
+        animatorSpeed = Animator.StringToHash("Speed");
+        animatorClimb = Animator.StringToHash("Climb");
         sr = GetComponentInChildren<SpriteRenderer>();
     }
 
@@ -103,6 +105,7 @@ public class PlayerController : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Ladder")) {
             isOnLadder = true;
+            animator.SetBool(animatorClimb, true);
             return;
         }
 
@@ -117,6 +120,7 @@ public class PlayerController : MonoBehaviour {
         if (other.CompareTag("Ladder")) {
             isOnLadder = false;
             isClimbing = false;
+            animator.SetBool(animatorClimb, false);
             return;
         }
 
