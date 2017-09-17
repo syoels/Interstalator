@@ -16,7 +16,7 @@ public class ShipStatusController : MonoBehaviour {
     void Awake() {
         ShipSystem[] systems = (ShipSystem[])System.Enum.GetValues(typeof(ShipSystem));
         foreach (ShipSystem value in systems) {
-            systemTexts[value] = statusPanel.transform.FindChild(value.ToString()).GetComponent<Text>();
+            systemTexts[value] = statusPanel.transform.Find(value.ToString()).GetComponent<Text>();
         }
     }
 

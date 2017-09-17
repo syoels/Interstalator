@@ -15,8 +15,8 @@ public abstract class NewTextualShipComponent : NewShipComponent {
 
     new void Awake() {
         base.Awake();
-        graphic = transform.FindChild("Graphic").GetComponent<SpriteRenderer>();
-        statusText = transform.FindChild("Status").GetComponent<TextMesh>();
+        graphic = transform.Find("Graphic").GetComponent<SpriteRenderer>();
+        statusText = transform.Find("Status").GetComponent<TextMesh>();
         baseColor = graphic.color;
     }
 

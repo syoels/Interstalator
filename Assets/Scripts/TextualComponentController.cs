@@ -19,9 +19,9 @@ public class TextualComponentController : MonoBehaviour,
     private ShipComponent relComponent;
 
     void Awake() {
-        graphic = transform.FindChild("Graphic").GetComponent<SpriteRenderer>();
-        nameText = transform.FindChild("Name").GetComponent<TextMesh>();
-        statusText = transform.FindChild("Status").GetComponent<TextMesh>();
+        graphic = transform.Find("Graphic").GetComponent<SpriteRenderer>();
+        nameText = transform.Find("Name").GetComponent<TextMesh>();
+        statusText = transform.Find("Status").GetComponent<TextMesh>();
         relComponent = GetComponent<ShipComponent>();
 
         baseColor = graphic.color;
