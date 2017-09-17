@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace Interstalator {
 /// <summary>
@@ -14,6 +15,8 @@ public class GameManager : MonoSingleton<GameManager> {
     public ShipStatusController shipStatus;
     public SwitchParametersController switchController;
     public PlayerController player;
+
+    public RectTransform startScreen;
     
     public override void Init() {
         if (flowManager == null) {
@@ -40,6 +43,10 @@ public class GameManager : MonoSingleton<GameManager> {
 
     public ItemType heldItemType {
         get { return itemManager.heldItemType; }
+    }
+
+    public void HideStartScreen() {
+        startScreen.gameObject.SetActive(false);
     }
 }
 }
