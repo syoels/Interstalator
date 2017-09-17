@@ -9,6 +9,13 @@ public enum ItemType {
 
 public abstract class Item : MonoBehaviour, Interactable {
     public ItemType type;
+    public AudioClip pickupSound;
+    public AudioClip dropSound;
+    private AudioSource audioPlayer;
+
+    void Start() {
+        audioPlayer = GetComponent<AudioSource>();
+    }
 
     public override string ToString() {
         return type.ToString().Replace("_", " ");
@@ -25,9 +32,13 @@ public abstract class Item : MonoBehaviour, Interactable {
     public void Interact() {
         if (IsHeld()) {
             GameManager.instance.itemManager.DropItem();
+            audioPlayer.clip = dropSound;
+            audioPlayer.Play();
             return;
         }
 
+        audioPlayer.clip = pickupSound;
+        audioPlayer.Play();
         GameManager.instance.itemManager.heldItem = this;
     }
 
