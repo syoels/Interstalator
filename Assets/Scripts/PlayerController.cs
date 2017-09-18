@@ -9,12 +9,14 @@ public class PlayerController : MonoBehaviour {
 
     public float moveSpeed = 240f;
     public float jumpForce = 300;
+    public AudioClip[] stepSounds;
 
     private float gravityScale;
     private Animator animator = null;
     private int animatorSpeed = 0;
     private int animatorClimb = 0;
     private SpriteRenderer sr;
+    private AudioSource movementAudio;
 
     private Interactable _closestInteractable;
     public Interactable closestInteractable {
@@ -79,6 +81,7 @@ public class PlayerController : MonoBehaviour {
         animatorSpeed = Animator.StringToHash("Speed");
         animatorClimb = Animator.StringToHash("Climb");
         sr = GetComponentInChildren<SpriteRenderer>();
+        movementAudio = GetComponent<AudioSource>();
     }
 
     // Handle movement and interaction input
@@ -86,6 +89,7 @@ public class PlayerController : MonoBehaviour {
         // Movement
         HandleStandardMovement();
 
+        // Animation
         animator.SetFloat(animatorSpeed, Mathf.Abs(body.velocity.x));
 
         // Interaction handling
@@ -136,7 +140,7 @@ public class PlayerController : MonoBehaviour {
 
         // Left-Right
         Vector2 velocity = body.velocity;
-        float movement = Input.GetAxis("Horizontal");
+        float movement = Input.GetAxisRaw("Horizontal");
         velocity.x = movement * Time.deltaTime * moveSpeed;
 
         // Change sprite direction
@@ -157,6 +161,12 @@ public class PlayerController : MonoBehaviour {
             body.velocity = velocity;
         } 
         body.velocity = velocity;
+    }
+
+    public void PlayStepSound() {
+        AudioClip stepSound = stepSounds[Random.Range(0, stepSounds.Length)];
+        movementAudio.clip = stepSound;
+        movementAudio.Play();
     }
 }
 }

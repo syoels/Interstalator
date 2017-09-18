@@ -1584,13 +1584,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1021131740936902, guid: 7481e9b34988d41d0a37ae57664f828a,
     type: 2}
   m_PrefabInternal: {fileID: 861274606}
---- !u!81 &101776182
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 101776177}
-  m_Enabled: 1
 --- !u!114 &103857427 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114687772983321132, guid: 55c0d84b95d93e143a92c4ea9886252e,
@@ -10027,11 +10020,6 @@ Prefab:
     - target: {fileID: 4680102691538502, guid: 7481e9b34988d41d0a37ae57664f828a, type: 2}
       propertyPath: m_RootOrder
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 212866937183781144, guid: 7481e9b34988d41d0a37ae57664f828a,
-        type: 2}
-      propertyPath: m_FlipX
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7481e9b34988d41d0a37ae57664f828a, type: 2}
