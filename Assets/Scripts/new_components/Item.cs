@@ -11,10 +11,10 @@ public abstract class Item : MonoBehaviour, Interactable {
     public ItemType type;
     public AudioClip pickupSound;
     public AudioClip dropSound;
-    private AudioSource audioPlayer;
+    private AudioSource itemAudio;
 
     void Start() {
-        audioPlayer = GetComponent<AudioSource>();
+        itemAudio = GetComponent<AudioSource>();
     }
 
     public override string ToString() {
@@ -32,13 +32,13 @@ public abstract class Item : MonoBehaviour, Interactable {
     public void Interact() {
         if (IsHeld()) {
             GameManager.instance.itemManager.DropItem();
-            audioPlayer.clip = dropSound;
-            audioPlayer.Play();
+            itemAudio.clip = dropSound;
+            itemAudio.Play();
             return;
         }
 
-        audioPlayer.clip = pickupSound;
-        audioPlayer.Play();
+        itemAudio.clip = pickupSound;
+        itemAudio.Play();
         GameManager.instance.itemManager.heldItem = this;
     }
 
