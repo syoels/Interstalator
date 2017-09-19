@@ -140,7 +140,7 @@ public class PlayerController : MonoBehaviour {
 
         // Left-Right
         Vector2 velocity = body.velocity;
-        float movement = Input.GetAxisRaw("Horizontal");
+        float movement = Input.GetAxis("Horizontal");
         velocity.x = movement * Time.deltaTime * moveSpeed;
 
         // Change sprite direction
