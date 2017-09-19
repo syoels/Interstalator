@@ -13,7 +13,7 @@ namespace Interstalator {
     private int baseLayerIndex;
     private Transform glowObj;
 
-    new void Awake() {
+    new protected void Awake() {
         base.Awake();
         animatorElements = new Dictionary<ElementTypes, int>(){
             {ElementTypes.None, 0}, 
