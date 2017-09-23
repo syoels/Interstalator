@@ -3,15 +3,21 @@ using UnityEngine;
 
 namespace Interstalator {
 public class NewGraphicalWaterHoze : NewGraphicalShipComponent, Toggleable{
-    
+
     [SerializeField] private int direction = 1;
     private int directions = 3;
     private int directionParamId;
     private int elementParamId;
     private int amountParamId;
     private int startParamId;
-    float amount = 0f; 
+    private AudioSource sprinklerAudio;
+    float amount = 0f;
     float prevAmount = 0f; 
+
+    new void Awake() {
+        base.Awake();
+        sprinklerAudio = GetComponent<AudioSource>();
+    }
 
     protected override ElementTypes[][] DefineInputs() {
         return new ElementTypes[1][]
@@ -48,6 +54,13 @@ public class NewGraphicalWaterHoze : NewGraphicalShipComponent, Toggleable{
         animator.SetFloat(amountParamId, amount);
         if (prevAmount == 0f && amount > 0f) {
             animator.SetTrigger(startParamId);
+            if (!sprinklerAudio.isPlaying) {
+                sprinklerAudio.Play();
+            }
+        }
+
+        if (amount == 0f && prevAmount > 0f) {
+            sprinklerAudio.Stop();
         }
 
         return outputs;

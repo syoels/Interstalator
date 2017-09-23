@@ -22232,11 +22232,6 @@ Prefab:
       propertyPath: children.Array.data[1]
       value: 
       objectReference: {fileID: 1859325158}
-    - target: {fileID: 212517846031991294, guid: 9119ed9cb30f04740b38da94ee5c798e,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9119ed9cb30f04740b38da94ee5c798e, type: 2}
   m_IsPrefabParent: 0
