@@ -6,6 +6,11 @@ public class NewGraphicalGenericGenerator : NewGraphicalShipComponent, Toggleabl
 
     public float amount;
     public ElementTypes type;
+    public AudioClip onSound;
+    public AudioClip offSound;
+    // Might add another audio source for toggle so this will not be set in Awake
+    public AudioSource generatorAudio;
+
     protected int amountParamId;
     protected int elementParamId;
     protected bool isWorking = true;
@@ -24,6 +29,18 @@ public class NewGraphicalGenericGenerator : NewGraphicalShipComponent, Toggleabl
 
     public void Toggle() {
         isWorking = !isWorking;
+        if (generatorAudio != null) {
+            generatorAudio.Stop();
+            if (isWorking && onSound != null) {
+                generatorAudio.clip = onSound;
+                generatorAudio.loop = true;
+                generatorAudio.Play();
+            } else if (!isWorking && offSound != null) {
+                generatorAudio.clip = offSound;
+                generatorAudio.loop = true;
+                generatorAudio.Play();
+            }
+        }
         GameManager.instance.Flow();
     }
 
